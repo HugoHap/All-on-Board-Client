@@ -3,9 +3,9 @@ import axios from 'axios'
 class MatchesService {
 
     constructor() {
-        this.app = axios.create({ baseURL: `${process.env.REACT_APP_API_URL}/matches` })
+        this.app = axios.create({ baseURL: `${process.env.REACT_APP_API_URL}/match` })
 
-        this.api.interceptors.request.use((config) => {
+        this.app.interceptors.request.use((config) => {
 
             const storedToken = localStorage.getItem("authToken");
 
@@ -37,11 +37,11 @@ class MatchesService {
         return this.app.delete(`/match_${id}/delete`)
     }
 
-    joinMatch = match => {
+    joinMatch = (id, match) => {
         return this.app.post(`/${id}/join`, match)
     }
 
-    unjoinMatch = match => {
+    unjoinMatch = (id, match) => {
         return this.app.post(`/${id}/unjoin`, match)
     }
 }
