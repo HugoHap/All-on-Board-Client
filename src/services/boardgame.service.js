@@ -1,0 +1,52 @@
+import axios from 'axios'
+
+class BoardGameService {
+
+    constructor() {
+        this.app = axios.create({ baseURL: `${process.env.REACT_APP_API_URL}/boardgames` })
+
+        this.app.interceptors.request.use((config) => {
+
+            const storedToken = localStorage.getItem("authToken");
+
+            if (storedToken) {
+                config.headers = { Authorization: `Bearer ${storedToken}` }
+            }
+
+            return config
+        })
+    }
+
+    getAllBoardgames = () => {
+        return this.app.get('/')
+    }
+
+    createBoardgame = boardgame => {
+        return this.app.post(`/create`, boardgame)
+    }
+
+    getBoardgame = id => {
+        return this.app.get(`/${id}`)
+    }
+
+    editBoardgame = (id, boardgameInfo) => {
+        return this.app.put(`/${id}/edit`, boardgameInfo)
+    }
+
+    deleteBoardgame = id => {
+        return this.app.delete(`/${id}/delete`)
+    }
+
+    likeBoardgame = id => {
+        return this.app.put(`/${id}/like`)
+    }
+
+    dislikeBoardgame = id => {
+        return this.app.put(`/${id}/dislike`)
+    }
+
+}
+
+const boardgameService = new BoardGameService()
+
+export default boardgameService
