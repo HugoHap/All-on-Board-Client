@@ -5,14 +5,13 @@ class MatchesService {
     constructor() {
         this.app = axios.create({ baseURL: `${process.env.REACT_APP_API_URL}/matches` })
 
-        this.api.interceptors.request.use((config) => {
+        this.app.interceptors.request.use((config) => {
 
             const storedToken = localStorage.getItem("authToken");
 
             if (storedToken) {
                 config.headers = { Authorization: `Bearer ${storedToken}` }
             }
-
             return config
         })
     }
