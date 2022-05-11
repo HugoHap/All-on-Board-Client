@@ -23,26 +23,26 @@ const BoardgamesDetailsPage = () => {
 
     return (
 
-            <Container>
+        <Container>
             <h1>Details: {boardgameDetails.name}</h1>
-                <hr />
-                <Row>
-                    <Col md={{ span: 4, offset: 1 }}>
-                        <h3>Description</h3>
+            <hr />
+            <Row>
+                <Col md={{ span: 4, offset: 1 }}>
+                    <h3>Description</h3>
                     <p>{boardgameDetails.description}</p>
-                        <h3>Especificaciones</h3>
+                    <h3>Especificaciones</h3>
                     <p>Duration: {boardgameDetails.playingTime} metros</p>
                     <p>Age: {boardgameDetails.age}</p>
-                    </Col>
-                    <Col md={{ span: 6 }}>
+                </Col>
+                <Col md={{ span: 6 }}>
                     <img style={{ width: '100%' }} src={boardgameDetails.imageUrl} alt={boardgameDetails.title} />
-                    </Col>
-                    <Link to="/boardgames">
-                        <Button variant="dark">Volver</Button>
-                    </Link>
-                </Row>
+                </Col>
+                <Link to="/boardgames">
+                    <Button variant="dark">Volver</Button>
+                </Link>
+            </Row>
 
-            </Container>
+        </Container>
     )
 }
 
