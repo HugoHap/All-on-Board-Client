@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
 import { AuthContext } from "../../context/auth.context"
-import { Container, Row } from "react-bootstrap"
+import { Container, Button } from "react-bootstrap"
+import { Link } from 'react-router-dom'
 import { useEffect } from "react"
 import userService from "../../services/user.service"
 
@@ -11,45 +12,54 @@ const UserProfilePage = () => {
     const [userDetails, setUserDetails] = useState([])
     const [isLoaded, setIsLoaded] = useState(false)
 
-    // const [subscriptions, setSubscriptions] = useState([])
-    const [myBoardGames, setMyBoardGames] = useState([])
+    // const [myBoardGames, setMyBoardGames] = useState([])
 
     useEffect(() => {
         if (user) {
             getUserProfile()
-            getMyBoardGames()
+            // getMyBoardgames()
         }
     }, [user])
-
 
     const getUserProfile = () => {
 
         userService
             .getUserProfile()
             .then(({ data }) => {
-
-                console.log('Esto traigo del back', data)
                 getUserProfile(data)
                 setIsLoaded(true)
             })
             .catch(err => console.log(err))
     }
 
-    const getMyBoardGames = () => {
-        userService
-            .getAllBoardGamesOneUser()
-            .then(({ data }) => {
-                setMyBoardGames(data)
-            })
-            .catch(err => console.log(err))
-    }
+    // const getMyBoardgames = () => {
+    //     userService
+    //         .getAllBoardGamesOneUser() //INVESTIGAR ESTO 
+    //         .then(({ data }) => {
+    //             setMyBoardGames(data)
+    //         })
+    //         .catch(err => console.log(err))
+    // }
 
     return (
 
         <Container>
 
-            <h1>Bienvenid@ {user?.username}</h1>
+            <h1>Bienvenidx <strong>{user.username}</strong></h1>
+            <p>Email:</p><p><strong>{user.email}</strong></p>
+            <img src={user.avatar} alt="" />
 
+            <hr></hr>
+            <div>
+                <h4>TUS JUEGOS A PRESTAR</h4>
+                <Link to={`/boardgames/create`}>
+                    <Button variant="dark" type="">Create Boardgame to rent</Button>
+                </Link>
+
+                {/* <Row>
+                < ResultsBoardGames BoardGames={myBoardGames} width={3} />
+            </Row> */}
+            </div>
             {/* <h2>Aquí deberían ir tus rentings</h2>
             <Row>
                 < ResultsHouses houses={subscriptions} width={4} />
@@ -65,10 +75,6 @@ const UserProfilePage = () => {
                 {isLoaded && < ResultsHouses houses={userDetails.favHouses} width={6} />}
             </Row> */}
 
-            <h2>TUS JUEGOS A PRESTAR</h2>
-            <Row>
-                < ResultsBoardGames BoardGames={myBoardGames} width={3} />
-            </Row>
 
         </Container>
     )

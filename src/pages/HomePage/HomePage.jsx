@@ -5,10 +5,10 @@ const IndexPage = () => {
 
     return (
         <Container>
-            <h1>WELCOME HELL</h1>
+            <h1>WELCOME ON BOARD</h1>
             <hr />
-            <Link to="/galeria">
-                <Button variant="dark" size='lg'>Ir a la galería</Button>
+            <Link to="/boardgames">
+                <Button variant="dark" size='lg'>BOARD GAMES</Button>
             </Link>
         </Container>
     )
