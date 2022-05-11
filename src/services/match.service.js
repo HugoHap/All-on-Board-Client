@@ -25,7 +25,7 @@ class MatchesService {
     }
 
     getOneMatch = id => {
-        return this.app.get(`/match_${id}`)
+        return this.app.get(`/match/${id}`)
     }
 
     editMatch = (id, matchInfo) => {
