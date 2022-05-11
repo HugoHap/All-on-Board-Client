@@ -25,13 +25,13 @@ class UserService {
         return this.app.get(`/${id}`)
     }
 
-    getAllBoardGamesOneUser = () => {
-        return this.api.get(`/${id}`) //SI QUIERO TRAERLOS AL PERFIL COMO LO HAGO?
-    }
+    // getAllBoardGamesOneUser = () => {
+    //     return this.app.get(`/${id}`)
+    // }
 
-    editUser = userInfo => {
-        return this.app.put(`/${id}/edit`, userInfo)
-    }
+    // editUser = userInfo => {
+    //     return this.app.put(`/${id}/edit`, userInfo)
+    // }
 
     deleteUser = id => {
         return this.app.delete(`/${id}/delete`)

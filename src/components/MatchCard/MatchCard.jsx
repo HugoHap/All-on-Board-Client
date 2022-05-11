@@ -2,12 +2,17 @@ import './MatchCard.css'
 import { Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-const MatchCard = ({startTime}) => {
+const MatchCard = ({ startTime, boardGame, _id }) => {
 
     return (
         <Card className="MatchCard">
+            <Card.Img src={boardGame.gameImg} />
             <Card.Body>
-               <p> {startTime}</p>
+                <p>{boardGame.name}</p>
+                <p> {startTime}</p>
+                <div className="d-grid gap-2">
+                    <Link to={`/match/${_id}`} className="btn btn-dark">Details</Link>
+                </div>
             </Card.Body>
         </Card>
     )
