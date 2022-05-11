@@ -25,15 +25,15 @@ class MatchesService {
     }
 
     getOneMatch = id => {
-        return this.app.get(`/match_${id}`)
+        return this.app.get(`/${id}`)
     }
 
     editMatch = (id, matchInfo) => {
-        return this.app.put(`/match_${id}/edit`, matchInfo)
+        return this.app.put(`/${id}/edit`, matchInfo)
     }
 
     deleteMatch = id => {
-        return this.app.delete(`/match_${id}/delete`)
+        return this.app.delete(`/${id}/delete`)
     }
 
     joinMatch = (id, match) => {

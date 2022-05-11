@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import boardgameService from '../../services/boardgame.service'
 
-function BoardgamesDetailsPage() {
+const BoardgamesDetailsPage = () => {
 
     const [boardgameDetails, setBoardgameDetails] = useState()
 
