@@ -56,28 +56,7 @@ const UserProfilePage = () => {
                 <Link to={`/boardgames/create`}>
                     <Button variant="dark" type="">Create Boardgame to rent</Button>
                 </Link>
-                {/* <Row>
-                < ResultsBoardGames BoardGames={myBoardGames} width={3} />
-            </Row> */}
             </div>
-
-
-            {/* <h2>Aquí deberían ir tus rentings</h2>
-            <Row>
-                < ResultsHouses houses={subscriptions} width={4} />
-            </Row> */}
-
-            {/* <h2>Aquí deberían ir los pueblos a los que sigues</h2>
-            <Row>
-                {isLoaded && < MyFollowedVillages followedVillages={userDetails.followedVillages} />}
-            </Row>
-
-            <h2>Aquí deberían ir tus casas favoritas</h2>
-            <Row>
-                {isLoaded && < ResultsHouses houses={userDetails.favHouses} width={6} />}
-            </Row> */}
-
-
         </Container>
     )
 }

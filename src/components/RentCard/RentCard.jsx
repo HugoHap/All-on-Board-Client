@@ -1,28 +1,31 @@
+import './RentCard.css'
 import { Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
+<<<<<<< HEAD
 import './RentCard.css'
 
 
 const RentCard = ({ boardgameDetails }) => {
+=======
+const RentCard = ({ rentBoardgames }) => {
+>>>>>>> 9eec53d8ce44f8a783c1ee40a9641164dccdeedd
 
     return (
         <>
-
             {
+<<<<<<< HEAD
 
                 boardgameDetails?.map((elm) => {
+=======
+                rentBoardgames?.map((elm) => {
+>>>>>>> 9eec53d8ce44f8a783c1ee40a9641164dccdeedd
                     return <div key={elm._id}>
-
-
                         <Card className='rentCard'>
                             <Link to={`/boardgames/${elm._id}/booking`}>
                                 <div className='myContainer'>
                                     <img className='overlayImg' src={elm.gameImg}></img>
                                 </div>
-
-
-
                                 <Card.Body>
                                     <Card.Title>{elm.age}</Card.Title>
                                 </Card.Body>

@@ -53,37 +53,29 @@ const SignupForm = () => {
     return (
 
         <Form onSubmit={handleSubmit}>
-            <Modal.Dialog>
-                <Modal.Header closeButton>
-                    <Modal.Title>SIGN UP</Modal.Title>
-                </Modal.Header>
+            <Form.Group className="mb-3" controlId="username">
+                <Form.Label>Username</Form.Label>
+                <Form.Control type="text" onChange={handleInputChange} name="username" value={username} />
+            </Form.Group>
 
-                <Modal.Body>
-                    <Form.Group className="mb-3" controlId="username">
-                        <Form.Label>Username</Form.Label>
-                        <Form.Control type="text" onChange={handleInputChange} name="username" value={username} />
-                    </Form.Group>
+            <Form.Group className="mb-3" controlId="email">
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" onChange={handleInputChange} name="email" value={email} />
+            </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="email">
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control type="email" onChange={handleInputChange} name="email" value={email} />
-                    </Form.Group>
+            <Form.Group className="mb-3" controlId="password">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" onChange={handleInputChange} name="password" value={password} />
+            </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="password">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" onChange={handleInputChange} name="password" value={password} />
-                    </Form.Group>
+            <Form.Group className="mb-3" controlId="avatar">
+                <Form.Label>Avatar</Form.Label>
+                <Form.Control type="file" onChange={handleImageUpload} />
+            </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="avatar">
-                        <Form.Label>Avatar</Form.Label>
-                        <Form.Control type="file" onChange={handleImageUpload} />
-                    </Form.Group>
-                </Modal.Body>
-
-                <Modal.Footer>
-                    <Button variant="dark" type="submit" disabled={loadingImage}>{loadingImage ? 'Cargando imagen...' : 'Signup'}</Button>
-                </Modal.Footer>
-            </Modal.Dialog>
+            <div className="d-grid gap-2">
+                <Button variant="dark" className="form-button" type="submit">Signup</Button>
+            </div>
         </Form >
     )
 }

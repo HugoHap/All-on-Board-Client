@@ -49,6 +49,14 @@ class BoardGameService {
         return this.app.put(`/${id}/dislike`)
     }
 
+    addFavBoardgame = id => {
+        return this.app.put(`/${id}/favourite`)
+    }
+
+    deleteFavBoardgame = id => {
+        return this.app.put(`/${id}/delete-favourite`)
+    }
+
 }
 
 const boardgameService = new BoardGameService()

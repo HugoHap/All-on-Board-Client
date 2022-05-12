@@ -16,6 +16,7 @@ const BoardgamesListPage = () => {
             })
             .catch(err => console.log(err))
     }, [])
+    
 
     return (
         <>
