@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Form, Modal, Button } from "react-bootstrap"
 import { useNavigate } from 'react-router-dom'
 import BoardGameService from "../../services/boardgame.service"
+import uploadService from "../../services/upload.service"
 
 const CreateBoardgameForm = () => {
 
@@ -14,6 +15,8 @@ const CreateBoardgameForm = () => {
         players: ''
     })
 
+    const [loadingImage, setLoadingImage] = useState(false)
+
     const handleInputChange = e => {
         const { value, name } = e.currentTarget
         setcreateBoargameData({ ...createBoargameData, [name]: value })
@@ -21,14 +24,33 @@ const CreateBoardgameForm = () => {
 
     const navigate = useNavigate()
 
-    const handleSubmit = e => {
+    function handleSubmit(e) {
         e.preventDefault()
 
         BoardGameService
             .createBoardgame(createBoargameData)
-            .then(() => navigate('/create ')) //FORMULARIO CREAR JUEGO DE MESA
+            .then(() => navigate('/profile'))
             .catch(err => console.log(err))
     }
+
+
+    // PARA CLOUDINARY
+    const handleImageUpload = (e) => {
+
+        setLoadingImage(true)
+
+        const uploadImg = new FormData()
+        uploadImg.append('imageData', e.target.files[0])
+
+        uploadService
+            .uploadImage(uploadImg)
+            .then(({ data }) => {
+                setLoadingImage(false)
+                setcreateBoargameData({ ...createBoargameData, gameImg: data.cloudinary_url })
+            })
+            .catch(err => console.log(err))
+    }
+
 
     const { name, description, playingTime, age, gameImg, players } = createBoargameData
 
@@ -63,24 +85,24 @@ const CreateBoardgameForm = () => {
 
                     <Form.Group className="mb-3" controlId="players.min">
                         <Form.Label>Min. Players</Form.Label>
-                        <Form.Control type="text" onChange={handleInputChange} name="players.min" value={players.min} />
+                        <Form.Control type="text" onChange={handleInputChange} name="min" value={players.min} />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="players.max">
                         <Form.Label>Max. Players</Form.Label>
-                        <Form.Control type="text" onChange={handleInputChange} name="players.max" value={players.max} />
+                        <Form.Control type="text" onChange={handleInputChange} name="max" value={players.max} />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="gameImg">
-                        <Form.Label>Game image</Form.Label>
-                        <Form.Control type="text" onChange={handleInputChange} name="gameImg" value={gameImg} />
+                        <Form.Label>Image</Form.Label>
+                        <Form.Control type="file" onChange={handleImageUpload} />
                     </Form.Group>
-
                 </Modal.Body>
 
                 <Modal.Footer>
-                    <Button variant="dark" type="submit">Create Boardgame</Button>
+                    <Button variant="dark" type="submit" disabled={loadingImage}>{loadingImage ? 'Cargando imagen...' : 'Create Boardgame'}</Button>
                 </Modal.Footer>
+
             </Modal.Dialog>
         </Form>
     )
