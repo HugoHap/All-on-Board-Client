@@ -6,15 +6,15 @@ import RentCard from '../../components/RentCard/RentCard'
 
 const BoardgamesDetailsPage = () => {
 
-    const [boardgameDetails, setBoardgameDetails] = useState({})
-    const [rentBoardgames, setRentBoardgames] = useState([])
+    const [boardgameDetails, setBoardgameDetails] = useState([])
+    // const [rentBoardgames, setRentBoardgames] = useState([])
 
 
     const { id } = useParams()
 
     useEffect(() => {
 
-        getRent()
+        // getRent()
         getDetails()
 
     }, [])
@@ -24,38 +24,40 @@ const BoardgamesDetailsPage = () => {
         boardgameService
             .getBoardgame(id)
             .then(({ data }) => {
+                console.log(data)
                 setBoardgameDetails(data)
             })
             .catch(err => console.log(err))
     }
 
-    const getRent = () => {
+    // const getRent = () => {
 
-        boardgameService
-            .getRentBoardgames(id)
-            .then(({ data }) => {
-                console.log("data getrent", data)
-                setRentBoardgames(data)
-            })
-            .catch(err => console.log(err))
-    }
-    console.log("estado rent", rentBoardgames);
+    //     boardgameService
+    //         .getRentBoardgames(id)
+    //         .then(({ data }) => {
+    //             setRentBoardgames(data)
+    //         })
+    //         .catch(err => console.log(err))
+    // }
+
+    console.log(boardgameDetails)
+
     return (
 
         <Container>
-            <h1>{boardgameDetails.name}</h1>
+            <h1>{boardgameDetails[0]?.name}</h1>
             <hr />
             <Row>
                 <Col md={{ span: 4, offset: 1 }}>
                     <h3>Description</h3>
-                    <p>{boardgameDetails.description}</p>
+                    <p>{boardgameDetails[0]?.description}</p>
                     <h3>Details</h3>
-                    <p>Duration: {boardgameDetails.playingTime}</p>
-                    <p>Players: {boardgameDetails?.players?.min}-{boardgameDetails?.players?.max} </p>
-                    <p>Age: {boardgameDetails.age}</p>
+                    <p>Duration: {boardgameDetails[0]?.playingTime}</p>
+                    <p>Players: {boardgameDetails[0]?.players?.min}-{boardgameDetails[0]?.players?.max} </p>
+                    <p>Age: {boardgameDetails[0]?.age}</p>
                 </Col>
                 <Col md={{ span: 6 }}>
-                    <img style={{ width: '100%' }} src={boardgameDetails.gameImg} alt={boardgameDetails.name} />
+                    <img style={{ width: '100%' }} src={boardgameDetails[0]?.gameImg} alt={boardgameDetails[0]?.name} />
                 </Col>
                 <Link to="/boardgames">
                     <Button variant="dark">Back to Boardgames List</Button>
@@ -68,7 +70,7 @@ const BoardgamesDetailsPage = () => {
                 </Link>
             </Row>
             <Row>
-                <RentCard rentBoardgames={rentBoardgames} />
+                <RentCard boardgameDetails={boardgameDetails[1]} />
             </Row>
 
         </Container>

@@ -11,6 +11,7 @@ import CreateBoardGamePage from "../pages/CreateBoardGamePage/CreateBoardGamePag
 import EditMatchPage from "../pages/EditMatchPage/EditMatchPage"
 import EditBoardGamePage from "../pages/EditBoardGamePage/EditBoardGame"
 import EditProfilePage from "../pages/EditProfilePage/EditProfilePage"
+import BoardgameRentPage from "../pages/BoardgameRent/BoardgameRentPage"
 
 const AppRoutes = () => {
 
@@ -19,9 +20,9 @@ const AppRoutes = () => {
             <Route path="/" element={<IndexPage />} />
             <Route path="/boardgames" element={<BoardgamesListPage />} />
             <Route path="/boardgames/:id" element={<BoardgamesDetailsPage />} />
+            <Route path="/boardgames/:id/booking" element={<BoardgameRentPage />} />
             <Route path='/match' element={<MatchesListPage />} />
             <Route path='/match/:id' element={<MatchDetailsPage />} />
-            <Route path="/" element={<IndexPage />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/profile" element={<UserProfilePage />} />

@@ -5,7 +5,7 @@ class BookingsService {
     constructor() {
         this.app = axios.create({ baseURL: `${process.env.REACT_APP_API_URL}/bookings` })
 
-        this.api.interceptors.request.use((config) => {
+        this.app.interceptors.request.use((config) => {
 
             const storedToken = localStorage.getItem("authToken");
 
@@ -21,7 +21,7 @@ class BookingsService {
         return this.app.get('/')
     }
 
-    createBooking = booking => {
+    createBooking = (id, booking) => {
         return this.app.post(`/${id}/create`, booking)
     }
 

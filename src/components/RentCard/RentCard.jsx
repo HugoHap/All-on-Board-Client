@@ -4,19 +4,19 @@ import { Link } from 'react-router-dom'
 import './RentCard.css'
 
 
-const RentCard = ({ rentBoardgames }) => {
+const RentCard = ({ boardgameDetails }) => {
 
     return (
         <>
 
             {
 
-                rentBoardgames?.map((elm) => {
+                boardgameDetails?.map((elm) => {
                     return <div key={elm._id}>
 
 
                         <Card className='rentCard'>
-                            <Link to={`/boardgames/${elm._id}`}>
+                            <Link to={`/boardgames/${elm._id}/booking`}>
                                 <div className='myContainer'>
                                     <img className='overlayImg' src={elm.gameImg}></img>
                                 </div>
