@@ -29,9 +29,9 @@ class UserService {
     //     return this.app.get(`/${id}`)
     // }
 
-    // editUser = userInfo => {
-    //     return this.app.put(`/${id}/edit`, userInfo)
-    // }
+    editUser = (id, userInfo) => {
+        return this.app.put(`/${id}/edit`, userInfo)
+    }
 
     deleteUser = id => {
         return this.app.delete(`/${id}/delete`)

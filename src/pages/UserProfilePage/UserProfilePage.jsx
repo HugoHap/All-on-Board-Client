@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import { AuthContext } from "../../context/auth.context"
 import { Container, Button } from "react-bootstrap"
 import { Link } from 'react-router-dom'
@@ -8,9 +8,7 @@ import userService from "../../services/user.service"
 const UserProfilePage = () => {
 
     const { user } = useContext(AuthContext)
-
-    const [userDetails, setUserDetails] = useState([])
-    const [isLoaded, setIsLoaded] = useState(false)
+    // const [isLoaded, setIsLoaded] = useState(false)
 
     // const [myBoardGames, setMyBoardGames] = useState([])
 
@@ -27,7 +25,6 @@ const UserProfilePage = () => {
             .getUserProfile()
             .then(({ data }) => {
                 getUserProfile(data)
-                setIsLoaded(true)
             })
             .catch(err => console.log(err))
     }
@@ -48,18 +45,23 @@ const UserProfilePage = () => {
             <h1>Bienvenidx <strong>{user.username}</strong></h1>
             <p>Email:</p><p><strong>{user.email}</strong></p>
             <img src={user.avatar} alt="" />
-
+            <div>
+                <Link to={`/edit`}>
+                    <Button variant="dark" type="">Edit profile</Button>
+                </Link>
+            </div>
             <hr></hr>
             <div>
                 <h4>TUS JUEGOS A PRESTAR</h4>
                 <Link to={`/boardgames/create`}>
                     <Button variant="dark" type="">Create Boardgame to rent</Button>
                 </Link>
-
                 {/* <Row>
                 < ResultsBoardGames BoardGames={myBoardGames} width={3} />
             </Row> */}
             </div>
+
+
             {/* <h2>Aquí deberían ir tus rentings</h2>
             <Row>
                 < ResultsHouses houses={subscriptions} width={4} />

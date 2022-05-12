@@ -1,12 +1,12 @@
 import './Navigation.css'
 import { Navbar, Container, Nav } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
-import { useContext } from 'react'
-import { AuthContext } from '../../context/auth.context'
+// import { useContext } from 'react'
+// import { AuthContext } from '../../context/auth.context'
 
 const Navigation = () => {
 
-    const { user, logOutUser, isLoggedIn } = useContext(AuthContext)
+    // const { user, logOutUser, isLoggedIn } = useContext(AuthContext)
 
     return (
         <Navbar bg="dark" variant="dark" expand="lg">
@@ -18,6 +18,7 @@ const Navigation = () => {
                         <NavLink to="/signup" className="nav-link">Signup</NavLink>
                         <NavLink to="/login" className="nav-link">Login</NavLink>
                         <NavLink to="/profile" className="nav-link">Profile</NavLink>
+                        <NavLink to="/match" className="nav-link">Matches</NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
