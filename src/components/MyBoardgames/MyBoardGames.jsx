@@ -17,7 +17,7 @@ const MyBoardgames = () => {
 
     const getMyBoardgames = () => {
         userService
-            .getAllBoardGamesOneUser() //INVESTIGAR QUE ES ESTO
+            // .getAllBoardGamesOneUser() //INVESTIGAR HUGO
             .then(({ data }) => {
                 setMyBoardgames(data)
                 setIsLoaded(true)
