@@ -3,7 +3,6 @@ import { useContext, useEffect, useState } from "react"
 import matchesService from './../../services/match.service'
 import { AuthContext } from "../../context/auth.context"
 import MatchesList from "../../components/MatchesList/MatchesList"
-import { Link } from "react-router-dom"
 
 const MatchListPage = () => {
 
@@ -37,9 +36,6 @@ const MatchListPage = () => {
         <>
             <Container>
                 <h1>Matches list</h1>
-                <Link to="/match">
-                    <Button variant="dark">Back to Matches</Button>
-                </Link>
                 <hr />
                 <MatchesList matches={matches} />
             </Container>
