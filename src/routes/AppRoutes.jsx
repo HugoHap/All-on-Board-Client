@@ -8,6 +8,7 @@ import SignupPage from "../pages/SignupPage/SignupPage"
 import MatchDetailsPage from "../pages/MatchDetailsPage/MatchDetailsPage"
 import UserProfilePage from "../pages/UserProfilePage/UserProfilePage"
 import CreateBoardGamePage from "../pages/CreateBoardGamePage/CreateBoardGamePage"
+import EditProfilePage from "../pages/EditProfilePage/EditProfilePage"
 
 const AppRoutes = () => {
 
@@ -25,7 +26,8 @@ const AppRoutes = () => {
             <Route path="/login" element={<LoginPage />} />
 
             <Route path="/profile" element={<UserProfilePage />} />
-            <Route path="/boardgame/create" element={<CreateBoardGamePage />} />
+            <Route path="/edit" element={<EditProfilePage />} />
+            <Route path="/boardgames/create" element={<CreateBoardGamePage />} />
 
             <Route path="*" element={<h1>Esto es un 404 jeje</h1>} />
         </Routes>
