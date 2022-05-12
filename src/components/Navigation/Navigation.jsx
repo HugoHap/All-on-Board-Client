@@ -18,6 +18,7 @@ const Navigation = () => {
                         <NavLink to="/signup" className="nav-link">Signup</NavLink>
                         <NavLink to="/login" className="nav-link">Login</NavLink>
                         <NavLink to="/profile" className="nav-link">Profile</NavLink>
+                        <NavLink to="/match" className="nav-link">Matches</NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

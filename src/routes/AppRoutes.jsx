@@ -8,25 +8,25 @@ import SignupPage from "../pages/SignupPage/SignupPage"
 import MatchDetailsPage from "../pages/MatchDetailsPage/MatchDetailsPage"
 import UserProfilePage from "../pages/UserProfilePage/UserProfilePage"
 import CreateBoardGamePage from "../pages/CreateBoardGamePage/CreateBoardGamePage"
+import EditMatchPage from "../pages/EditMatchPage/EditMatchPage"
+import EditBoardGamePage from "../pages/EditBoardGamePage/EditBoardGame"
 
 const AppRoutes = () => {
 
     return (
         <Routes>
             <Route path="/" element={<IndexPage />} />
-
             <Route path="/boardgames" element={<BoardgamesListPage />} />
             <Route path="/boardgames/:id" element={<BoardgamesDetailsPage />} />
-
             <Route path='/match' element={<MatchesListPage />} />
             <Route path='/match/:id' element={<MatchDetailsPage />} />
             <Route path="/" element={<IndexPage />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/login" element={<LoginPage />} />
-
             <Route path="/profile" element={<UserProfilePage />} />
             <Route path="/boardgame/create" element={<CreateBoardGamePage />} />
-
+            <Route path="/match/:id/edit" element={<EditMatchPage />} />
+            <Route path="/boardgames/:id/edit" element={<EditBoardGamePage />} />
             <Route path="*" element={<h1>Esto es un 404 jeje</h1>} />
         </Routes>
     )

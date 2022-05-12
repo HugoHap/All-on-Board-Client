@@ -38,12 +38,12 @@ const BoardgamesDetailsPage = () => {
                     <img style={{ width: '100%' }} src={boardgameDetails.gameImg} alt={boardgameDetails.name} />
                 </Col>
                 <Link to="/boardgames">
-                    <Button variant="dark">Volver</Button>
+                    <Button variant="dark">Back to Boardgames List</Button>
                 </Link>
-                <Link to={`/boardgames/${boardgameDetails._id}/edit`}>
+                <Link to={`/boardgames/${id}/edit`}>
                     <Button variant="success">Edit</Button>
                 </Link>
-                <Link to={`/boardgames/${boardgameDetails._id}/delete`}>
+                <Link to={`/boardgames/${id}/delete`}>
                     <Button variant="danger">Delete Game</Button>
                 </Link>
             </Row>
