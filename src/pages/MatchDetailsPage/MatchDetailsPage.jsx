@@ -1,12 +1,20 @@
+<<<<<<< HEAD
 import { Container, Col, Row, Button } from 'react-bootstrap'
+=======
+import { Container, Row, Col, Button } from 'react-bootstrap'
+>>>>>>> 9b157a7b46c34a091fdd6c937737d5ff2d2242c4
 import { useEffect, useState } from "react"
 import matchesService from './../../services/match.service'
 import { useParams, Link } from 'react-router-dom'
 
 const MatchDetailsPage = () => {
 
+<<<<<<< HEAD
     const [matchDetails, setMatchDetails] = useState()
     const [isLoading, setIsLoading] = useState(false)
+=======
+    const [matchDetails, setMatchDetails] = useState({})
+>>>>>>> 9b157a7b46c34a091fdd6c937737d5ff2d2242c4
 
     const { id } = useParams()
 

@@ -1,5 +1,4 @@
-import { Container, Button, Row, Col } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Container, Row, Col } from 'react-bootstrap'
 import SignupForm from '../../components/SignupForm/SignupForm'
 
 const SignupPage = () => {

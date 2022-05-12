@@ -17,8 +17,6 @@ const MatchesList = ({matches}) => {
                 })
             }
         </Row>
-        
-        
     )
 }
 

@@ -3,6 +3,9 @@ import { useParams, Link } from 'react-router-dom'
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import boardgameService from '../../services/boardgame.service'
 import RentCard from '../../components/RentCard/RentCard'
+// import FavBtn from '../../components/FavBtn/FavBtn'
+import LikeButton from '../../components/LikeButton/LikeButton'
+import DislikeButton from '../../components/DislikeButton/DislikeButton'
 
 const BoardgamesDetailsPage = () => {
 
@@ -40,6 +43,59 @@ const BoardgamesDetailsPage = () => {
             .catch(err => console.log(err))
     }
     console.log("estado rent", rentBoardgames);
+
+    //FAV BOARDGAME
+    // const [isFav, setIsFav] = useState()
+    // const [btnState, setBtnState] = useState('inicio')
+
+    // //     const handleFavBtn = () => {
+    //         if (!isFav) {
+    //             boardgameService
+    //                 .addFavBoardgame(id)
+    //                 .then(() => {
+    //                     setIsFav(true)
+    //                     setBtnState('DELETE FAVOURITE')
+    //                 })
+    //                 .catch(err => console.log(err))
+    //         } else if (isFav) {
+    //             boardgameService
+    //                 .deleteFavBoardgame(id)
+    //                 .then(() => {
+    //                     setIsFav(false)
+    //                     setBtnState('ADD FAVOURITE')
+    //                 })
+    //                 .catch(err => console.log(err))
+    //         }
+    //     }
+
+    //LIKE BOARDGAME
+    const [isLike, setIsLike] = useState()
+    const [btnState, setBtnState] = useState('LIKE')
+
+    const handleLikeBtn = () => {
+
+        boardgameService
+            .isLike
+            .then(() => {
+                setIsLike(true)
+                setBtnState('LIKE')
+            })
+    }
+
+    //DISLIKE BOARDGAME
+    const [isDisLike, setIsDisLike] = useState()
+    const [disBtnState, setDisBtnState] = useState('DISLIKE')
+
+    const handleDislikeBtn = () => {
+
+        boardgameService
+            .isDisLike
+            .then(() => {
+                setIsDisLike(true)
+                setDisBtnState('LIKE')
+            })
+    }
+
     return (
 
         <Container>
@@ -65,6 +121,11 @@ const BoardgamesDetailsPage = () => {
                 </Link>
                 <Link to={`/boardgames/${id}/delete`}>
                     <Button variant="danger">Delete Game</Button>
+                </Link>
+
+                <Link to={`/boardgames/${id}`}>
+                    <LikeButton btnState={btnState} handleLikeBtn={handleLikeBtn} />
+                    <DislikeButton btnState={btnState} handleDislikeBtn={handleDislikeBtn} />
                 </Link>
             </Row>
             <Row>

@@ -1,7 +1,6 @@
 import { Row, Col } from "react-bootstrap"
 import BoardgameCard from "../BoardgameCard/BoardgameCard"
 
-
 const BoardgamesList = ({ boardgames }) => {
 
     return (
@@ -17,8 +16,6 @@ const BoardgamesList = ({ boardgames }) => {
                     })
                 }
             </Row>
-            
-
         </>
     )
 }

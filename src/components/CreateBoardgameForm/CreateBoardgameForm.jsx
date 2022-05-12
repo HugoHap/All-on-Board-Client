@@ -33,7 +33,6 @@ const CreateBoardgameForm = () => {
             .catch(err => console.log(err))
     }
 
-
     // PARA CLOUDINARY
     const handleImageUpload = (e) => {
 
@@ -50,7 +49,6 @@ const CreateBoardgameForm = () => {
             })
             .catch(err => console.log(err))
     }
-
 
     const { name, description, playingTime, age, gameImg, players } = createBoargameData
 

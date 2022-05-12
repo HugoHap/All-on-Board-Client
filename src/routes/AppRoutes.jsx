@@ -23,8 +23,10 @@ const AppRoutes = () => {
             <Route path="/edit" element={<EditProfilePage />} />
             <Route path="/boardgames" element={<BoardgamesListPage />} />
             <Route path="/boardgames/:id" element={<BoardgamesDetailsPage />} />
-            <Route path="/boardgames/create" element={<CreateBoardGamePage />} />
+            <Route path="/boardgames/:id/like" element={<BoardgamesDetailsPage />} />
+            <Route path="/boardgames/:id/dislike" element={<BoardgamesDetailsPage />} />
             <Route path="/boardgames/:id/edit" element={<EditBoardGamePage />} />
+            <Route path="/boardgames/create" element={<CreateBoardGamePage />} />
             <Route path='/match' element={<MatchesListPage />} />
             <Route path='/match/:id' element={<MatchDetailsPage />} />
             <Route path="/match/:id/edit" element={<EditMatchPage />} />

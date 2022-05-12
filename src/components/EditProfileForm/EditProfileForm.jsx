@@ -51,7 +51,7 @@ const EditProfileForm = ({user_id, email, username, avatar }) => {
                     <Form.Control as="" name="avatar" value={userState.avatar} onChange={handleInputChange} />
                 </Form.Group>
                 {/* //CLOUDINARY */}
-
+                
                 <Button variant="dark" type="submit">Save profile</Button>
 
             </Form>

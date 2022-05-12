@@ -1,7 +1,7 @@
-import { Container, Button } from "react-bootstrap"
+import { Container } from "react-bootstrap"
 import { useContext, useEffect, useState } from "react"
+// import { AuthContext } from "../../context/auth.context"
 import matchesService from './../../services/match.service'
-import { AuthContext } from "../../context/auth.context"
 import MatchesList from "../../components/MatchesList/MatchesList"
 
 const MatchListPage = () => {
@@ -11,11 +11,11 @@ const MatchListPage = () => {
     useEffect(() => {
         matchesService
             .getAllMatches()
-            .then(({ data }) =>{
+            .then(({ data }) => {
                 console.log(data)
                 setMatches(data)
-                
-            } )
+
+            })
             .catch(err => console.log(err))
     }, [])
 
@@ -30,7 +30,7 @@ const MatchListPage = () => {
     //     loadMatches()
     // }
 
-    const { isLoggedIn } = useContext(AuthContext)
+    // const { isLoggedIn } = useContext(AuthContext)
 
     return (
         <>
