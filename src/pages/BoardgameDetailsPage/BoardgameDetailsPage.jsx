@@ -2,14 +2,24 @@ import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import boardgameService from '../../services/boardgame.service'
+import RentCard from '../../components/RentCard/RentCard'
 
 const BoardgamesDetailsPage = () => {
 
     const [boardgameDetails, setBoardgameDetails] = useState({})
+    const [rentBoardgames, setRentBoardgames] = useState([])
+
 
     const { id } = useParams()
 
     useEffect(() => {
+
+        getRent()
+        getDetails()
+
+    }, [])
+
+    const getDetails = () => {
 
         boardgameService
             .getBoardgame(id)
@@ -17,9 +27,19 @@ const BoardgamesDetailsPage = () => {
                 setBoardgameDetails(data)
             })
             .catch(err => console.log(err))
+    }
 
-    }, [])
+    const getRent = () => {
 
+        boardgameService
+            .getRentBoardgames(id)
+            .then(({ data }) => {
+                console.log("data getrent", data)
+                setRentBoardgames(data)
+            })
+            .catch(err => console.log(err))
+    }
+    console.log("estado rent", rentBoardgames);
     return (
 
         <Container>
@@ -46,6 +66,9 @@ const BoardgamesDetailsPage = () => {
                 <Link to={`/boardgames/${boardgameDetails._id}/delete`}>
                     <Button variant="danger">Delete Game</Button>
                 </Link>
+            </Row>
+            <Row>
+                <RentCard rentBoardgames={rentBoardgames} />
             </Row>
 
         </Container>

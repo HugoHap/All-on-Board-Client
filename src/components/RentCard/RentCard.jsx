@@ -4,23 +4,36 @@ import { Link } from 'react-router-dom'
 import './RentCard.css'
 
 
-const HouseCard = ({ name, images, _id, village }) => {
+const RentCard = ({ rentBoardgames }) => {
 
     return (
-        <Card className='houseCard'>
-            <Link to={`/casa/${_id}`}>
-                <div className='myContainer'>
-                    {images[0] ? <Card.Img className="houseCardImg" variant="top" src={images[0]} /> : <Card.Img className="houseCardImg" variant="top" src={DefaultImg} />}
-                    <img className='overlayImg' src={Arrow}></img>
-                </div>
+        <>
 
-                <Card.Body>
-                    <Card.Title>{name}</Card.Title>
-                    <Card.Text>{village.name} - {village.province}</Card.Text>
-                </Card.Body>
-            </Link>
-        </Card>
+            {
+
+                rentBoardgames?.map((elm) => {
+                    return <div key={elm._id}>
+
+
+                        <Card className='rentCard'>
+                            <Link to={`/boardgames/${elm._id}`}>
+                                <div className='myContainer'>
+                                    <img className='overlayImg' src={elm.gameImg}></img>
+                                </div>
+
+
+
+                                <Card.Body>
+                                    <Card.Title>{elm.age}</Card.Title>
+                                </Card.Body>
+                            </Link>
+                        </Card>
+
+                    </div>
+                })
+            }
+        </>
     )
 }
 
-export default HouseCard
+export default RentCard

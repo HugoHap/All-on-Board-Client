@@ -29,6 +29,10 @@ class BoardGameService {
         return this.app.get(`/${id}`)
     }
 
+    getRentBoardgames = id => {
+        return this.app.get(`/${id}/rent`)
+    }
+
     editBoardgame = (id, boardgameInfo) => {
         return this.app.put(`/${id}/edit`, boardgameInfo)
     }
