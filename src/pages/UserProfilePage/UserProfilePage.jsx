@@ -3,15 +3,19 @@ import { AuthContext } from "../../context/auth.context"
 import { Container, Nav, Modal, Button } from 'react-bootstrap'
 import { Link, NavLink } from 'react-router-dom'
 import { useEffect, useState } from "react"
-import userService from "../../services/user.service"
+import boardgameService from "../../services/boardgame.service"
 import CreateBoardgameForm from "../../components/CreateBoardgameForm/CreateBoardgameForm"
 import matchesService from "../../services/match.service"
+import BoardgameProfileCard from "../../components/BoardgameProfileCard/BoardgameProfileCard"
+import "./UserProfilePage.css"
 
 const UserProfilePage = () => {
 
     const { user } = useContext(AuthContext)
 
     const [myMatches, setMyMatches] = useState()
+    const [myGames, setMygames] = useState([])
+
 
     const [showCreateBGModal, setShowCreateBGModal] = useState(false)
     const handleCreateBGModalClose = () => setShowCreateBGModal(false)
@@ -19,42 +23,33 @@ const UserProfilePage = () => {
 
     useEffect(() => {
         if (user) {
-            // getUserProfile()
             getMymatches()
+            getMyGames()
         }
     }, [user])
-
-    // const getUserProfile = () => {
-
-    //     userService
-    //         .getUserProfile()
-    //         .then(({ data }) => {
-    //             getUserProfile(data)
-    //         })
-    //         .catch(err => console.log(err))
-    // }
-
-    // const getMyBoardgames = () => {
-    //     userService
-    //         .getAllBoardGamesOneUser() //INVESTIGAR ESTO
-    //         .then(({ data }) => {
-    //             setMyBoardGames(data)
-    //         })
-    //         .catch(err => console.log(err))
-    // }
-    console.log(user)
 
     const getMymatches = () => {
         matchesService
             .myMatches()
             .then(({ data }) => {
                 setMyMatches(data)
-                console.log(data)
             })
             .catch(err => console.log(err))
     }
 
+    const getMyGames = () => {
+        boardgameService
+            .getOwnBoardgames()
+            .then(({ data }) => {
+                setMygames(data)
+            })
+            .catch(err => console.log(err))
+        
+        
+    }
+
     return (
+        user ?
         <>
             <Container>
 
@@ -68,12 +63,16 @@ const UserProfilePage = () => {
                 </div>
                 <div>
                     <h4>TUS JUEGOS A PRESTAR</h4>
-                    < NavLink to='#' >
+                    <NavLink to='#' >
                         <Nav.Link className='elm' as="span" onClick={handleCreateBGModalOpen}> <Button variant="dark" type="submit">Create Boardgame to rent</Button></Nav.Link>
-                    </NavLink >
+                    </NavLink>
                 </div>
                
-                MAP DE TUS PARTIDAS
+                
+
+                <div>
+                    <BoardgameProfileCard myGames={myGames} />
+                </div>
                 
             </Container>
 
@@ -84,8 +83,10 @@ const UserProfilePage = () => {
                 <Modal.Body>
                     <CreateBoardgameForm closeModal={handleCreateBGModalClose} />
                 </Modal.Body>
-            </Modal>
-        </>
+                </Modal>
+            </>
+            :
+            <span className="loader"></span>
     )
 }
 
