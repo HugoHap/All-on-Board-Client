@@ -5,6 +5,7 @@ import { Link, NavLink } from 'react-router-dom'
 import { useEffect, useState } from "react"
 import userService from "../../services/user.service"
 import CreateBoardgameForm from "../../components/CreateBoardgameForm/CreateBoardgameForm"
+import MyMatchesCard from "../../components/MyMatchesCard/MyMatchesCard"
 import matchesService from "../../services/match.service"
 
 const UserProfilePage = () => {
@@ -19,7 +20,6 @@ const UserProfilePage = () => {
 
     useEffect(() => {
         if (user) {
-            // getUserProfile()
             getMymatches()
         }
     }, [user])
@@ -29,7 +29,6 @@ const UserProfilePage = () => {
             .myMatches()
             .then(({ data }) => {
                 setMyMatches(data)
-                console.log(data)
             })
             .catch(err => console.log(err))
     }
@@ -52,9 +51,11 @@ const UserProfilePage = () => {
                         <Nav.Link className='elm' as="span" onClick={handleCreateBGModalOpen}> <Button variant="dark" type="submit">Create Boardgame to rent</Button></Nav.Link>
                     </NavLink >
                 </div>
-               
-                MAP DE TUS PARTIDAS
-                
+
+                <div>
+                    <MyMatchesCard myMatches={myMatches} />
+                </div>
+
             </Container>
 
             <Modal show={showCreateBGModal} onHide={handleCreateBGModalClose} size="lg">
