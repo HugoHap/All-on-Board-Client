@@ -5,6 +5,7 @@ import { Link, NavLink } from 'react-router-dom'
 import { useEffect, useState } from "react"
 import boardgameService from "../../services/boardgame.service"
 import CreateBoardgameForm from "../../components/CreateBoardgameForm/CreateBoardgameForm"
+import MyMatchesCard from "../../components/MyMatchesCard/MyMatchesCard"
 import matchesService from "../../services/match.service"
 import BoardgameProfileCard from "../../components/BoardgameProfileCard/BoardgameProfileCard"
 import "./UserProfilePage.css"
@@ -74,6 +75,11 @@ const UserProfilePage = () => {
                     <BoardgameProfileCard myGames={myGames} />
                 </div>
                 
+
+                <div>
+                    <MyMatchesCard myMatches={myMatches} />
+                </div>
+
             </Container>
 
             <Modal show={showCreateBGModal} onHide={handleCreateBGModalClose} size="lg">
