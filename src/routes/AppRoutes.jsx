@@ -32,6 +32,7 @@ const AppRoutes = () => {
             <Route path='/match' element={<MatchesListPage />} />
             <Route path='/match/:id' element={<MatchDetailsPage />} />
             <Route path="/match/:id/edit" element={<EditMatchPage />} />
+            <Route path="/match/:id/join" element={<UserProfilePage />} />
             <Route path="*" element={<h1>Esto es un 404 jeje</h1>} />
         </Routes>
     )

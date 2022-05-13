@@ -36,8 +36,8 @@ class MatchesService {
         return this.app.delete(`/${id}/delete`)
     }
 
-    joinMatch = (id, match) => {
-        return this.app.post(`/${id}/join`, match)
+    joinMatch = id => {
+        return this.app.put(`/${id}/join`)
     }
 
     unjoinMatch = (id, match) => {
