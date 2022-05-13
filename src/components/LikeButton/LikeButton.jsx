@@ -10,7 +10,7 @@ function LikeButton() {
 
     useEffect(() => {
         likeBoardgame()
-    }, [])
+    }, [likeValue])
 
     const likeBoardgame = () => {
 
@@ -18,7 +18,6 @@ function LikeButton() {
             .likeBoardgame(id)
             .then(({ data }) => {
                 console.log(data)
-                // setLikeValue
             })
             .catch(err => console.log(err))
     }
