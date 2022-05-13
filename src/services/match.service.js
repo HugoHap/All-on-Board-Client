@@ -43,6 +43,10 @@ class MatchesService {
     unjoinMatch = (id, match) => {
         return this.app.post(`/${id}/unjoin`, match)
     }
+
+    myMatches = () => {
+        return this.app.get(`/mymatches`)
+    }
 }
 
 const matchesService = new MatchesService()

@@ -10,16 +10,13 @@ import DislikeButton from '../../components/DislikeButton/DislikeButton'
 const BoardgamesDetailsPage = () => {
 
     const [boardgameDetails, setBoardgameDetails] = useState([])
-    // const [rentBoardgames, setRentBoardgames] = useState([])
+
 
 
     const { id } = useParams()
 
     useEffect(() => {
-
-        // getRent()
         getDetails()
-
     }, [])
 
     const getDetails = () => {
@@ -33,82 +30,61 @@ const BoardgamesDetailsPage = () => {
             .catch(err => console.log(err))
     }
 
-    // const getRent = () => {
-
-    //     boardgameService
-    //         .getRentBoardgames(id)
-    //         .then(({ data }) => {
-    //             setRentBoardgames(data)
-    //         })
-    //         .catch(err => console.log(err))
-    // }
-
-    console.log(boardgameDetails)
-
-        boardgameService
-            .getRentBoardgames(id)
-            .then(({ data }) => {
-                console.log("data getrent", data)
-                setRentBoardgames(data)
-            })
-            .catch(err => console.log(err))
-            console.log("estado rent", rentBoardgames);
-            
-            //FAV BOARDGAME
+    //FAV BOARDGAME
     // const [isFav, setIsFav] = useState()
     // const [btnState, setBtnState] = useState('inicio')
-    
-    // //     const handleFavBtn = () => {
-        //         if (!isFav) {
-            //             boardgameService
-            //                 .addFavBoardgame(id)
-            //                 .then(() => {
-                //                     setIsFav(true)
-                //                     setBtnState('DELETE FAVOURITE')
-                //                 })
-                //                 .catch(err => console.log(err))
-                //         } else if (isFav) {
-                    //             boardgameService
-                    //                 .deleteFavBoardgame(id)
-                    //                 .then(() => {
-                        //                     setIsFav(false)
-                        //                     setBtnState('ADD FAVOURITE')
-                        //                 })
-                        //                 .catch(err => console.log(err))
-                        //         }
-                        //     }
-                        
-                        //LIKE BOARDGAME
-                        const [isLike, setIsLike] = useState()
-                        const [btnState, setBtnState] = useState('LIKE')
-                        
-                        const handleLikeBtn = () => {
-                            
-                            boardgameService
-                            .isLike
-                            .then(() => {
-                                setIsLike(true)
-                                setBtnState('LIKE')
-                            })
-                        }
-                        
-                        //DISLIKE BOARDGAME
-                        const [isDisLike, setIsDisLike] = useState()
-                        const [disBtnState, setDisBtnState] = useState('DISLIKE')
-                        
-                        const handleDislikeBtn = () => {
-                            
-                            boardgameService
-                            .isDisLike
-                            .then(() => {
-                                setIsDisLike(true)
-                                setDisBtnState('LIKE')
-                            })
-                        }
-                        
-                        return (
-                            
-                            <Container>
+
+    // const handleFavBtn = () => {
+    //         if (!isFav) {
+    //             boardgameService
+    //                 .addFavBoardgame(id)
+    //                 .then(() => {
+    //                     setIsFav(true)
+    //                     setBtnState('DELETE FAVOURITE')
+    //                 })
+    //                 .catch(err => console.log(err))
+    //         } else if (isFav) {
+    //             boardgameService
+    //                 .deleteFavBoardgame(id)
+    //                 .then(() => {
+    //                     setIsFav(false)
+    //                     setBtnState('ADD FAVOURITE')
+    //                 })
+    //                 .catch(err => console.log(err))
+    //         }
+    //     }
+
+    //LIKE BOARDGAME
+    const [isLike, setIsLike] = useState()
+    const [btnState, setBtnState] = useState('LIKE')
+
+    const handleLikeBtn = () => {
+
+        boardgameService
+            .isLike
+            .then(() => {
+                setIsLike(true)
+                setBtnState('LIKE')
+            })
+    }
+
+    //DISLIKE BOARDGAME
+    const [isDisLike, setIsDisLike] = useState()
+    const [disBtnState, setDisBtnState] = useState('DISLIKE')
+
+    const handleDislikeBtn = () => {
+
+        boardgameService
+            .isDisLike
+            .then(() => {
+                setIsDisLike(true)
+                setDisBtnState('LIKE')
+            })
+    }
+
+    return (
+
+        <Container>
             <h1>{boardgameDetails[0]?.name}</h1>
             <hr />
             <Row>

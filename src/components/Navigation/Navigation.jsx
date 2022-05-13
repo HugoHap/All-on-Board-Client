@@ -48,8 +48,8 @@ const Navigation = () => {
                                             <NavLink to={`/profile`}>
                                                 <Nav.Link as="span">Profile</Nav.Link>
                                             </NavLink>
-                                            <NavLink to="#">
-                                                <Nav.Link as="span" onClick={logOutUser}>Logout</Nav.Link>
+                                            <NavLink to={`/`}>
+                                                <div className="nav-link" onClick={logOutUser}>Cerrar sesión</div>
                                             </NavLink>
                                         </>
                                 }
@@ -77,7 +77,6 @@ const Navigation = () => {
                 </Modal.Body>
             </Modal>
         </>
-
     )
 }
 

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import authService from "../../services/auth.service"
 import uploadService from "../../services/upload.service"
 
-const SignupForm = () => {
+const SignupForm = ({ closeModal }) => {
 
     const [signupData, setSignupData] = useState({
         email: '',
@@ -27,9 +27,14 @@ const SignupForm = () => {
 
         authService
             .signup(signupData)
-            .then(res => navigate('/signup'))
+            .then(() => {
+                navigate('/')
+                // closeModal()
+            })
             .catch(err => console.log(err))
     }
+
+    const { email, username, password } = signupData
 
     // PARA CLOUDINARY
     const handleImageUpload = (e) => {
@@ -47,8 +52,6 @@ const SignupForm = () => {
             })
             .catch(err => console.log(err))
     }
-
-    const { email, username, password } = signupData
 
     return (
 
