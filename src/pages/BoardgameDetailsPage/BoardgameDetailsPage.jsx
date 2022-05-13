@@ -14,9 +14,7 @@ const BoardgamesDetailsPage = () => {
     const { id } = useParams()
 
     useEffect(() => {
-
         getDetails()
-
     }, [])
 
     const getDetails = () => {
@@ -30,12 +28,11 @@ const BoardgamesDetailsPage = () => {
             .catch(err => console.log(err))
     }
 
-
     //FAV BOARDGAME
     // const [isFav, setIsFav] = useState()
     // const [btnState, setBtnState] = useState('inicio')
 
-    // //     const handleFavBtn = () => {
+    // const handleFavBtn = () => {
     //         if (!isFav) {
     //             boardgameService
     //                 .addFavBoardgame(id)

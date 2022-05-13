@@ -4,7 +4,7 @@ import authService from "../../services/auth.service"
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from './../../context/auth.context'
 
-const Loginform = () => {
+const Loginform = ({ closeModal }) => {
 
     const [loginData, setLoginData] = useState({
         password: '',
@@ -23,6 +23,7 @@ const Loginform = () => {
             .then(({ data }) => {
                 storeToken(data.authToken)
                 authenticateUser()
+                closeModal()
                 navigate('/')
             })
             .catch(err => console.log(err))

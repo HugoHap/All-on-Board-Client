@@ -57,6 +57,10 @@ class BoardGameService {
         return this.app.put(`/${id}/delete-favourite`)
     }
 
+    getBoardgameByName = input => {
+        return this.app.get(`/search-boardgame-by-name/${input}`)
+    }
+
 }
 
 const boardgameService = new BoardGameService()
