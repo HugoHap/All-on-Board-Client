@@ -24,26 +24,6 @@ const UserProfilePage = () => {
         }
     }, [user])
 
-    // const getUserProfile = () => {
-
-    //     userService
-    //         .getUserProfile()
-    //         .then(({ data }) => {
-    //             getUserProfile(data)
-    //         })
-    //         .catch(err => console.log(err))
-    // }
-
-    // const getMyBoardgames = () => {
-    //     userService
-    //         .getAllBoardGamesOneUser() //INVESTIGAR ESTO
-    //         .then(({ data }) => {
-    //             setMyBoardGames(data)
-    //         })
-    //         .catch(err => console.log(err))
-    // }
-    console.log(user)
-
     const getMymatches = () => {
         matchesService
             .myMatches()
