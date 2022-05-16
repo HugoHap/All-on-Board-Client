@@ -8,7 +8,7 @@ const UserMessage = () => {
 
     return (
         <ToastContainer className="p-3" position={'bottom-end'}>
-            <Toast show={show} autohide delay={3000} onClose={() => setShow(false)} >
+            <Toast show={show} autohide delay={6000} onClose={() => setShow(false)} >
                 <Toast.Header>
                     <img
                         src="holder.js/20x20?text=%20"

@@ -3,15 +3,27 @@ import { Form, Button, Modal } from "react-bootstrap"
 import authService from "../../services/auth.service"
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from './../../context/auth.context'
+import { MessageContext } from './../../context/message.context'
 
-const Loginform = ({ fireFinalActions }) => {
+const Loginform = () => {
 
     const [loginData, setLoginData] = useState({
         password: '',
         email: ''
     })
 
+    const { showMessage } = useContext(MessageContext)
+
+    const [showModal, setShowModal] = useState(false)
+    const closeModal = () => setShowModal(false)
+
     const navigate = useNavigate()
+
+    const fireFinalActions = () => {
+        closeModal()
+        // showMessage('LOGIN COMPLETE', 'LET´S START PLAYING')
+        console.log("HOLAAAAAAA")
+    }
 
     const { storeToken, authenticateUser } = useContext(AuthContext)
 
@@ -23,7 +35,10 @@ const Loginform = ({ fireFinalActions }) => {
             .then(({ data }) => {
                 storeToken(data.authToken)
                 authenticateUser()
+                // showMessage('Bienvenid@', 'Sesión iniciada correctamente')
+                // closeModal()
                 fireFinalActions()
+                navigate('/')
             })
             .catch(err => console.log(err))
     }

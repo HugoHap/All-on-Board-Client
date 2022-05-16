@@ -31,7 +31,6 @@ const CreateBoardgameForm = ({ fireFinalActions }) => {
             .createBoardgame(createBoargameData)
             .then(() => {
                 fireFinalActions()
-                navigate('/')
             })
             .catch(err => console.log(err))
     }

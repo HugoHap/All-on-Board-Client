@@ -100,12 +100,13 @@ const BoardgamesDetailsPage = () => {
                 <Link to="/boardgames">
                     <Button variant="dark">Back to Boardgames List</Button>
                 </Link>
-                <Link to={`/boardgames/${id}/edit`}>
-                    <Button variant="success">Edit</Button>
-                </Link>
-                <Link to={`/boardgames/${id}/delete`}>
-                    <Button variant="danger">Delete Game</Button>
-                </Link>
+
+                !isLoggedIn ?
+                <>
+                    <Link to={`/boardgames/${id}/delete`}>
+                        <Button variant="danger">Delete Game</Button>
+                    </Link>
+                </>
 
                 <Link to={`/boardgames/${id}`}>
                     <LikeButton btnState={btnState} handleLikeBtn={handleLikeBtn} />

@@ -1,7 +1,7 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Modal } from "react-bootstrap";
 import CreateBoardgameForm from "../../components/CreateBoardgameForm/CreateBoardgameForm.jsx"
 import { MessageContext } from './../../context/message.context'
-import { useState, useContext  } from "react"
+import { useState, useContext } from "react"
 
 const CreateBoardgamePage = () => {
 
@@ -12,15 +12,24 @@ const CreateBoardgamePage = () => {
     const closeModal = () => setShowModal(false)
 
     const fireFinalActions = () => {
-        showMessage('COMPLETE', 'NEW BOARDGAME CREATED')
         closeModal()
+        showMessage('COMPLETE', 'NEW BOARDGAME CREATED')
     }
+
 
     return (
         <Container>
             <Row>
                 <Col md={{ span: 6, offset: 3 }}>
-                    <CreateBoardgameForm fireFinalActions={fireFinalActions} />
+                    <Modal show={showModal} onHide={closeModal}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>CREATE NEW BOARDGAME</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <CreateBoardgameForm fireFinalActions={fireFinalActions} />
+                        </Modal.Body>
+
+                    </Modal>
                 </Col>
             </Row>
         </Container>
