@@ -13,6 +13,9 @@ const SignupForm = ({ fireFinalActions }) => {
         avatar: ''
     })
 
+    const [showModal, setShowModal] = useState(false)
+    const closeModal = () => setShowModal(false)
+
     const [loadingImage, setLoadingImage] = useState(false)
 
     const navigate = useNavigate()
@@ -29,7 +32,7 @@ const SignupForm = ({ fireFinalActions }) => {
             .signup(signupData)
             .then(() => {
                 fireFinalActions()
-                navigate('/')
+                navigate('/login')
             })
             .catch(err => console.log(err))
     }

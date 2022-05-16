@@ -31,11 +31,8 @@ const Navigation = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            {/* <NavLink to="/signup" className="nav-link">Signup</NavLink>
-                        <NavLink to="/login" className="nav-link">Login</NavLink>
-                        <NavLink to="/profile" className="nav-link">Profile</NavLink> */}
                             <NavLink to="/boardgames" className="nav-link">Boardgames</NavLink>
-                            <NavLink to="/match" className="nav-link">Matches</NavLink>
+
                             <Nav>
                                 {
                                     !isLoggedIn ?
@@ -49,6 +46,7 @@ const Navigation = () => {
                                         </>
                                         :
                                         <>
+                                            <NavLink to="/match" className="nav-link">Matches</NavLink>
                                             <NavLink to={`/profile`}>
                                                 <Nav.Link as="span">Profile</Nav.Link>
                                             </NavLink>

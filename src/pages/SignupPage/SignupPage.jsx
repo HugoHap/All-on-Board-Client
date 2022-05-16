@@ -1,20 +1,19 @@
 import { Container, Row, Col } from 'react-bootstrap'
 import SignupForm from '../../components/SignupForm/SignupForm'
-import { MessageContext } from './../../context/message.context'
 import { useState, useContext } from "react"
 
 const SignupPage = () => {
 
     const { showMessage } = useContext(MessageContext)
 
-    // const [showModal, setShowModal] = useState(false)
+    const [showModal, setShowModal] = useState(false)
 
     const closeModal = () => setShowModal(false)
 
     const fireFinalActions = () => {
-         // showMessage('SIGN UP COMPLETE', 'LOGIN AND START THE FANTASY')
-         closeModal()
- }
+        showMessage('SIGN UP COMPLETE', 'LOGIN AND START THE FANTASY')
+        closeModal()
+    }
 
     return (
         <Container>

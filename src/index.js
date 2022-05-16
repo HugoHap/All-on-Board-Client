@@ -12,10 +12,10 @@ import { MessageProviderWrapper } from './context/message.context';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Router>
-    <MessageProviderWrapper>
     <AuthProviderWrapper>
-      <App />
-      </AuthProviderWrapper>
-    </MessageProviderWrapper>
+      <MessageProviderWrapper>
+        <App />
+      </MessageProviderWrapper>
+    </AuthProviderWrapper>
   </Router>
 )

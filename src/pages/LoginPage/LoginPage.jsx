@@ -5,15 +5,17 @@ import { useState, useContext } from "react"
 
 const LoginPage = () => {
 
-    const { showMessage } = useContext(MessageContext)
-
     const [showModal, setShowModal] = useState(false)
 
     const closeModal = () => setShowModal(false)
 
+    const { showMessage } = useContext(MessageContext)
+
+    const handleModalClose = () => setShowModal(false)
+
     const fireFinalActions = () => {
-        showMessage('LOGIN COMPLETE', 'LET´S START PLAYING')
-        closeModal()
+        handleModalClose()
+        // showMessage('LOGED IN', 'START THE MAGIC')
     }
 
     return (

@@ -9,6 +9,7 @@ import MyMatchesCard from "../../components/MyMatchesCard/MyMatchesCard"
 import matchesService from "../../services/match.service"
 import BoardgameProfileCard from "../../components/BoardgameProfileCard/BoardgameProfileCard"
 import "./UserProfilePage.css"
+import { MessageContext } from './../../context/message.context'
 
 const UserProfilePage = () => {
 
@@ -21,6 +22,13 @@ const UserProfilePage = () => {
     const [showCreateBGModal, setShowCreateBGModal] = useState(false)
     const handleCreateBGModalClose = () => setShowCreateBGModal(false)
     const handleCreateBGModalOpen = () => setShowCreateBGModal(true)
+
+    const { showMessage } = useContext(MessageContext)
+
+    const fireFinalActions = () => {
+        handleCreateBGModalClose()
+        showMessage('COMPLETE', 'NEW BOARDGAME CREATED')
+    }
 
     useEffect(() => {
         if (user) {
@@ -45,50 +53,48 @@ const UserProfilePage = () => {
                 setMygames(data)
             })
             .catch(err => console.log(err))
-        
-        
     }
 
     return (
         user ?
-        <>
-            <Container>
+            <>
+                <Container>
 
-                <h1>Bienvenidx <strong>{user.username}</strong></h1>
-                <p>Email:</p><p>{user.email}</p>
-                <img className="ImgAvatar" src={user.avatar} alt="" />
-                <div>
-                    <Link to={`/edit`}>
-                        <Button variant="dark" type="">Edit profile</Button>
-                    </Link>
-                </div>
-                <div>
-                    <h4>TUS JUEGOS A PRESTAR</h4>
-                    <NavLink to='#' >
-                        <Nav.Link className='elm' as="span" onClick={handleCreateBGModalOpen}> <Button variant="dark" type="submit">Create Boardgame to rent</Button></Nav.Link>
-                    </NavLink>
-                </div>
-               
-                
+                    <h1>Bienvenidx <strong>{user.username}</strong></h1>
+                    <p>Email:</p><p>{user.email}</p>
+                    <img className="ImgAvatar" src={user.avatar} alt="" />
+                    <div>
+                        <Link to={`/edit`}>
+                            <Button variant="dark" type="">Edit profile</Button>
+                        </Link>
+                    </div>
+                    <div>
+                        <h4>TUS JUEGOS A PRESTAR</h4>
+                        <NavLink to='#' >
+                            <Nav.Link className='elm' as="span" onClick={handleCreateBGModalOpen}> <Button variant="dark" type="submit">Create Boardgame to rent</Button></Nav.Link>
+                        </NavLink>
+                    </div>
 
-                <div>
-                    <BoardgameProfileCard myGames={myGames} />
-                </div>
-                
 
-                <div>
-                    <MyMatchesCard myMatches={myMatches} />
-                </div>
 
-            </Container>
+                    <div>
+                        <BoardgameProfileCard myGames={myGames} />
+                    </div>
 
-            <Modal show={showCreateBGModal} onHide={handleCreateBGModalClose} size="lg">
-                <Modal.Header closeButton>
-                    <Modal.Title>Create Boardgame to rent</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <CreateBoardgameForm closeModal={handleCreateBGModalClose} />
-                </Modal.Body>
+
+                    <div>
+                        <MyMatchesCard myMatches={myMatches} />
+                    </div>
+
+                </Container>
+
+                <Modal show={showCreateBGModal} onHide={handleCreateBGModalClose} size="lg">
+                    <Modal.Header closeButton>
+                        <Modal.Title>Create Boardgame to rent</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <CreateBoardgameForm fireFinalActions={fireFinalActions} />
+                    </Modal.Body>
                 </Modal>
             </>
             :
