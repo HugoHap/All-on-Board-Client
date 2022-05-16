@@ -25,16 +25,18 @@ const MatchListPage = () => {
             .catch(err => console.log(err))
     }, [])
 
-    // const loadMatches = () => {
-    //     matchesService
-    //         .getAllMatches()
-    //         .then(({ data }) => setMatches(data))
-    //         .catch(err => console.log(err))
-    // }
+    const loadMatches = () => {
+        matchesService
+            .getAllMatches()
+            .then(({ data }) => setMatches(data))
+            .catch(err => console.log(err))
+    }
 
-    // const fireFinalActions = () => {
-    //     loadMatches()
-    // }
+    const fireFinalActions = () => {
+        loadMatches()
+        handleCreateMatchModalClose()
+
+    }
 
     // const { isLoggedIn } = useContext(AuthContext)
 
@@ -54,7 +56,7 @@ const MatchListPage = () => {
                     <Modal.Title>Create new match</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <CreateMatchForm closeModal={handleCreateMatchModalClose} />
+                    <CreateMatchForm fireFinalActions={fireFinalActions} />
                 </Modal.Body>
             </Modal>
         </>

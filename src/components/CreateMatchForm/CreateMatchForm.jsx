@@ -1,35 +1,57 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Form, Modal, Button } from "react-bootstrap"
-import { useNavigate } from 'react-router-dom'
-import BoardGameService from "../../services/boardgame.service"
+import boardgameService from "../../services/boardgame.service"
+// import { useNavigate } from 'react-router-dom'
+import matchesService from "../../services/match.service"
 
-const CreateMatchForm = () => {
+
+
+
+const CreateMatchForm = ({ fireFinalActions }) => {
 
     const [createMatchData, setCreateMatchData] = useState({
         description: '',
         startTime: '',
-        boardGame: '', //COMO LE PASO EL JUEGO?
+        boardGame: undefined,
         location: ''
     })
 
+    const [boardgamesData, setBoardgamesData] = useState([])
+
+    useEffect(() => {
+        boardgameService
+            .getOriginalBoardgames()
+            .then(({ data }) => {
+                setBoardgamesData(data)
+            })
+    }, [])
+
     const handleInputChange = e => {
-        const { value, name } = e.currentTarget
-        setCreateMatchData({ ...createMatchData, [name]: value })
+        const { name, value } = e.currentTarget
+
+        setCreateMatchData({
+            ...createMatchData,
+            [name]: value
+        })
     }
 
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
-    function handleSubmit(e) {
+    const handleSubmit = e => {
+
         e.preventDefault()
 
-        BoardGameService
+        matchesService
             .createMatch(createMatchData)
-            .then(() => navigate('/matches'))
+            .then(response => {
+                fireFinalActions()
+            })
             .catch(err => console.log(err))
     }
 
     const { description, startTime, boardGame, location } = createMatchData
 
+    console.log(boardgamesData[0]?._id)
     return (
 
         <Form onSubmit={handleSubmit}>
@@ -44,8 +66,18 @@ const CreateMatchForm = () => {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="boardGame">
-                <Form.Label>Boardgame</Form.Label>
-                <Form.Control type="text" onChange={handleInputChange} name="boardGame" value={boardGame} />
+                <Form.Label>Boardgame
+                    <select name="boardGame" value={boardGame} onChange={handleInputChange}>
+                        {
+                            boardgamesData?.map(game => {
+                                return (
+                                    <option value={game?._id}>{game?.name}</option>
+                                )
+
+                            })
+                        }
+                    </select>
+                </Form.Label>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="location">

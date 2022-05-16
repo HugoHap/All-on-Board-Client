@@ -38,7 +38,7 @@ const MatchDetailsPage = () => {
     }
 
     if (isLoading) {
-        const { organizer, description, startTime, boardGame } = matchDetails
+        const { organizer, description, startTime, boardGame, players } = matchDetails
 
 
         return (
@@ -65,11 +65,11 @@ const MatchDetailsPage = () => {
                         <div>
                             <>
                                 {
-                                    boardGame.players?.map((elm) => {
+                                    players?.map((elm) => {
                                         return <div key={elm._id}>
                                             <Card className='MyBoardGameCard'>
                                                 <Card.Body>
-                                                    <Card.Title>{elm.name}</Card.Title>
+                                                    <Card.Title>{elm.username}</Card.Title>
                                                 </Card.Body>
                                             </Card>
                                         </div>
