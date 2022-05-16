@@ -65,6 +65,10 @@ class BoardGameService {
         return this.app.get('/owngames')
     }
 
+    getOriginalBoardgames = () => {
+        return this.app.get('/originals')
+    }
+
 }
 
 const boardgameService = new BoardGameService()

@@ -58,7 +58,6 @@ const MatchDetailsPage = () => {
         const { organizer, description, startTime, boardGame, players } = matchDetails
 
 
-
         return (
             <Container>
                 <Row>

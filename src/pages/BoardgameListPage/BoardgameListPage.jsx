@@ -12,7 +12,7 @@ const BoardgamesListPage = () => {
 
     useEffect(() => {
         boardgameService
-            .getAllBoardgames()
+            .getOriginalBoardgames()
             .then(({ data }) => {
                 setAllBoardgames(data)
             })
