@@ -7,20 +7,20 @@ const SignupPage = () => {
 
     const { showMessage } = useContext(MessageContext)
 
-    const [showModal, setShowModal] = useState(false)
+    // const [showModal, setShowModal] = useState(false)
 
     const closeModal = () => setShowModal(false)
 
     const fireFinalActions = () => {
-        showMessage('SIGN UP COMPLETE', 'LOGIN AND START THE FANTASY')
-        closeModal()
-    }
+         // showMessage('SIGN UP COMPLETE', 'LOGIN AND START THE FANTASY')
+         closeModal()
+ }
 
     return (
         <Container>
             <Row>
                 <Col md={{ span: 6, offset: 3 }}>
-                    <SignupForm fireFinalActions={fireFinalActions} />
+                    <SignupFor fireFinalActions={fireFinalActions} />
                 </Col>
             </Row>
         </Container>

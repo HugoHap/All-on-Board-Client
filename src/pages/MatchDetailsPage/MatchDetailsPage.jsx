@@ -64,7 +64,7 @@ const MatchDetailsPage = () => {
                     <Col md={{ span: 4, offset: 1 }}>
                         <p>Organizer: {organizer?.username}</p>
                         <p>Description: {description}</p>
-                        <p>Starting Time: {startTime}</p>
+                        <p>Starting Time: {startTime.slice(0, 10)}</p>
                         <p>Boardgame: {boardGame.name}</p>
                         <p>Age: {boardGame.age}</p>
                         <p>Players: {boardGame.players.min}-{boardGame.players.max}</p>

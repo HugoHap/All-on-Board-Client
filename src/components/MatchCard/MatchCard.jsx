@@ -9,7 +9,7 @@ const MatchCard = ({ startTime, boardGame, _id }) => {
             <Card.Img src={boardGame.gameImg} />
             <Card.Body>
                 <p>{boardGame.name}</p>
-                <p> {startTime}</p>
+                <p> {startTime.slice(0, 10)}</p>
                 <div className="d-grid gap-2">
                     <Link to={`/match/${_id}`} className="btn btn-dark">Details</Link>
                 </div>

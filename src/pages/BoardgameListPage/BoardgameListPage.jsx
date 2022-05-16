@@ -24,9 +24,9 @@ const BoardgamesListPage = () => {
         <>
 
             <Container>
-                <SearchBar />
                 <h1>Boardgames List</h1>
                 <hr />
+                <SearchBar />
                 <BoardgamesList boardgames={allBoardgames} />
             </Container>
         </>
