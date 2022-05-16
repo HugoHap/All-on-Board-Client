@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import authService from "../../services/auth.service"
 import uploadService from "../../services/upload.service"
 
-const SignupForm = ({ closeModal }) => {
+const SignupForm = ({ fireFinalActions }) => {
 
     const [signupData, setSignupData] = useState({
         email: '',
@@ -28,8 +28,8 @@ const SignupForm = ({ closeModal }) => {
         authService
             .signup(signupData)
             .then(() => {
+                fireFinalActions()
                 navigate('/')
-                // closeModal()
             })
             .catch(err => console.log(err))
     }
