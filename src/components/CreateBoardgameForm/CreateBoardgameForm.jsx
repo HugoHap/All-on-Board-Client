@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import BoardGameService from "../../services/boardgame.service"
 import uploadService from "../../services/upload.service"
 
-const CreateBoardgameForm = () => {
+const CreateBoardgameForm = ({ fireFinalActions }) => {
 
     const [createBoargameData, setcreateBoargameData] = useState({
         name: '',
@@ -29,7 +29,10 @@ const CreateBoardgameForm = () => {
 
         BoardGameService
             .createBoardgame(createBoargameData)
-            .then(() => navigate('/profile'))
+            .then(() => {
+                fireFinalActions()
+                navigate('/')
+            })
             .catch(err => console.log(err))
     }
 
