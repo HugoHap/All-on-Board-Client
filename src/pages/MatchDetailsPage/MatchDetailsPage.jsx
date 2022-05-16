@@ -2,6 +2,23 @@ import { Container, Col, Row, Button, Card } from 'react-bootstrap'
 import { useEffect, useState } from "react"
 import matchesService from './../../services/match.service'
 import { useParams, Link, useNavigate } from 'react-router-dom'
+import {
+    GoogleMap,
+    Marker,
+    withGoogleMap,
+    withScriptjs,
+} from "react-google-maps";
+
+
+const MyMapComponent = withScriptjs(
+    withGoogleMap((props) => (
+        <GoogleMap defaultZoom={11} defaultCenter={{ lat: 40.415600407004575, lng: -3.6813260603979545 }}>
+            {props.isMarkerShown && (
+                <Marker position={{ lat: 40.39002570698726, lng: -3.695228954972823 }} />
+            )}
+        </GoogleMap>
+    ))
+);
 
 
 const MatchDetailsPage = () => {
@@ -38,7 +55,8 @@ const MatchDetailsPage = () => {
     }
 
     if (isLoading) {
-        const { organizer, description, startTime, boardGame } = matchDetails
+        const { organizer, description, startTime, boardGame, players } = matchDetails
+
 
 
         return (
@@ -65,11 +83,11 @@ const MatchDetailsPage = () => {
                         <div>
                             <>
                                 {
-                                    boardGame.players?.map((elm) => {
+                                    players?.map((elm) => {
                                         return <div key={elm._id}>
                                             <Card className='MyBoardGameCard'>
                                                 <Card.Body>
-                                                    <Card.Title>{elm.name}</Card.Title>
+                                                    <Card.Title>{elm.username}</Card.Title>
                                                 </Card.Body>
                                             </Card>
                                         </div>
@@ -83,7 +101,15 @@ const MatchDetailsPage = () => {
                 <Col md={{ span: 6 }}>
                     <img style={{ width: '100%' }} src={boardGame.gameImg} alt={boardGame.name} />
                 </Col>
-            </Container >
+
+                <MyMapComponent
+                    isMarkerShown
+                    googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTfrEJjFOyJQ3p3WbSYP0yNoasqELJNFY&v=3.exp&libraries=geometry,drawing,places"
+                    loadingElement={<div style={{ height: `100%` }} />}
+                    containerElement={<div style={{ height: `400px` }} />}
+                    mapElement={<div style={{ height: `100%` }} />}
+                />
+            </Container>
         )
     }
 }

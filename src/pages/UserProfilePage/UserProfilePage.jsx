@@ -56,7 +56,7 @@ const UserProfilePage = () => {
 
                 <h1>Bienvenidx <strong>{user.username}</strong></h1>
                 <p>Email:</p><p>{user.email}</p>
-                <img src={user.avatar} alt="" />
+                <img className="ImgAvatar" src={user.avatar} alt="" />
                 <div>
                     <Link to={`/edit`}>
                         <Button variant="dark" type="">Edit profile</Button>
