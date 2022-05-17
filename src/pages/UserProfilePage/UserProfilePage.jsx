@@ -69,9 +69,9 @@ const UserProfilePage = () => {
                         </Link>
                     </div>
                     <div>
-                        <h4>TUS JUEGOS A PRESTAR</h4>
+                        <h4>MY GAMES TO RENT</h4>
                         <NavLink to='#' >
-                            <Nav.Link className='elm' as="span" onClick={handleCreateBGModalOpen}> <Button variant="dark" type="submit">Create Boardgame to rent</Button></Nav.Link>
+                            <Nav.Link className='elm' onClick={handleCreateBGModalOpen}> <Button variant="dark" type="submit">Create Boardgame to rent</Button></Nav.Link>
                         </NavLink>
                     </div>
 
@@ -83,6 +83,7 @@ const UserProfilePage = () => {
 
 
                     <div>
+                        <h4>MY MATCHES</h4>
                         <MyMatchesCard myMatches={myMatches} />
                     </div>
 

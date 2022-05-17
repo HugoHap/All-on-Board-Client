@@ -46,7 +46,7 @@ const IndexPage = () => {
             </Link> */}
 
             
-            <h4>RANKING TOP 8</h4>
+            <h4>TOP 8 MOST LIKED BOARDGAMES</h4>
             <Carousel>
                 <Carousel.Item>
                     <Row>
