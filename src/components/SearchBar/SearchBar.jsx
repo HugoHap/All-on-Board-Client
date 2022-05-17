@@ -26,7 +26,7 @@ const SearchBar = () => {
     return (
         <div className='searchbox'>
             <div className='searchbar'>
-                <input type='text' placeholder='Search games' onChange={handleSearch} />
+                <input type='text' placeholder='Search games...' onChange={handleSearch} />
                 {/* <Link to={'/search-boardgame-by-name/:input'}>
                     <Button className='button btn-dark'>Search</Button>
                 </Link> */}

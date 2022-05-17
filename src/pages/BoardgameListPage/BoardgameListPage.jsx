@@ -28,6 +28,7 @@ const BoardgamesListPage = () => {
                 <h1>Boardgames List</h1>
                 <hr />
                 <SearchBar />
+
                 <BoardgamesList boardgames={allBoardgames[0]} />
             </Container>
         </>

@@ -40,9 +40,6 @@ const IndexPage = () => {
         <Container>
             <h1>WELCOME ON BOARD</h1>
             <hr />
-            {/* <Link to="/boardgames">
-                <Button variant="dark" size='lg'>BOARD GAMES</Button>
-            </Link> */}
 
             
             <h4>TOP 8 MOST LIKED BOARDGAMES</h4>
