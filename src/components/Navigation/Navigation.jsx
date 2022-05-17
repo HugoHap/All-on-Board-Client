@@ -6,18 +6,22 @@ import { AuthContext } from '../../context/auth.context'
 import LoginForm from '../LoginForm/LoginForm'
 import SignupForm from '../SignupForm/SignupForm'
 
-
 const Navigation = () => {
 
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext)
 
     const [showLoginModal, setShowLoginModal] = useState(false)
-    const handleLoginModalClose = () => setShowLoginModal(false)
-    const handleLoginModalOpen = () => setShowLoginModal(true)
+    const LoginModalClose = () => setShowLoginModal(false)
+    const LoginModalOpen = () => setShowLoginModal(true)
 
     const [showSignupModal, setShowSignupModal] = useState(false)
-    const handleSignupModalClose = () => setShowSignupModal(false)
-    const handleSignupModalOpen = () => setShowSignupModal(true)
+    const SignupModalClose = () => setShowSignupModal(false)
+    const SignupModalOpen = () => setShowSignupModal(true)
+
+    const fireFinalActions = () => {
+        LoginModalClose()
+        SignupModalClose()
+    }
 
     return (
         <>
@@ -38,10 +42,11 @@ const Navigation = () => {
                                     !isLoggedIn ?
                                         <>
                                             <NavLink to='#'>
-                                                <Nav.Link className='elm' as="span" onClick={handleSignupModalOpen} >Signup</Nav.Link>
+                                                <Nav.Link className='elm' as="span" onClick={SignupModalOpen}>Signup</Nav.Link>
                                             </NavLink>
+
                                             <NavLink to='#'>
-                                                <Nav.Link className='elm' as="span" onClick={handleLoginModalOpen}>Login</Nav.Link>
+                                                <Nav.Link className='elm' as="span" onClick={LoginModalOpen}>Login</Nav.Link>
                                             </NavLink>
                                         </>
                                         :
@@ -51,7 +56,7 @@ const Navigation = () => {
                                                 <Nav.Link as="span">Profile</Nav.Link>
                                             </NavLink>
                                             <NavLink to={`/`}>
-                                                <div className="nav-link" onClick={logOutUser}>Cerrar sesión</div>
+                                                <div className="nav-link" onClick={logOutUser}>Logout</div>
                                             </NavLink>
                                         </>
                                 }
@@ -61,21 +66,21 @@ const Navigation = () => {
                 </Container>
             </Navbar>
 
-            <Modal show={showSignupModal} onHide={handleSignupModalClose} size="lg">
+            <Modal show={showSignupModal} onHide={SignupModalClose} size="lg">
                 <Modal.Header closeButton>
                     <Modal.Title>Signup</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <SignupForm closeModal={handleSignupModalClose} />
+                    <SignupForm fireFinalActions={fireFinalActions} />
                 </Modal.Body>
             </Modal>
 
-            <Modal show={showLoginModal} onHide={handleLoginModalClose} size="lg">
+            <Modal show={showLoginModal} onHide={LoginModalClose} size="lg">
                 <Modal.Header closeButton>
                     <Modal.Title>Login</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <LoginForm closeModal={handleLoginModalClose} />
+                    <LoginForm fireFinalActions={fireFinalActions} />
                 </Modal.Body>
             </Modal>
         </>

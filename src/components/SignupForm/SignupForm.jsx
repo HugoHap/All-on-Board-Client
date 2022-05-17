@@ -8,14 +8,13 @@ const SignupForm = ({ fireFinalActions }) => {
 
     const [signupData, setSignupData] = useState({
         email: '',
+        description: '',
         username: '',
         password: '',
         avatar: ''
     })
 
-    const [showModal, setShowModal] = useState(false)
-    const closeModal = () => setShowModal(false)
-
+    // const [showModal, setShowModal] = useState(false)
     const [loadingImage, setLoadingImage] = useState(false)
 
     const navigate = useNavigate()
@@ -32,12 +31,12 @@ const SignupForm = ({ fireFinalActions }) => {
             .signup(signupData)
             .then(() => {
                 fireFinalActions()
-                navigate('/login')
+                navigate('/')
             })
             .catch(err => console.log(err))
     }
 
-    const { email, username, password } = signupData
+    const { email, username, password, description } = signupData
 
     // PARA CLOUDINARY
     const handleImageUpload = (e) => {
@@ -72,6 +71,11 @@ const SignupForm = ({ fireFinalActions }) => {
             <Form.Group className="mb-3" controlId="password">
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" onChange={handleInputChange} name="password" value={password} />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="description">
+                <Form.Label>Description</Form.Label>
+                <Form.Control type="text" onChange={handleInputChange} name="description" value={description} />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="avatar">

@@ -35,7 +35,6 @@ const MatchListPage = () => {
     const fireFinalActions = () => {
         loadMatches()
         handleCreateMatchModalClose()
-
     }
 
     // const { isLoggedIn } = useContext(AuthContext)
@@ -43,10 +42,10 @@ const MatchListPage = () => {
 
     return (
         <>
-
             <Container>
                 <h1>Matches list</h1>
-                <NavLink to='#'>
+                <hr></hr>
+                <NavLink to='#' >
                     <Nav.Link className='elm' as="span" onClick={handleCreateMatchModalOpen}><Button variant="dark" type="">Create new match</Button></Nav.Link>
                 </NavLink>
                 <MatchesList matches={matches} />
@@ -56,7 +55,7 @@ const MatchListPage = () => {
                 <Modal.Header closeButton>
                     <Modal.Title>Create new match</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body >
                     <CreateMatchForm fireFinalActions={fireFinalActions} />
                 </Modal.Body>
             </Modal>

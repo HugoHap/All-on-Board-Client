@@ -17,7 +17,6 @@ const MyBoardgames = () => {
 
     const getMyBoardgames = () => {
         userService
-            // .getAllBoardGamesOneUser() //INVESTIGAR HUGO
             .then(({ data }) => {
                 setMyBoardgames(data)
                 setIsLoaded(true)
@@ -29,7 +28,8 @@ const MyBoardgames = () => {
         <>
             {
                 isLoaded && myBoardgames.map(eachBoardgame => {
-                    return <p key={eachBoardgame._id}>{eachBoardgame.name}{eachBoardgame.gameImg}</p>
+                    return <p key={eachBoardgame._id}>
+                        {eachBoardgame.name}{eachBoardgame.gameImg}</p>
                 })
             }
             <hr />

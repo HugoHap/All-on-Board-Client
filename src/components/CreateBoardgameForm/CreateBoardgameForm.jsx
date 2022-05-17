@@ -8,11 +8,7 @@ const CreateBoardgameForm = ({ fireFinalActions }) => {
 
     const [createBoargameData, setcreateBoargameData] = useState({
         name: '',
-        description: '',
-        playingTime: '',
-        age: '',
         gameImg: '',
-        players: ''
     })
 
     const [loadingImage, setLoadingImage] = useState(false)
@@ -52,7 +48,7 @@ const CreateBoardgameForm = ({ fireFinalActions }) => {
             .catch(err => console.log(err))
     }
 
-    const { name, description, playingTime, age, gameImg, players } = createBoargameData
+    const { name } = createBoargameData
 
     return (
 
@@ -62,7 +58,7 @@ const CreateBoardgameForm = ({ fireFinalActions }) => {
                 <Form.Control type="text" onChange={handleInputChange} name="name" value={name} />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="description">
+            {/* <Form.Group className="mb-3" controlId="description">
                 <Form.Label>Description</Form.Label>
                 <Form.Control type="text" onChange={handleInputChange} name="description" value={description} />
             </Form.Group>
@@ -85,7 +81,7 @@ const CreateBoardgameForm = ({ fireFinalActions }) => {
             <Form.Group className="mb-3" controlId="players.max">
                 <Form.Label>Max. Players</Form.Label>
                 <Form.Control type="text" onChange={handleInputChange} name="max" value={players.max} />
-            </Form.Group>
+            </Form.Group> */}
 
             <Form.Group className="mb-3" controlId="gameImg">
                 <Form.Label>Image</Form.Label>

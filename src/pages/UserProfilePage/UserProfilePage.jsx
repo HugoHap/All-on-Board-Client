@@ -61,17 +61,14 @@ const UserProfilePage = () => {
                 <Container>
 
                     <h1>Bienvenidx <strong>{user.username}</strong></h1>
-                    <p>Email:</p><p>{user.email}</p>
+                    <p>Email: <strong> {user.email}</strong></p>
+                    <p>Description: <strong> {user.description}</strong></p>
                     <img className="ImgAvatar" src={user.avatar} alt="" />
+
                     <div>
-                        <Link to={`/edit`}>
-                            <Button variant="dark" type="">Edit profile</Button>
-                        </Link>
-                    </div>
-                    <div>
-                        <h4>TUS JUEGOS A PRESTAR</h4>
+                        <h4>MY GAMES TO RENT</h4>
                         <NavLink to='#' >
-                            <Nav.Link className='elm' as="span" onClick={handleCreateBGModalOpen}> <Button variant="dark" type="submit">Create Boardgame to rent</Button></Nav.Link>
+                            <Nav.Link className='elm' onClick={handleCreateBGModalOpen}> <Button variant="dark" type="submit">Create Boardgame to rent</Button></Nav.Link>
                         </NavLink>
                     </div>
 
@@ -83,6 +80,7 @@ const UserProfilePage = () => {
 
 
                     <div>
+                        <h4>MY MATCHES</h4>
                         <MyMatchesCard myMatches={myMatches} />
                     </div>
 

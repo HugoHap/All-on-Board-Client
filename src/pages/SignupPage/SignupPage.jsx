@@ -19,7 +19,7 @@ const SignupPage = () => {
         <Container>
             <Row>
                 <Col md={{ span: 6, offset: 3 }}>
-                    <SignupFor fireFinalActions={fireFinalActions} />
+                    <SignupForm fireFinalActions={fireFinalActions} />
                 </Col>
             </Row>
         </Container>

@@ -24,12 +24,12 @@ const SearchBar = () => {
     console.log(search)
 
     return (
-        <div>
+        <div className='searchbox'>
             <div className='searchbar'>
                 <input type='text' placeholder='Search games' onChange={handleSearch} />
-                <Link to={'/search-boardgame-by-name/:input'}>
+                {/* <Link to={'/search-boardgame-by-name/:input'}>
                     <Button className='button btn-dark'>Search</Button>
-                </Link>
+                </Link> */}
             </div>
             <div>
                 {
@@ -37,7 +37,6 @@ const SearchBar = () => {
                         <div className='dropdown'>
                             {
                                 search.map(game => {
-                                    console.log("mapsearchbar-----", game)
                                     return (
                                         <Link key={game?.id} to={`/boardgames/${game._id}`}>
                                             <p className='search'><img src={game.gameImg} alt={game.name} />{game.name}</p>
