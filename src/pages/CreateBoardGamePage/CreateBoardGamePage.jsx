@@ -8,14 +8,12 @@ const CreateBoardgamePage = () => {
     const { showMessage } = useContext(MessageContext)
 
     const [showModal, setShowModal] = useState(false)
-
     const closeModal = () => setShowModal(false)
 
     const fireFinalActions = () => {
         closeModal()
         showMessage('COMPLETE', 'NEW BOARDGAME CREATED')
     }
-
 
     return (
         <Container>

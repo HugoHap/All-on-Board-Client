@@ -8,7 +8,6 @@ const MatchesList = ({matches}) => {
         <Row>
             {
                 matches.map( match => {
-                    console.log(match)
                     return (
                         <Col md={{span:4}} key={match._id}>
                             <MatchCard {...match} />

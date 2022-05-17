@@ -4,9 +4,6 @@ import boardgameService from "../../services/boardgame.service"
 // import { useNavigate } from 'react-router-dom'
 import matchesService from "../../services/match.service"
 
-
-
-
 const CreateMatchForm = ({ fireFinalActions }) => {
 
     const [createMatchData, setCreateMatchData] = useState({
@@ -43,7 +40,7 @@ const CreateMatchForm = ({ fireFinalActions }) => {
 
         matchesService
             .createMatch(createMatchData)
-            .then(response => {
+            .then(() => {
                 fireFinalActions()
             })
             .catch(err => console.log(err))
@@ -92,7 +89,7 @@ const CreateMatchForm = ({ fireFinalActions }) => {
             </Container>
 
             <Modal.Footer>
-                <Button variant="dark" type="submit">Create match</Button>
+                <Button variant="dark" className="form-button" type="submit" >Create match</Button>
             </Modal.Footer>
         </Form>
     )

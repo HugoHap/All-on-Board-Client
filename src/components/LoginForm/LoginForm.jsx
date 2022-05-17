@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { AuthContext } from './../../context/auth.context'
 import { MessageContext } from './../../context/message.context'
 
-const Loginform = () => {
+const Loginform = ({ fireFinalActions }) => {
 
     const [loginData, setLoginData] = useState({
         password: '',
@@ -15,15 +15,8 @@ const Loginform = () => {
     const { showMessage } = useContext(MessageContext)
 
     const [showModal, setShowModal] = useState(false)
-    const closeModal = () => setShowModal(false)
 
     const navigate = useNavigate()
-
-    const fireFinalActions = () => {
-        closeModal()
-        // showMessage('LOGIN COMPLETE', 'LET´S START PLAYING')
-        console.log("HOLAAAAAAA")
-    }
 
     const { storeToken, authenticateUser } = useContext(AuthContext)
 
@@ -36,7 +29,6 @@ const Loginform = () => {
                 storeToken(data.authToken)
                 authenticateUser()
                 // showMessage('Bienvenid@', 'Sesión iniciada correctamente')
-                // closeModal()
                 fireFinalActions()
                 navigate('/')
             })
