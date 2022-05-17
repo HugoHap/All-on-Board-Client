@@ -3,7 +3,7 @@ import boardgameService from "../../services/boardgame.service.js"
 import { Container } from "react-bootstrap";
 import BoardgamesList from "../../components/BoardgamesList/BoardgamesList.jsx";
 import SearchBar from "../../components/SearchBar/SearchBar"
-
+import './BoardgameListPage.css'
 
 
 const BoardgamesListPage = () => {
@@ -23,13 +23,12 @@ const BoardgamesListPage = () => {
 
     return (
         <>
-
-            <Container>
-                <h1>Boardgames List</h1>
-                <hr />
-                <SearchBar />
-
-                <BoardgamesList boardgames={allBoardgames[0]} />
+            <Container className="BoardgameListContainer">
+                <div clasName="BoardgamesList">
+                    <h1 className="BoardgamesListTitle">Boardgames List</h1>
+                </div>
+                <div><SearchBar /></div>
+                <div> <BoardgamesList boardgames={allBoardgames[0]} /></div>
             </Container>
         </>
     )
