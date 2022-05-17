@@ -18,6 +18,10 @@ class CommentService {
         })
     }
 
+    getCommentsBoardgame = (id) => {
+        return this.app.get(`/${id}`)
+    }
+
     createComment = (id, comment) => {
         return this.app.post(`/${id}/create`, comment)
     }

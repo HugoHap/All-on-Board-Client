@@ -1,12 +1,14 @@
 import { useState, useEffect, useContext } from 'react'
 import { AuthContext } from '../../context/auth.context'
 import { useParams, Link } from 'react-router-dom'
-import { Container, Row, Col, Button } from 'react-bootstrap'
+import { Container, Row, Col, Button, FloatingLabel, Form, Modal } from 'react-bootstrap'
 import boardgameService from '../../services/boardgame.service'
 import RentCard from '../../components/RentCard/RentCard'
 // import FavBtn from '../../components/FavBtn/FavBtn'
 import LikeButton from '../../components/LikeButton/LikeButton'
 import DislikeButton from '../../components/DislikeButton/DislikeButton'
+import CommentCard from '../../components/CommentCard/CommentCard'
+import commentService from '../../services/comment.service'
 
 const BoardgamesDetailsPage = () => {
 
@@ -16,9 +18,16 @@ const BoardgamesDetailsPage = () => {
 
     const { id } = useParams()
 
+    const [createCommentData, setCreateCommentData] = useState({
+        content: '',
+    })
+
+
     useEffect(() => {
         getDetails()
     }, [])
+
+
 
     const getDetails = () => {
 
@@ -30,6 +39,50 @@ const BoardgamesDetailsPage = () => {
             })
             .catch(err => console.log(err))
     }
+
+    const handleInputChange = e => {
+        const { name, value } = e.currentTarget
+
+        setCreateCommentData({
+            ...createCommentData,
+            [name]: value,
+        })
+    }
+
+    const { content } = createCommentData
+
+    const handleSubmit = e => {
+
+        e.preventDefault()
+
+        commentService
+            .createComment(id, createCommentData)
+            .then(() => {
+                fireFinalActions()
+                setCreateCommentData({ content: "" })
+            })
+            .catch(err => console.log(err))
+        
+        
+    }
+
+    const loadComments = () => {
+        commentService
+            .getCommentsBoardgame(id)
+            .then(({ data }) => {
+                setCreateCommentData(data)
+            })
+            .catch(err => console.log(err))
+        
+        
+    }
+
+    const fireFinalActions = () => {
+        loadComments()
+        console.log("me ejecuto firefinal");
+    }
+
+
 
     //FAV BOARDGAME
     // const [isFav, setIsFav] = useState()
@@ -129,6 +182,24 @@ const BoardgamesDetailsPage = () => {
             <Row>
                 <RentCard boardgameDetails={boardgameDetails[1]} />
             </Row>
+
+            <CommentCard fireFinalActions={fireFinalActions} />
+
+            <Form onSubmit={handleSubmit}>
+                <FloatingLabel controlId="floatingTextarea2" label="Comments">
+                    <Form.Control
+                        as="textarea"
+                        placeholder="Leave a comment here"
+                        style={{ height: '100px' }}
+                        name="content"
+                        value={content}
+                        onChange={handleInputChange}
+                    />
+                </FloatingLabel>
+                <Button variant="dark" className="form-button" type="submit" >Comment</Button>
+
+            </Form>
+
 
         </Container>
     )
