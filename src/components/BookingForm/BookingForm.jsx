@@ -57,7 +57,7 @@ const BookingForm = () => {
         e.preventDefault()
 
         bookingsService
-            .createBooking(id,bookingState)
+            .createBooking(id, bookingState)
             .then(() => {
                 navigate(`/profile`)
             })
@@ -79,36 +79,36 @@ const BookingForm = () => {
         return blocked
     }
 
-return (
-    <article>
-        {
-            <>
-                <div>
-                    {
-                        <DateRangePicker
+    return (
+        <article>
+            {
+                <>
+                    <div>
+                        {
+                            <DateRangePicker
 
-                            startDate={startDate}
-                            startDateId="your_unique_start_date_id"
-                            endDate={endDate}
-                            endDateId="your_unique_end_date_id"
-                            onDatesChange={({ startDate, endDate }) => handleInputChange(startDate, endDate)}
+                                startDate={startDate}
+                                startDateId="your_unique_start_date_id"
+                                endDate={endDate}
+                                endDateId="your_unique_end_date_id"
+                                onDatesChange={({ startDate, endDate }) => handleInputChange(startDate, endDate)}
 
-                            focusedInput={focusedInput}
-                            onFocusChange={focusedInput => setFocusedInput(focusedInput)}
-                            isDayBlocked={isBlocked}
-                        />
+                                focusedInput={focusedInput}
+                                onFocusChange={focusedInput => setFocusedInput(focusedInput)}
+                                isDayBlocked={isBlocked}
+                            />
 
-                    }
-                </div>
+                        }
+                    </div>
 
-                <Form onSubmit={handleSubmit}>
-                    <Button className="myBtn" variant="dark" type="submit" >Send Booking</Button>
-                </Form>
-            </>
-        }
+                    <Form onSubmit={handleSubmit}>
+                        <Button className="myBtn" variant="dark" type="submit" >Send Booking</Button>
+                    </Form>
+                </>
+            }
 
-    </article>
-)
+        </article>
+    )
 }
 
 export default BookingForm

@@ -4,6 +4,23 @@ import boardgameService from "../../services/boardgame.service"
 // import { useNavigate } from 'react-router-dom'
 import matchesService from "../../services/match.service"
 
+import {
+    GoogleMap,
+    Marker,
+    withGoogleMap,
+    withScriptjs,
+} from "react-google-maps"
+
+const MyMapComponent = withScriptjs(
+    withGoogleMap((props) => (
+        <GoogleMap defaultZoom={11} defaultCenter={{ lat: 40.415600407004575, lng: -3.6813260603979545 }}>
+            {props.isMarkerShown && (
+                <Marker position={{ lat: 40.39002570698726, lng: -3.695228954972823 }} />
+            )}
+        </GoogleMap>
+    ))
+)
+
 const CreateMatchForm = ({ fireFinalActions }) => {
 
     const [createMatchData, setCreateMatchData] = useState({
@@ -85,6 +102,14 @@ const CreateMatchForm = ({ fireFinalActions }) => {
                             <Form.Control type="text" onChange={handleInputChange} name="location" value={location} />
                         </Form.Group>
                     </Col>
+                    <MyMapComponent
+                        isMarkerShown
+                        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTfrEJjFOyJQ3p3WbSYP0yNoasqELJNFY&v=3.exp&libraries=geometry,drawing,places"
+                        loadingElement={<div style={{ height: `100%` }} />}
+                        containerElement={<div style={{ height: `400px` }} />}
+                        mapElement={<div style={{ height: `100%` }} />}
+                    />
+
                 </Row>
             </Container>
 
