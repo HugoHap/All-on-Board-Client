@@ -13,6 +13,7 @@ const MyMatchesCard = ({ myMatches }) => {
                             <Link to={`/match/${elm._id}`}>
                                 <Card.Body>
                                     <Card.Title>{elm.description}</Card.Title>
+                                    <p>{elm.startTime}</p>
                                 </Card.Body>
                             </Link>
                         </Card>

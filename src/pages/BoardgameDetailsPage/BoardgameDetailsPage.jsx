@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import { AuthContext } from '../../context/auth.context'
 import { useParams, Link } from 'react-router-dom'
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import boardgameService from '../../services/boardgame.service'
@@ -8,6 +9,8 @@ import LikeButton from '../../components/LikeButton/LikeButton'
 import DislikeButton from '../../components/DislikeButton/DislikeButton'
 
 const BoardgamesDetailsPage = () => {
+
+    const { isLoggedIn, user, logOutUser } = useContext(AuthContext)
 
     const [boardgameDetails, setBoardgameDetails] = useState([])
 
@@ -97,21 +100,31 @@ const BoardgamesDetailsPage = () => {
                 <Col md={{ span: 6 }}>
                     <img style={{ width: '100%' }} src={boardgameDetails[0]?.gameImg} alt={boardgameDetails[0]?.name} />
                 </Col>
-                <Link to="/boardgames">
-                    <Button variant="dark">Back to Boardgames List</Button>
-                </Link>
 
-                !isLoggedIn ?
-                <>
-                    <Link to={`/boardgames/${id}/delete`}>
-                        <Button variant="danger">Delete Game</Button>
-                    </Link>
-                </>
+                {
+                    !isLoggedIn ?
+                        <>
+                            <Link to="/boardgames">
+                                <Button variant="dark">Back to Boardgames List</Button>
+                            </Link>
+                        </>
+                        :
+                        <>
+                            <Link to={`/boardgames/${id}`}>
+                                <LikeButton btnState={btnState} handleLikeBtn={handleLikeBtn} />
+                                <DislikeButton btnState={btnState} handleDislikeBtn={handleDislikeBtn} />
+                            </Link>
 
-                <Link to={`/boardgames/${id}`}>
-                    <LikeButton btnState={btnState} handleLikeBtn={handleLikeBtn} />
-                    <DislikeButton btnState={btnState} handleDislikeBtn={handleDislikeBtn} />
-                </Link>
+                            <Link to="/boardgames">
+                                <Button variant="dark">Back to Boardgames List</Button>
+                            </Link>
+
+                            <Link to={`/boardgames/${id}/delete`}>
+                                <Button variant="danger">Delete Game</Button>
+                            </Link>
+                        </>
+                }
+
             </Row>
             <Row>
                 <RentCard boardgameDetails={boardgameDetails[1]} />

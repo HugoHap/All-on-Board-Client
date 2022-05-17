@@ -61,13 +61,10 @@ const UserProfilePage = () => {
                 <Container>
 
                     <h1>Bienvenidx <strong>{user.username}</strong></h1>
-                    <p>Email:</p><p>{user.email}</p>
+                    <p>Email: <strong> {user.email}</strong></p>
+                    <p>Description: <strong> {user.description}</strong></p>
                     <img className="ImgAvatar" src={user.avatar} alt="" />
-                    <div>
-                        <Link to={`/edit`}>
-                            <Button variant="dark" type="">Edit profile</Button>
-                        </Link>
-                    </div>
+
                     <div>
                         <h4>TUS JUEGOS A PRESTAR</h4>
                         <NavLink to='#' >

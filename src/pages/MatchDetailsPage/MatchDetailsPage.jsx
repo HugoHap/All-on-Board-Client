@@ -1,5 +1,6 @@
-import { Container, Col, Row, Button, Card } from 'react-bootstrap'
-import { useEffect, useState } from "react"
+import { Container, Col, Row, Button, Card, Nav } from 'react-bootstrap'
+import { useContext, useState, useEffect } from 'react'
+import { AuthContext } from '../../context/auth.context'
 import matchesService from './../../services/match.service'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import {
@@ -8,7 +9,6 @@ import {
     withGoogleMap,
     withScriptjs,
 } from "react-google-maps";
-
 
 const MyMapComponent = withScriptjs(
     withGoogleMap((props) => (
@@ -20,9 +20,7 @@ const MyMapComponent = withScriptjs(
     ))
 );
 
-
 const MatchDetailsPage = () => {
-
 
     const [matchDetails, setMatchDetails] = useState()
     const [isLoading, setIsLoading] = useState(false)
@@ -54,6 +52,8 @@ const MatchDetailsPage = () => {
 
     }
 
+    const { isLoggedIn } = useContext(AuthContext)
+
     if (isLoading) {
         const { organizer, description, startTime, boardGame, players } = matchDetails
 
@@ -68,18 +68,31 @@ const MatchDetailsPage = () => {
                         <p>Boardgame: {boardGame.name}</p>
                         <p>Age: {boardGame.age}</p>
                         <p>Players: {boardGame.players.min}-{boardGame.players.max}</p>
-                        <Link to="/match">
-                            <Button variant="dark">Back to Matches</Button>
-                        </Link>
-                        <Link to={`/match/${id}/edit`}>
-                            <Button variant="success">Edit</Button>
-                        </Link>
-                        <Link to={`/match/${id}/delete`}>
-                            <Button variant="danger">Delete Match</Button>
-                        </Link>
+                        <Nav>
+                            {
+                                !isLoggedIn ?
+                                    <>
+                                        <Link to="/match">
+                                            <Button variant="dark">Back to Matches</Button>
+                                        </Link>
 
-                        <Button onClick={() => joinMatch(id)} variant="dark">Join Match</Button>
+                                    </>
+                                    :
+                                    <>
+                                        <Link to="/match">
+                                            <Button variant="dark">Back to Matches</Button>
+                                        </Link>
+
+                                        <Link to={`/match/${id}/delete`}>
+                                            <Button variant="danger">Delete Match</Button>
+                                        </Link>
+
+                                        <Button onClick={() => joinMatch(id)} variant="dark">Join Match</Button>
+                                    </>
+                            }
+                        </Nav>
                         <div>
+
                             <>
                                 {
                                     players?.map((elm) => {
