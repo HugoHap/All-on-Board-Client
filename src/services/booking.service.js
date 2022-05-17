@@ -26,15 +26,15 @@ class BookingsService {
     }
 
     getOneBooking = id => {
-        return this.app.get(`/booking_${id}`)
+        return this.app.get(`/${id}`)
     }
 
     editBooking = (id, bookingInfo) => {
-        return this.app.put(`/booking_${id}/edit`, bookingInfo)
+        return this.app.put(`/${id}/edit`, bookingInfo)
     }
 
     deleteBooking = id => {
-        return this.app.delete(`/booking_${id}/delete`)
+        return this.app.delete(`/${id}/delete`)
     }
 
 }

@@ -35,7 +35,6 @@ const IndexPage = () => {
             slidesToSlide: 1 // optional, default to 1.
         }
     };
-    console.log(rankGames[1]);
 
     return (
         <Container>

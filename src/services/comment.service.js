@@ -18,7 +18,7 @@ class CommentService {
         })
     }
 
-    createComment = comment => {
+    createComment = (id, comment) => {
         return this.app.post(`/${id}/create`, comment)
     }
 

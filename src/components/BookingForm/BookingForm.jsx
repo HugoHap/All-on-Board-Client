@@ -5,7 +5,10 @@ import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import { DateRangePicker } from 'react-dates'
 import bookingsService from "../../services/booking.service"
+import Moment from 'moment';
+import { extendMoment } from 'moment-range';
 
+const moment = extendMoment(Moment);
 
 const BookingForm = () => {
 
@@ -16,6 +19,8 @@ const BookingForm = () => {
     const [endDate, setEndDate] = useState()
 
     const [focusedInput, setFocusedInput] = useState()
+
+    const [bookings, setBookings] = useState()
 
     const [bookingState, setBookingState] = useState({
         startDate: '',
@@ -31,13 +36,21 @@ const BookingForm = () => {
     }
 
     useEffect(() => {
+        bookingsService
+            .getOneBooking(id)
+            .then(({ data }) => {
+                console.log(data)
+                setBookings(data)
+            })
+            .catch(err => console.log(err))
+    }, [])
+
+    useEffect(() => {
         setBookingState({
             ...bookingState,
             startDate: startDate?._d,
             endDate: endDate?._d
         })
-        console.log(typeof startDate?._d)
-        console.log(bookingState);
     }, [startDate, endDate])
 
     function handleSubmit(e) {
@@ -46,12 +59,24 @@ const BookingForm = () => {
         bookingsService
             .createBooking(id,bookingState)
             .then(() => {
-                // console.log("id", id);
-                // console.log("estado booking", bookingState);
-
                 navigate(`/profile`)
             })
             .catch(err => console.log(err))
+    }
+
+    const isBlocked = (date) => {
+
+        let bookedDays = []
+        let blocked
+
+        bookings?.map(eachBooking => {
+            bookedDays = [...bookedDays,
+            moment.range(eachBooking.startDate, eachBooking.endDate)]
+        })
+
+        blocked = bookedDays.find(range => range.contains(date))
+
+        return blocked
     }
 
 return (
@@ -68,8 +93,9 @@ return (
                             endDateId="your_unique_end_date_id"
                             onDatesChange={({ startDate, endDate }) => handleInputChange(startDate, endDate)}
 
-                            focusedInput={focusedInput} // 
+                            focusedInput={focusedInput}
                             onFocusChange={focusedInput => setFocusedInput(focusedInput)}
+                            isDayBlocked={isBlocked}
                         />
 
                     }

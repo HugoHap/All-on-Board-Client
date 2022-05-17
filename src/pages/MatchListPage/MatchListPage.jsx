@@ -40,14 +40,15 @@ const MatchListPage = () => {
 
     // const { isLoggedIn } = useContext(AuthContext)
 
+
     return (
         <>
 
             <Container>
                 <h1>Matches list</h1>
-                < NavLink to='#' >
+                <NavLink to='#'>
                     <Nav.Link className='elm' as="span" onClick={handleCreateMatchModalOpen}><Button variant="dark" type="">Create new match</Button></Nav.Link>
-                </NavLink >
+                </NavLink>
                 <MatchesList matches={matches} />
             </Container>
             <hr />
