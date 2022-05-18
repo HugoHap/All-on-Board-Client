@@ -1,0 +1,35 @@
+.BackgroundHome {
+    padding-top: 30px;
+}
+
+.WelcomeHome {
+    font-family: 'Helvetica',
+        sans-serif;
+    color: black;
+    padding: 520px;
+}
+
+.BoardgameCard {
+    width: 280px;
+    height: 500px;
+    margin: 100px;
+    background-color: rgba(255, 255, 255, 0);
+    border: 7px solid #ccddc7;
+}
+
+.BoardgameImageCarrusel {
+    height: 320px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.BoardgameTitle {
+    font-family: 'Helvetica', sans-serif;
+    color: white;
+    margin: 20px;
+}
+
+.btnCarrousel {
+    background-color: #ccddc7;
+    
+}

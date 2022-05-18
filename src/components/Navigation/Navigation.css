@@ -1,7 +1,41 @@
-.navbar {
-    margin-bottom: 40px;
+.Navbar {
+    background-color: #fbce38;
 }
 
-.nav-link {
-    color: white
+.Navbar2 {
+    font-family: 'Helvetica',
+        sans-serif;
+    display: flex;
+}
+
+.Register {
+    justify-content: flex-end;
+}
+
+.ModalSignup {
+    background-color: #fbcd3869;
+}
+
+.ModalSignup .modal-content {
+    background-color: #fbce38;
+}
+
+.Signup {
+    font-family: 'Modak',
+        sans-serif;
+        font-size: 2em;
+}
+
+.ModalLogin {
+    background-color: #e5acb78e;
+}
+
+.ModalLogin .modal-content {
+    background-color: #e5acb7;
+}
+
+.Login {
+    font-family: 'Modak',
+        sans-serif;
+        font-size: 2em;
 }

@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import boardgameService from '../../services/boardgame.service';
 import BoardgameCard from '../../components/BoardgameCard/BoardgameCard';
+import background from "../../img/FONDITO.png";
+import './HomePage.css'
 
 const IndexPage = () => {
-
 
     const [rankGames, setRankGames] = useState([])
 
@@ -37,57 +38,59 @@ const IndexPage = () => {
     };
 
     return (
-        <Container>
-            <h1>WELCOME ON BOARD</h1>
-            <hr />
+        <div className='BackgroundHome' style={{
+            backgroundImage: `url(${background})`
+        }}>
+            <Container className="ContainerHome">
 
-            
-            <h4>TOP 8 MOST LIKED BOARDGAMES</h4>
-            <Carousel>
-                <Carousel.Item>
-                    <Row>
-                        {
-                            rankGames[1]?.slice(0, 4).map(elm => {
+                <div className='WelcomeHome' >
+                </div>
+                <Carousel>
+                    <Carousel.Item>
+                        <Row>
+                            {
+                                rankGames[1]?.slice(0, 4).map(elm => {
 
-                                return (<Col md={3}>
-                                    <Card className="BoardgameCard">
-                                        <Card.Img variant="top" src={elm.gameImg} />
-                                        <Card.Body>
-                                            <Card.Title>{elm.name}</Card.Title>
-                                            <div className="d-grid gap-2">
-                                                <Link to={`/boardgames/${elm._id}`} className="btn btn-dark">Details</Link>
-                                            </div>
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-                                )
-                            })
-                        }
-                    </Row>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <Row>
-                        {
-                            rankGames[1]?.slice(4, 8).map(elm => {
+                                    return (<Col md={3}>
+                                        <Card className="BoardgameCard">
+                                            <Card.Img className="BoardgameImageCarrusel" variant="top" src={elm.gameImg} />
+                                            <Card.Body>
+                                                <Card.Title className="BoardgameTitle" >{elm.name}</Card.Title>
+                                                <div className="d-grid gap-2">
+                                                    <Link to={`/boardgames/${elm._id}`} className="btn btnCarrousel">Details</Link>
+                                                </div>
+                                            </Card.Body>
+                                        </Card>
+                                    </Col>
+                                    )
+                                })
+                            }
+                        </Row>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <Row>
+                            {
+                                rankGames[1]?.slice(4, 8).map(elm => {
 
-                                return (<Col md={3}>
-                                    <Card className="BoardgameCard">
-                                        <Card.Img variant="top" src={elm.gameImg} />
-                                        <Card.Body>
-                                            <Card.Title>{elm.name}</Card.Title>
-                                            <div className="d-grid gap-2">
-                                                <Link to={`/boardgames/${elm._id}`} className="btn btn-dark">Details</Link>
-                                            </div>
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-                                )
-                            })
-                        }
-                    </Row>
-                </Carousel.Item>
-            </Carousel>
-        </Container>
+                                    return (<Col md={3}>
+                                        <Card className="BoardgameCard">
+                                            <Card.Img className="BoardgameImageCarrusel" variant="top" src={elm.gameImg} />
+                                            <Card.Body>
+                                                <Card.Title className="BoardgameTitle">{elm.name}</Card.Title>
+                                                <div className="d-grid gap-2">
+                                                    <Link to={`/boardgames/${elm._id}`} className="btn btnCarrousel">Details</Link>
+                                                </div>
+                                            </Card.Body>
+                                        </Card>
+                                    </Col>
+                                    )
+                                })
+                            }
+                        </Row>
+                    </Carousel.Item>
+                </Carousel>
+            </Container>
+        </div>
     )
 }
 

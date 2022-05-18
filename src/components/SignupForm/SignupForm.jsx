@@ -59,28 +59,28 @@ const SignupForm = ({ fireFinalActions }) => {
 
         <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="username">
-                <Form.Label>Username</Form.Label>
+                <Form.Label className="FormLabel">Username</Form.Label>
                 <Form.Control type="text" onChange={handleInputChange} name="username" value={username} />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="email">
-                <Form.Label>Email</Form.Label>
+                <Form.Label className="FormLabel">Email</Form.Label>
                 <Form.Control type="email" onChange={handleInputChange} name="email" value={email} />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="password">
-                <Form.Label>Password</Form.Label>
+                <Form.Label className="FormLabel">Password</Form.Label>
                 <Form.Control type="password" onChange={handleInputChange} name="password" value={password} />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="description">
-                <Form.Label>Description</Form.Label>
+                <Form.Label className="FormLabel">Description</Form.Label>
                 <Form.Control type="text" onChange={handleInputChange} name="description" value={description} />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="avatar">
-                <Form.Label>Avatar</Form.Label>
-                <Form.Control type="file" onChange={handleImageUpload} />
+                <Form.Label className="FormLabel">Avatar</Form.Label>
+                <Form.Control className="Avatar"  type="file" onChange={handleImageUpload} />
             </Form.Group>
 
             <div className="d-grid gap-2">

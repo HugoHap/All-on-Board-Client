@@ -1,18 +1,17 @@
-/* .BoardgameCardCarrousel {
+.BoardgameCardCarrousel {
     margin-bottom: 40px;
 }
 
-.BoardgameCardCarrousel img {
+.BoardgameCardCarrousel .image {
     height: 350px;
     object-fit: cover;
-
-} */
+}
 
 .LinkBoardGame {
     color: black;
 }
 
-.BoardgameCard {
+.BoardgameCardList {
     width: 400px;
     height: 500px;
     box-shadow: 0px 1px 13px rgba(0, 0, 0, 0.1);
@@ -26,7 +25,7 @@
     margin: 10px;
 }
 
-.card::after {
+.BoardgameCardList::after {
     content: "Details";
     padding-top: 0.5em;
     padding-left: 1.25em;
@@ -43,7 +42,7 @@
     border-radius: 0.1em;
 }
 
-.card .text-title {
+.BoardgameCardList .text-title-list {
     font-family: 'Rubik Mono One',
         sans-serif;
     justify-content: left;
@@ -58,7 +57,7 @@
 
 }
 
-.card .Details {
+.BoardgameCardList .Details {
     font-family: 'Rubik Mono One',
         sans-serif;
     font-size: 0.8em;
@@ -66,15 +65,15 @@
     text-transform: uppercase;
 }
 
-.card:hover::after {
+.BoardgameCardList:hover::after {
     bottom: 0;
 }
 
-.card:active {
+.BoardgameCardList:active {
     transform: scale(0.98);
 }
 
-.card:active::after {
+.BoardgameCardList:active::after {
     height: 3.125em;
 }
 
@@ -82,7 +81,7 @@
     max-width: 100px;
 }
 
-.image {
+.imageList {
     background: rgb(241, 241, 241);
     width: 100%;
     height: 80%;

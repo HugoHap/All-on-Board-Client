@@ -6,8 +6,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-         <Navigation />
-         <AppRoutes />
+        <Navigation />
+        <AppRoutes />
       </header>
     </div>
   );

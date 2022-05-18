@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import boardgameService from '../../services/boardgame.service'
+import { Container, Row, Col, Button, FloatingLabel, Form, Modal } from 'react-bootstrap'
 
 function LikeButton() {
 
@@ -36,7 +37,7 @@ function LikeButton() {
     return (
         <div>
             <div className="LikeButton">
-                <button onClick={() => setLikeValue(prevLikeVal => ++prevLikeVal)}> {dataBoardgame[0]?.likes} LIKE </button>
+               <Button variant="success" onClick={() => setLikeValue(prevLikeVal => ++prevLikeVal)}> {dataBoardgame[0]?.likes} LIKE </Button>
             </div>
         </div>
     );

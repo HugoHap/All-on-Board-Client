@@ -25,59 +25,60 @@ const Navigation = () => {
 
     return (
         <>
-            <Navbar bg="dark" variant="dark" expand="lg">
-                <Container>
-                    <Navbar.Brand>
-                        <NavLink to="/" className="nav-link">
-                            ALL ON BOARD
-                        </NavLink>
-                    </Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="me-auto">
-                            <NavLink to="/boardgames" className="nav-link">Boardgames</NavLink>
+            < Navbar className="Navbar" >
+                <Container className="Navbar2">
+                    <Nav>
+                        <Navbar.Brand href="/">O</Navbar.Brand>
+                        {
+                            !isLoggedIn ?
+                                <>
+                                    <NavLink to="/boardgames" className="nav-link">BOARDGAMES</NavLink>
+                                </>
+                                :
+                                <>
+                                    <NavLink to="/boardgames" className="nav-link">BOARDGAMES</NavLink>
+                                    <NavLink to="/match" className="nav-link">MATCHES</NavLink>
+                                </>
+                        }
+                    </Nav>
+                    <Nav className="Register">
+                        {
+                            !isLoggedIn ?
+                                <>
+                                    <NavLink to='#'>
+                                        <Nav.Link className='elm' as="span" onClick={SignupModalOpen}>SIGNUP</Nav.Link>
+                                    </NavLink>
 
-                            <Nav>
-                                {
-                                    !isLoggedIn ?
-                                        <>
-                                            <NavLink to='#'>
-                                                <Nav.Link className='elm' as="span" onClick={SignupModalOpen}>Signup</Nav.Link>
-                                            </NavLink>
-
-                                            <NavLink to='#'>
-                                                <Nav.Link className='elm' as="span" onClick={LoginModalOpen}>Login</Nav.Link>
-                                            </NavLink>
-                                        </>
-                                        :
-                                        <>
-                                            <NavLink to="/match" className="nav-link">Matches</NavLink>
-                                            <NavLink to={`/profile`}>
-                                                <Nav.Link as="span">Profile</Nav.Link>
-                                            </NavLink>
-                                            <NavLink to={`/`}>
-                                                <div className="nav-link" onClick={logOutUser}>Logout</div>
-                                            </NavLink>
-                                        </>
-                                }
-                            </Nav>
-                        </Nav>
-                    </Navbar.Collapse>
+                                    <NavLink to='#'>
+                                        <Nav.Link className='elm' as="span" onClick={LoginModalOpen}>LOGIN</Nav.Link>
+                                    </NavLink>
+                                </>
+                                :
+                                <>
+                                    <NavLink to={`/profile`}>
+                                        <Nav.Link as="span">PROFILE</Nav.Link>
+                                    </NavLink>
+                                    <NavLink to={`/`}>
+                                        <div className="nav-link" onClick={logOutUser}>LOGOUT</div>
+                                    </NavLink>
+                                </>
+                        }
+                    </Nav>
                 </Container>
-            </Navbar>
+            </Navbar >
 
-            <Modal show={showSignupModal} onHide={SignupModalClose} size="lg">
+            <Modal className="ModalSignup" show={showSignupModal} onHide={SignupModalClose} size="lg">
                 <Modal.Header closeButton>
-                    <Modal.Title>Signup</Modal.Title>
+                    <Modal.Title className="Signup">SIGNUP</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <SignupForm fireFinalActions={fireFinalActions} />
                 </Modal.Body>
             </Modal>
 
-            <Modal show={showLoginModal} onHide={LoginModalClose} size="lg">
+            <Modal className="ModalLogin" show={showLoginModal} onHide={LoginModalClose} size="lg">
                 <Modal.Header closeButton>
-                    <Modal.Title>Login</Modal.Title>
+                    <Modal.Title className="Login">LOGIN</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <LoginForm fireFinalActions={fireFinalActions} />

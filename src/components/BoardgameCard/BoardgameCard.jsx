@@ -6,9 +6,9 @@ const BoardgameCard = ({ _id, gameImg, name }) => {
 
     return (
         <Link className="LinkBoardGame" to={`/boardgames/${_id}`}>
-            <Card className="BoardgameCard BoardgameCardCarrousel">
-                <Card.Img className="image" variant="top" src={gameImg} />
-                <Card.Title className="text-title">{name}</Card.Title>
+            <Card className="BoardgameCardList BoardgameCardCarrousel">
+                <Card.Img className="image imageList" variant="top" src={gameImg} />
+                <Card.Title className="text-title-list text-title ">{name}</Card.Title>
             </Card >
         </Link>
     )
