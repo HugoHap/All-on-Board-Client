@@ -198,22 +198,30 @@ const BoardgamesDetailsPage = () => {
                 </Row>
             </div>
 
-            <CommentCard fireFinalActions={fireFinalActions} />
+            {
+                !isLoggedIn ?
+                    <>
+                        <CommentCard fireFinalActions={fireFinalActions} />
+                    </>
+                    :
+                    <>
+                        <Form onSubmit={handleSubmit}>
+                            <FloatingLabel controlId="floatingTextarea2" label="Comments">
+                                <Form.Control
+                                    as="textarea"
+                                    placeholder="Leave a comment here"
+                                    style={{ height: '100px' }}
+                                    name="content"
+                                    value={content}
+                                    onChange={handleInputChange}
+                                />
+                            </FloatingLabel>
+                            <Button variant="dark" className="form-button" type="submit" >Comment</Button>
 
-            <Form onSubmit={handleSubmit}>
-                <FloatingLabel controlId="floatingTextarea2" label="Comments">
-                    <Form.Control
-                        as="textarea"
-                        placeholder="Leave a comment here"
-                        style={{ height: '100px' }}
-                        name="content"
-                        value={content}
-                        onChange={handleInputChange}
-                    />
-                </FloatingLabel>
-                <Button variant="dark" className="form-button" type="submit" >Comment</Button>
+                        </Form>
+                    </>
+            }
 
-            </Form>
 
 
         </Container >
