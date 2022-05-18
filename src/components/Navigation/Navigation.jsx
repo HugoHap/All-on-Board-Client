@@ -6,6 +6,8 @@ import { AuthContext } from '../../context/auth.context'
 import LoginForm from '../LoginForm/LoginForm'
 import SignupForm from '../SignupForm/SignupForm'
 
+
+
 const Navigation = () => {
 
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext)
@@ -28,7 +30,7 @@ const Navigation = () => {
             < Navbar className="Navbar" >
                 <Container className="Navbar2">
                     <Nav>
-                        <Navbar.Brand href="/">O</Navbar.Brand>
+                        <NavLink to="/">O</NavLink>
                         {
                             !isLoggedIn ?
                                 <>
@@ -38,6 +40,9 @@ const Navigation = () => {
                                 <>
                                     <NavLink to="/boardgames" className="nav-link">BOARDGAMES</NavLink>
                                     <NavLink to="/match" className="nav-link">MATCHES</NavLink>
+                                    {user.role === 'ADMIN' &&
+                                        <NavLink to="/admin" className="nav-link">ADMIN VIEW</NavLink>
+                                    }
                                 </>
                         }
                     </Nav>

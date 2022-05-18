@@ -1,9 +1,34 @@
-.BoardgamesList{
+.BoardgamesList {
     padding: 30px;
 }
 
 .BoardgamesListTitle {
-    font-family: 'Rubik Mono One',
-        sans-serif;
-    color: black
+    font-family: 'Modak', sans-serif;
+    color: black;
+    font-size: 4em;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.BoardgameListContainer {
+    padding: 10px;
+}
+
+.SearchBar {
+    padding: 10px;
+    box-shadow: 0px 1px 13px rgba(0, 0, 0, 0.1);
+    border: 4px solid #001eea;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.SearchGames {
+    font-family: 'Modak', sans-serif;
+    font-size: 2em;
+    padding: 10px;
+}
+
+.hrList {
+    color: #001eea;
+    height: 4px;
 }

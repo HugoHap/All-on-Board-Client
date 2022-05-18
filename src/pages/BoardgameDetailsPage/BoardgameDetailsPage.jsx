@@ -85,32 +85,6 @@ const BoardgamesDetailsPage = () => {
         loadComments()
     }
 
-
-
-    //FAV BOARDGAME
-    // const [isFav, setIsFav] = useState()
-    // const [btnState, setBtnState] = useState('inicio')
-
-    // const handleFavBtn = () => {
-    //         if (!isFav) {
-    //             boardgameService
-    //                 .addFavBoardgame(id)
-    //                 .then(() => {
-    //                     setIsFav(true)
-    //                     setBtnState('DELETE FAVOURITE')
-    //                 })
-    //                 .catch(err => console.log(err))
-    //         } else if (isFav) {
-    //             boardgameService
-    //                 .deleteFavBoardgame(id)
-    //                 .then(() => {
-    //                     setIsFav(false)
-    //                     setBtnState('ADD FAVOURITE')
-    //                 })
-    //                 .catch(err => console.log(err))
-    //         }
-    //     }
-
     //LIKE BOARDGAME
     const [isLike, setIsLike] = useState()
     const [btnState, setBtnState] = useState('LIKE')
@@ -140,86 +114,109 @@ const BoardgamesDetailsPage = () => {
     }
 
     return (
+        <div >
+            <Container>
+                <div className="gameDetails">
+                    <h1 className="gameDetailsName">{boardgameDetails[0]?.name}</h1>
+                    <hr className="hrDetails"></hr>
+                    <Row>
+                        <Col className="gameDetailsDetails" md={{ span: 6 }}>
+                            <h4>DESCRIPTION</h4>
+                            <p>{boardgameDetails[0]?.description}</p>
+                            <h4>DETAILS</h4>
+                            <p>DURATION: {boardgameDetails[0]?.playingTime}</p>
+                            <p>PLAYERS: {boardgameDetails[0]?.players?.min}-{boardgameDetails[0]?.players?.max} </p>
+                            <p>AGE: {boardgameDetails[0]?.age}</p>
+                        </Col>
+                        <Col className="imageDetails" md={{ span: 5 }}>
+                            <img style={{ width: '100%' }} src={boardgameDetails[0]?.gameImg} alt={boardgameDetails[0]?.name} />
+                        </Col>
 
-        <Container>
-            <div className="gameDetails">
-                <h1 className="gameDetailsName">{boardgameDetails[0]?.name}</h1>
-                <hr />
-                <Row>
-                    <Col className="gameDetailsDetails" md={{ span: 5 }}>
-                        <h3>Description</h3>
-                        <p>{boardgameDetails[0]?.description}</p>
-                        <h3>Details</h3>
-                        <p>Duration: {boardgameDetails[0]?.playingTime}</p>
-                        <p>Players: {boardgameDetails[0]?.players?.min}-{boardgameDetails[0]?.players?.max} </p>
-                        <p>Age: {boardgameDetails[0]?.age}</p>
-                    </Col>
-                    <Col md={{ span: 6 }}>
-                        <img style={{ width: '100%' }} src={boardgameDetails[0]?.gameImg} alt={boardgameDetails[0]?.name} />
-                    </Col>
-
-                    {
-                        !isLoggedIn ?
-                            <>
-                                <Link to="/boardgames">
-                                    <Button className="btnReturn" variant="dark">Back to Boardgames List</Button>
-                                </Link>
-                            </>
-                            :
-                            <>
-                                <div className="btnLikeDislike">
-                                    <Link to={`/boardgames/${id}`}>
-                                        <div>
-                                            <LikeButton btnState={btnState} handleLikeBtn={handleLikeBtn} />
-                                        </div>
-                                        <div>
-                                            <DislikeButton btnState={btnState} handleDislikeBtn={handleDislikeBtn} />
-                                        </div>
-                                    </Link>
-                                </div>
-
-                                <div className="btnDetails">
+                        {
+                            !isLoggedIn ?
+                                <>
                                     <Link to="/boardgames">
                                         <Button className="btnReturn" variant="dark">Back to Boardgames List</Button>
                                     </Link>
-                                </div>
+                                </>
+                                :
+                                <>
+                                    <Row>
+                                        <Col md={{ span: 6 }} className="ButtonsDetails" >
+                                            <Link to={`/boardgames/${id}`}>
+                                                <div className="btnLikeDislike" >
+                                                    <div className="btnLike">
+                                                        <LikeButton btnState={btnState} handleLikeBtn={handleLikeBtn} />
+                                                    </div>
+                                                    <div className="btnDislike">
+                                                        <DislikeButton btnState={btnState} handleDislikeBtn={handleDislikeBtn} />
+                                                    </div>
 
-                                <div>
-                                    <Link to={`/boardgames/${id}/delete`}>
-                                        <Button className="btnReturn" variant="danger">Delete Game</Button>
-                                    </Link>
+                                                </div>
+                                            </Link>
+                                        </Col>
+                                        <Col md={{ span: 5, offset: 1 }} className="ButtonsBack" >
+
+                                            <div className="btnDelete">
+                                                <Link to={`/boardgames/${id}/delete`}>
+                                                    <Button className="btnReturn" variant="danger">Delete Game</Button>
+                                                </Link>
+                                            </div>
+
+                                            <div className="btnDetails">
+                                                <Link to="/boardgames">
+                                                    <Button className="btnReturn" variant="dark">Back to Boardgames List</Button>
+                                                </Link>
+                                            </div>
+
+
+                                        </Col>
+                                    </Row>
+                                </>
+                        }
+
+                    </Row>
+                </div>
+
+                <div className="rentGames" >
+                    <Row>
+                        <RentCard boardgameDetails={boardgameDetails[1]} />
+                    </Row>
+                </div>
+
+
+                <div className="Comments">
+                    {/* <CommentCard fireFinalActions={fireFinalActions} /> */}
+                    {
+                        !isLoggedIn ?
+                            <>
+                                <CommentCard fireFinalActions={fireFinalActions} />
+
+                            </>
+                            :
+                            <>
+                                <CommentCard fireFinalActions={fireFinalActions} />
+
+                                <div clasName="CreateComment">
+                                    <Form onSubmit={handleSubmit}>
+                                        <FloatingLabel controlId="floatingTextarea2" label="Comments">
+                                            <Form.Control
+                                                as="textarea"
+                                                placeholder="Leave a comment here"
+                                                style={{ height: '100px' }}
+                                                name="content"
+                                                value={content}
+                                                onChange={handleInputChange}
+                                            />
+                                        </FloatingLabel>
+                                        <Button variant="dark" className="form-button" type="submit" >Comment</Button>
+                                    </Form>
                                 </div>
                             </>
                     }
-
-                </Row>
-            </div>
-
-            <div className="rentGames" >
-                <Row>
-                    <RentCard boardgameDetails={boardgameDetails[1]} />
-                </Row>
-            </div>
-
-            <CommentCard fireFinalActions={fireFinalActions} commentsData={commentsData} />
-
-            <Form onSubmit={handleSubmit}>
-                <FloatingLabel controlId="floatingTextarea2" label="Comments">
-                    <Form.Control
-                        as="textarea"
-                        placeholder="Leave a comment here"
-                        style={{ height: '100px' }}
-                        name="content"
-                        value={content}
-                        onChange={handleInputChange}
-                    />
-                </FloatingLabel>
-                <Button variant="dark" className="form-button" type="submit" >Comment</Button>
-
-            </Form>
-
-
-        </Container >
+                </div>
+            </Container >
+        </div >
     )
 }
 
