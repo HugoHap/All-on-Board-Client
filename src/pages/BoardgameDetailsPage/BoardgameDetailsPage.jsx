@@ -189,31 +189,30 @@ const BoardgamesDetailsPage = () => {
                         !isLoggedIn ?
                             <>
                                 <CommentCard fireFinalActions={fireFinalActions} />
-                               
+
                             </>
                             :
                             <>
                                 <CommentCard fireFinalActions={fireFinalActions} />
 
                                 <div clasName="CreateComment">
-                                <Form onSubmit={handleSubmit}>
-                                    <FloatingLabel controlId="floatingTextarea2" label="Comments">
-                                        <Form.Control
-                                            as="textarea"
-                                            placeholder="Leave a comment here"
-                                            style={{ height: '100px' }}
-                                            name="content"
-                                            value={content}
-                                            onChange={handleInputChange}
-                                        />
-                                    </FloatingLabel>
-                                    <Button variant="dark" className="form-button" type="submit" >Comment</Button>
+                                    <Form onSubmit={handleSubmit}>
+                                        <FloatingLabel controlId="floatingTextarea2" label="Comments">
+                                            <Form.Control
+                                                as="textarea"
+                                                placeholder="Leave a comment here"
+                                                style={{ height: '100px' }}
+                                                name="content"
+                                                value={content}
+                                                onChange={handleInputChange}
+                                            />
+                                        </FloatingLabel>
+                                        <Button variant="dark" className="form-button" type="submit" >Comment</Button>
                                     </Form>
                                 </div>
                             </>
                     }
                 </div>
-
             </Container >
         </div >
     )

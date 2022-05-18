@@ -6,6 +6,9 @@ import { useEffect, useState } from "react"
 import "./AdminPage.css"
 import userService from "../../services/user.service"
 import UserList from "../../components/UserList/UserList"
+import AdminBoardgameForm from "../../components/AdminBoardgameForm/AdminBoardgameForm"
+import AdminEventForm from "../../components/AdminEventForm/AdminEventForm"
+
 
 const AdminPage = () => {
 
@@ -13,13 +16,14 @@ const AdminPage = () => {
 
     const [allUser, setAllUsers] = useState([])
 
+
     useEffect(() => {
         loadUsers()
     }, [])
 
 
 
-    
+
     const loadUsers = () => {
         userService
             .getUsers()
@@ -31,6 +35,8 @@ const AdminPage = () => {
         <Container>
             <Row>
                 <UserList allUser={allUser} />
+                <AdminBoardgameForm />
+                <AdminEventForm />
             </Row>
         </Container>
     )
