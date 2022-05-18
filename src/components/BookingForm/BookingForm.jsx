@@ -7,10 +7,11 @@ import { DateRangePicker } from 'react-dates'
 import bookingsService from "../../services/booking.service"
 import Moment from 'moment';
 import { extendMoment } from 'moment-range';
+import './BookingForm.css'
 
 const moment = extendMoment(Moment);
 
-const BookingForm = () => {
+const BookingForm = ({ fireFinalActions }) => {
 
 
     const { id } = useParams()
@@ -41,6 +42,7 @@ const BookingForm = () => {
             .then(({ data }) => {
                 console.log(data)
                 setBookings(data)
+
             })
             .catch(err => console.log(err))
     }, [])
@@ -59,6 +61,7 @@ const BookingForm = () => {
         bookingsService
             .createBooking(id, bookingState)
             .then(() => {
+                fireFinalActions()
                 navigate(`/profile`)
             })
             .catch(err => console.log(err))
@@ -83,9 +86,12 @@ const BookingForm = () => {
         <article>
             {
                 <>
+                    {/* <div className="BookingText" >
+                        <h7 className="SubBooking"> Select days to rent the boardgame. </h7>
+                    </div> */}
                     <div>
                         {
-                            <DateRangePicker
+                            <DateRangePicker className="Calendar"
 
                                 startDate={startDate}
                                 startDateId="your_unique_start_date_id"
@@ -102,7 +108,7 @@ const BookingForm = () => {
                     </div>
 
                     <Form onSubmit={handleSubmit}>
-                        <Button className="myBtn" variant="dark" type="submit" >Send Booking</Button>
+                        <Button className="BtnBooking" variant="dark" type="submit" >Send Booking</Button>
                     </Form>
                 </>
             }

@@ -3,8 +3,7 @@
 }
 
 .WelcomeHome {
-    font-family: 'Helvetica',
-        sans-serif;
+    font-family: 'Open Sans', sans-serif;
     color: black;
     padding: 520px;
 }
@@ -12,7 +11,7 @@
 .BoardgameCard {
     width: 280px;
     height: 500px;
-    margin: 100px;
+    margin: 100px 40px 100px 40px;
     background-color: rgba(255, 255, 255, 0);
     border: 7px solid #ccddc7;
 }
@@ -31,5 +30,5 @@
 
 .btnCarrousel {
     background-color: #ccddc7;
-    
+
 }

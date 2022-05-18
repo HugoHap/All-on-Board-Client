@@ -14,7 +14,7 @@
 .BoardgameCardList {
     width: 400px;
     height: 500px;
-    box-shadow: 0px 1px 13px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 1px 13px rgba(0, 8, 255, 0.2);
     cursor: pointer;
     transition: all 120ms;
     display: flex;
@@ -26,13 +26,13 @@
 }
 
 .BoardgameCardList::after {
-    content: "Details";
+    content: "+";
     padding-top: 0.5em;
     padding-left: 1.25em;
     position: absolute;
     left: 0;
     bottom: -60px;
-    background: #003cff;
+    background: #001eea;
     color: #fff;
     height: 2.5em;
     width: 100%;
@@ -43,12 +43,12 @@
 }
 
 .BoardgameCardList .text-title-list {
-    font-family: 'Rubik Mono One',
-        sans-serif;
+    font-family: 'Modak', sans-serif;
+    font-weight: lighter;
     justify-content: left;
     padding-right: 2em;
     left: 1em;
-    font-size: 1.6em;
+    font-size: 2.2em;
     bottom: 1.875em;
     font-weight: 500;
     text-transform: uppercase;
@@ -58,8 +58,7 @@
 }
 
 .BoardgameCardList .Details {
-    font-family: 'Rubik Mono One',
-        sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 0.8em;
     bottom: 0.25em;
     text-transform: uppercase;

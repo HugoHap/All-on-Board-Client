@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Col, Container, Row, Card } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import commentService from "../../services/comment.service";
-
+import "./CommentCard.css"
 
 function CommentCard() {
 
@@ -14,7 +14,7 @@ function CommentCard() {
 
         commentService
             .getCommentsBoardgame(id)
-            .then(({data}) => {
+            .then(({ data }) => {
                 setComments(data)
             })
             .catch(err => console.log(err))
@@ -23,29 +23,41 @@ function CommentCard() {
 
     return (
         <>
-            <Container className="mt-5">
+            <Container>
+                <div>
+                    <h6 className="CommentTitle" >COMMENTS</h6>
+                </div>
                 <Row>
-                    <Col md={5}>
-                        {comments?.map((eachComment) => {
-                            return (
-                                <>
-                                    <Card key={eachComment.id}>
-                                        <Card.Body>
-                                            <p className="commentOwner">
-                                                {eachComment.owner.username}
-                                            </p>
+                    {comments?.map((eachComment) => {
+                        return (
+                            <Col lg={6}>
+                                <Card className="commentCard" key={eachComment.id}>
+                                    <Card.Body>
+                                        <div className="commentTop" >
+                                            <h6 className="commentOwner">
+                                                {eachComment.owner.username}:
+                                            </h6>
 
-                                            <hr></hr>
+                                            <p className="commentDate">
+                                                {eachComment.createdAt.slice(0, 10)}
+                                            </p>
+                                        </div>
+
+                                        <div>
+                                            <hr className="hrComments"></hr>
 
                                             <p className="commentContent">
-                                                {eachComment.content}
+                                                "<i>{eachComment.content}</i>"
                                             </p>
-                                        </Card.Body>
-                                    </Card>
-                                </>
-                            );
-                        })}
-                    </Col>
+                                        </div>
+
+                                    </Card.Body>
+                                </Card>
+
+                            </Col>
+                        );
+                    })}
+
                 </Row>
             </Container>
         </>

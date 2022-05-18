@@ -1,0 +1,12 @@
+.Booking {
+    font-family: 'Modak',sans-serif;
+    font-size: 2em;
+}
+
+.ModalBooking {
+    background-color: #d447316a;
+}
+
+.ModalBooking .modal-content {
+    background-color: #d44731;
+}

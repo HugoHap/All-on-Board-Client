@@ -28,7 +28,7 @@ const Navigation = () => {
             < Navbar className="Navbar" >
                 <Container className="Navbar2">
                     <Nav>
-                        <Navbar.Brand href="/">O</Navbar.Brand>
+                        <NavLink to="/">O</NavLink>
                         {
                             !isLoggedIn ?
                                 <>
