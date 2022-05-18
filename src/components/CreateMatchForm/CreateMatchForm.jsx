@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react"
 import { Form, Modal, Button, Container, Col, Row } from "react-bootstrap"
 import boardgameService from "../../services/boardgame.service"
-// import { useNavigate } from 'react-router-dom'
 import matchesService from "../../services/match.service"
 
 import {
@@ -49,10 +48,7 @@ const CreateMatchForm = ({ fireFinalActions }) => {
         })
     }
 
-    // const navigate = useNavigate()
-
     const handleSubmit = e => {
-
         e.preventDefault()
 
         matchesService

@@ -24,7 +24,7 @@ const SearchBar = () => {
     console.log(search)
 
     return (
-        < div class="group" >
+        < div className="group" >
             <div className='searchbox'>
 
                 <div className='searchbar'>

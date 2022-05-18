@@ -10,6 +10,7 @@ import EditMatchPage from "../pages/EditMatchPage/EditMatchPage"
 import EditBoardGamePage from "../pages/EditBoardGamePage/EditBoardGame"
 import EditProfilePage from "../pages/EditProfilePage/EditProfilePage"
 import BoardgameRentPage from "../pages/BoardgameRent/BoardgameRentPage"
+import AdminPage from "../pages/AdminPage/AdminPage"
 
 const AppRoutes = () => {
 
@@ -29,6 +30,7 @@ const AppRoutes = () => {
             <Route path='/match/:id' element={<MatchDetailsPage />} />
             <Route path="/match/:id/edit" element={<EditMatchPage />} />
             <Route path="/match/:id/join" element={<UserProfilePage />} />
+            <Route path="/admin" element={<AdminPage />} />
             <Route path="*" element={<h1>Esto es un 404 jeje</h1>} />
         </Routes>
     )

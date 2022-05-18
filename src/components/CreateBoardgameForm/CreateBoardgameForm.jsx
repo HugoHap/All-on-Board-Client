@@ -1,7 +1,6 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Form, Modal, Button } from "react-bootstrap"
-import { useNavigate } from 'react-router-dom'
-import BoardGameService from "../../services/boardgame.service"
+import boardgameService from "../../services/boardgame.service"
 import uploadService from "../../services/upload.service"
 
 const CreateBoardgameForm = ({ fireFinalActions }) => {
@@ -11,19 +10,31 @@ const CreateBoardgameForm = ({ fireFinalActions }) => {
         gameImg: '',
     })
 
+    const [boardgamesData, setBoardgamesData] = useState([])
+
+    useEffect(() => {
+        boardgameService
+            .getOriginalBoardgames()
+            .then(({ data }) => {
+                console.log('-------------------', data)
+                setBoardgamesData(data)
+            })
+    }, [])
+
     const [loadingImage, setLoadingImage] = useState(false)
 
     const handleInputChange = e => {
-        const { value, name } = e.currentTarget
-        setcreateBoargameData({ ...createBoargameData, [name]: value })
+        const { name, value } = e.currentTarget
+        setcreateBoargameData({
+            ...createBoargameData,
+            [name]: value
+        })
     }
 
-    const navigate = useNavigate()
-
-    function handleSubmit(e) {
+    const handleSubmit = e => {
         e.preventDefault()
 
-        BoardGameService
+        boardgameService
             .createBoardgame(createBoargameData)
             .then(() => {
                 fireFinalActions()
@@ -49,13 +60,24 @@ const CreateBoardgameForm = ({ fireFinalActions }) => {
     }
 
     const { name } = createBoargameData
+    const tab = <>&nbsp;&nbsp;&nbsp;&nbsp;</>
 
     return (
 
         <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="name">
-                <Form.Label>Name</Form.Label>
-                <Form.Control type="text" onChange={handleInputChange} name="name" value={name} />
+                <Form.Label>Name{tab}
+                    <select name="name" value={name} onChange={handleInputChange}>
+                        {
+                            boardgamesData[0]?.map(game => {
+                                return (
+                                    <option value={game?.name}>{game?.name}</option>
+                                )
+
+                            })
+                        }
+                    </select>
+                </Form.Label>
             </Form.Group>
 
             {/* <Form.Group className="mb-3" controlId="description">
