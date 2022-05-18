@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import boardgameService from '../../services/boardgame.service'
+import { Container, Row, Col, Button, FloatingLabel, Form, Modal } from 'react-bootstrap'
 
 function DislikeButton() {
 
@@ -36,7 +37,7 @@ function DislikeButton() {
     return (
         <div>
             <div className="DislikeButton">
-                <button onClick={() => setDislikeValue(prevLikeVal => ++prevLikeVal)}> {dataBoardgame[0]?.dislike} DISLIKE </button>
+                <Button variant="danger" onClick={() => setDislikeValue(prevLikeVal => ++prevLikeVal)}> {dataBoardgame[0]?.dislike} DISLIKE </Button>
             </div>
         </div>
     );
