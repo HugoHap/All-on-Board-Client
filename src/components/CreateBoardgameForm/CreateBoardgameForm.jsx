@@ -16,7 +16,6 @@ const CreateBoardgameForm = ({ fireFinalActions }) => {
         boardgameService
             .getOriginalBoardgames()
             .then(({ data }) => {
-                console.log('-------------------', data)
                 setBoardgamesData(data)
             })
     }, [])

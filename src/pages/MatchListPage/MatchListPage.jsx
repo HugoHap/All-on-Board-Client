@@ -18,7 +18,6 @@ const MatchListPage = () => {
         matchesService
             .getAllMatches()
             .then(({ data }) => {
-                console.log(data)
                 setMatches(data)
 
             })

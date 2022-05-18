@@ -15,7 +15,6 @@ const BoardgamesListPage = () => {
             .getOriginalBoardgames()
             .then(({ data }) => {
                 setAllBoardgames(data)
-                console.log(data)
             })
             .catch(err => console.log(err))
     }, [])
@@ -24,7 +23,7 @@ const BoardgamesListPage = () => {
     return (
         <>
             <Container className="BoardgameListContainer">
-                <div clasName="BoardgamesList">
+                <div className="BoardgamesList">
                     <h1 className="BoardgamesListTitle">Boardgames List</h1>
                 </div>
                 <div><SearchBar /></div>

@@ -10,6 +10,7 @@ import CommentCard from '../../components/CommentCard/CommentCard'
 import commentService from '../../services/comment.service'
 import "./BoardgameDetailsPage.css"
 
+
 const BoardgamesDetailsPage = () => {
 
     const { isLoggedIn, user, logOutUser } = useContext(AuthContext)
@@ -22,9 +23,13 @@ const BoardgamesDetailsPage = () => {
         content: '',
     })
 
+    const [commentsData, setCommentsData] = useState([])
+
+
 
     useEffect(() => {
         getDetails()
+        loadComments()
     }, [])
 
 
@@ -34,7 +39,6 @@ const BoardgamesDetailsPage = () => {
         boardgameService
             .getBoardgame(id)
             .then(({ data }) => {
-                console.log(data)
                 setBoardgameDetails(data)
             })
             .catch(err => console.log(err))
@@ -58,7 +62,7 @@ const BoardgamesDetailsPage = () => {
         commentService
             .createComment(id, createCommentData)
             .then(() => {
-                fireFinalActions()
+                loadComments()
                 setCreateCommentData({ content: "" })
             })
             .catch(err => console.log(err))
@@ -70,7 +74,7 @@ const BoardgamesDetailsPage = () => {
         commentService
             .getCommentsBoardgame(id)
             .then(({ data }) => {
-                setCreateCommentData(data)
+                setCommentsData(data)
             })
             .catch(err => console.log(err))
 
@@ -79,7 +83,6 @@ const BoardgamesDetailsPage = () => {
 
     const fireFinalActions = () => {
         loadComments()
-        console.log("me ejecuto firefinal");
     }
 
 
@@ -198,7 +201,7 @@ const BoardgamesDetailsPage = () => {
                 </Row>
             </div>
 
-            <CommentCard fireFinalActions={fireFinalActions} />
+            <CommentCard fireFinalActions={fireFinalActions} commentsData={commentsData} />
 
             <Form onSubmit={handleSubmit}>
                 <FloatingLabel controlId="floatingTextarea2" label="Comments">

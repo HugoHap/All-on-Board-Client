@@ -4,21 +4,24 @@ import { useParams } from "react-router-dom";
 import commentService from "../../services/comment.service";
 
 
-function CommentCard() {
+function CommentCard({ commentsData}) {
 
-    const [comments, setComments] = useState([]);
+
+    // const [comments, setComments] = useState([]);
+    const [commentStatus, setCommentStatus]= useState(true)
 
     const { id } = useParams()
 
-    useEffect(() => {
+    // useEffect(() => {
+    //     commentService
+    //         .getCommentsBoardgame(id)
+    //         .then(({data}) => {
+    //             setComments(data)
+    //             setCommentStatus(false)
+    //         })
+    //         .catch(err => console.log(err))
+    // }, [commentStatus]) // AQUI HACE 874723498273498279438 LLAMADAS A LA API
 
-        commentService
-            .getCommentsBoardgame(id)
-            .then(({data}) => {
-                setComments(data)
-            })
-            .catch(err => console.log(err))
-    }, [comments])
 
 
     return (
@@ -26,7 +29,7 @@ function CommentCard() {
             <Container className="mt-5">
                 <Row>
                     <Col md={5}>
-                        {comments?.map((eachComment) => {
+                        {commentsData?.map((eachComment) => {
                             return (
                                 <>
                                     <Card key={eachComment.id}>

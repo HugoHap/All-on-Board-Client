@@ -10,6 +10,7 @@ import matchesService from "../../services/match.service"
 import BoardgameProfileCard from "../../components/BoardgameProfileCard/BoardgameProfileCard"
 import "./UserProfilePage.css"
 import { MessageContext } from './../../context/message.context'
+import RentedProfileCard from "../../components/RentedProfileCard/RentedProfileCard"
 
 const UserProfilePage = () => {
 
@@ -17,6 +18,8 @@ const UserProfilePage = () => {
 
     const [myMatches, setMyMatches] = useState()
     const [myGames, setMygames] = useState([])
+    const [rentedGames, setRentedGames] = useState([])
+
 
 
     const [showCreateBGModal, setShowCreateBGModal] = useState(false)
@@ -34,6 +37,7 @@ const UserProfilePage = () => {
         if (user) {
             getMymatches()
             getMyGames()
+            getRentedGames()
         }
     }, [user])
 
@@ -51,6 +55,15 @@ const UserProfilePage = () => {
             .getOwnBoardgames()
             .then(({ data }) => {
                 setMygames(data)
+            })
+            .catch(err => console.log(err))
+    }
+
+    const getRentedGames = () => {
+        boardgameService
+            .ownRentedGames()
+            .then(({ data }) => {
+                setRentedGames(data)
             })
             .catch(err => console.log(err))
     }
@@ -76,6 +89,10 @@ const UserProfilePage = () => {
 
                     <div>
                         <BoardgameProfileCard myGames={myGames} />
+                    </div>
+
+                    <div>
+                        <RentedProfileCard rentedGames={rentedGames} />
                     </div>
 
 

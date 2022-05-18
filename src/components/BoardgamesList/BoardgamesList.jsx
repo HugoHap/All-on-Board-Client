@@ -2,7 +2,6 @@ import { Row, Col } from "react-bootstrap"
 import BoardgameCard from "../BoardgameCard/BoardgameCard"
 
 const BoardgamesList = ({ boardgames }) => {
-console.log(boardgames);
     return (
         <>
             <Row>
