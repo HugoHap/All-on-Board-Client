@@ -1,0 +1,48 @@
+.matchDetails {
+    border: 7px solid rgb(96, 239, 116);
+    border-radius: 8px;
+    margin-top: 30px;
+    box-shadow: 0px 1px 13px rgba(96, 239, 115, 0.433);
+}
+
+.matchDetailsTitle {
+    font-family: 'Modak',
+        sans-serif;
+    font-size: 4em;
+    padding-top: 30px;
+    padding-left: 30px;
+}
+
+.matchDetailsDescription {
+    padding-top: 30px;
+    padding-left: 60px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.MatchCol {
+    display: flex;
+}
+
+.MatchesButtons {
+    display: flex;
+}
+
+.playersMatch {
+    border: 7px solid rgb(96, 239, 116);
+    width: 200px;
+    height: 100px;
+    border-radius: 8px;
+    margin-top: 30px;
+    box-shadow: 0px 1px 13px rgba(96, 239, 115, 0.433);
+    padding: 10px;
+}
+
+.containerMatch {
+    font-family: 'Open Sans', sans-serif;
+    padding: 10px;
+}
+
+.hrMatch {
+    color: rgb(96, 239, 116);
+    height: 4px;
+}

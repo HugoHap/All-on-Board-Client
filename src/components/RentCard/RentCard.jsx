@@ -50,25 +50,3 @@ const RentCard = ({ boardgameDetails }) => {
 }
 
 export default RentCard
-
-
-
-//     <>
-//     {
-//         boardgameDetails?.map((elm) => {
-//     return <div key={elm._id}>
-//         <Card className='rentCard'>
-//             <Nav.Link className='elm' to={`/boardgames/${elm._id}/booking`} onClick={BookingModalOpen}>
-//                 <div className='myContainer'>
-//                     <img className='overlayImg' src={elm.gameImg}></img>
-//                 </div>
-//                 <Card.Body>
-//                     <Card.Title>{elm.age}</Card.Title>
-//                 </Card.Body>
-//             </Nav.Link>
-//         </Card>
-
-//     </div>
-// })
-//             }
-//         </>

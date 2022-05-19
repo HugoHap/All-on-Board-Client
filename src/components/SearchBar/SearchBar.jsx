@@ -27,7 +27,7 @@ const SearchBar = () => {
             <div className='searchbox'>
 
                 <div className='searchbar'>
-                    <input placeholder="Search" type="search" className="input" onChange={handleSearch} />
+                    <input placeholder="Search" type="search" className=" input inputBoardGame" onChange={handleSearch} />
                 </div>
                 <div>
                     {

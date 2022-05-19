@@ -1,28 +1,11 @@
-import { useEffect, useState } from "react";
 import { Col, Container, Row, Card } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import commentService from "../../services/comment.service";
 import "./CommentCard.css"
 
-function CommentCard({ commentsData}) {
+function CommentCard({ commentsData }) {
 
-console.log("ASDASDASD", commentsData);
-    // const [comments, setComments] = useState([]);
-    const [commentStatus, setCommentStatus]= useState(true)
 
     const { id } = useParams()
-
-    // useEffect(() => {
-    //     commentService
-    //         .getCommentsBoardgame(id)
-    //         .then(({data}) => {
-    //             setComments(data)
-    //             setCommentStatus(false)
-    //         })
-    //         .catch(err => console.log(err))
-    // }, [commentStatus]) // AQUI HACE 874723498273498279438 LLAMADAS A LA API
-
-
 
     return (
         <>
@@ -38,7 +21,7 @@ console.log("ASDASDASD", commentsData);
                                     <Card.Body>
                                         <div className="commentTop" >
                                             <h6 className="commentOwner">
-                                                {eachComment.owner.username}:
+                                                {eachComment?.owner?.username}:
                                             </h6>
 
                                             <p className="commentDate">

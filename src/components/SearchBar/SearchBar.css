@@ -29,7 +29,7 @@
     margin: 30px 8px 30px 8px;
 }
 
-.input {
+.inputBoardGame {
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
     width: 100%;
@@ -53,12 +53,12 @@ a {
     color: #003cff;
 }
 
-.input::placeholder {
+.inputBoardGame::placeholder {
     color: #ffffff;
 }
 
-.input:focus,
-input:hover {
+.inputBoardGame:focus,
+inputBoardGame:hover {
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
     outline: none;

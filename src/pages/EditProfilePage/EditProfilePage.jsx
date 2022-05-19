@@ -3,8 +3,6 @@ import EditProfileForm from "../../components/EditProfileForm/EditProfileForm.js
 
 const EditProfilePage = () => {
 
-//TENGO QUE ACCEDER DE ALGUNA FORMA AL USUARIO AQUÍ
-
     return (
         <Container>
             <Row>
