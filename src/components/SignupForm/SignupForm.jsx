@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Form, Modal, Button } from "react-bootstrap"
+import { Form, Button } from "react-bootstrap"
 import { useNavigate } from 'react-router-dom'
 import authService from "../../services/auth.service"
 import uploadService from "../../services/upload.service"

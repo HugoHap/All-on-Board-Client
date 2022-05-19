@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { AuthContext } from "../../context/auth.context"
 import { Container, Nav, Modal, Button, Row } from 'react-bootstrap'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { useEffect, useState } from "react"
 import "./AdminPage.css"
 import userService from "../../services/user.service"

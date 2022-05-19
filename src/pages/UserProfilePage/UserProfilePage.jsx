@@ -39,7 +39,7 @@ const UserProfilePage = () => {
             getMyGames()
             getRentedGames()
         }
-    }, [user])
+    }, [user, myMatches, myGames, rentedGames])
 
     const getMymatches = () => {
         matchesService

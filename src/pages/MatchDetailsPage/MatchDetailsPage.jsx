@@ -26,12 +26,10 @@ const MatchDetailsPage = () => {
         matchesService
         .getOneMatch(id)
         .then(({ data }) => {
-            console.log("mapaaaaaaaaa",data)
             setMatchDetails(data)
             setIsLoading(true)
         })
         .catch(err => console.log(err))
-        
     }, [])
     
     const MyMapComponent = withScriptjs(

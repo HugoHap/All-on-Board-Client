@@ -1,6 +1,6 @@
 import { useContext } from "react"
-import { Card, Button, Container, Row, Col } from "react-bootstrap"
-import { Link, useNavigate } from "react-router-dom"
+import { Button, Container, Row} from "react-bootstrap"
+import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../../context/auth.context"
 import userService from "../../services/user.service"
 import './UserList.css'

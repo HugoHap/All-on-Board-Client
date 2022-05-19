@@ -1,5 +1,5 @@
 import { useContext, useState } from "react"
-import { Form, Button, Modal } from "react-bootstrap"
+import { Form, Button} from "react-bootstrap"
 import authService from "../../services/auth.service"
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from './../../context/auth.context'

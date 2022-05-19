@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react'
 import { AuthContext } from '../../context/auth.context'
 import { useParams, Link } from 'react-router-dom'
-import { Container, Row, Col, Button, FloatingLabel, Form, Modal } from 'react-bootstrap'
+import { Container, Row, Col, Button, FloatingLabel, Form } from 'react-bootstrap'
 import boardgameService from '../../services/boardgame.service'
 import RentCard from '../../components/RentCard/RentCard'
 import LikeButton from '../../components/LikeButton/LikeButton'
@@ -189,7 +189,7 @@ const BoardgamesDetailsPage = () => {
                     {
                         !isLoggedIn ?
                             <>
-                                <CommentCard fireFinalActions={fireFinalActions} commentsData={commentsData}/>
+                                <CommentCard fireFinalActions={fireFinalActions} commentsData={commentsData} />
 
                             </>
                             :

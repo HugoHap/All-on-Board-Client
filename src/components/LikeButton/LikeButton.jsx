@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import boardgameService from '../../services/boardgame.service'
-import { Container, Row, Col, Button, FloatingLabel, Form, Modal } from 'react-bootstrap'
+import { Button} from 'react-bootstrap'
 
 function LikeButton() {
 

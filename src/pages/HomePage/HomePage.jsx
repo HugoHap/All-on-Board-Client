@@ -6,19 +6,36 @@ import BoardgameCard from '../../components/BoardgameCard/BoardgameCard';
 import background from "../../img/FONDITO.png";
 import './HomePage.css'
 import EventCard from '../../components/EventCard/EventCard';
+import matchesService from '../../services/match.service';
 
 const IndexPage = () => {
 
     const [rankGames, setRankGames] = useState([])
+    const [events, setEvents] = useState([])
+
 
     useEffect(() => {
+        getEvents()
+        getOriginalGames()
+    }, [])
+
+    const getEvents = () => {
+        matchesService
+            .allEvents()
+            .then(({ data }) => {
+                console.log(data);
+                setEvents(data)
+            })
+    }
+
+    const getOriginalGames = () => {
         boardgameService
             .getOriginalBoardgames()
             .then(({ data }) => {
                 setRankGames(data)
             })
             .catch(err => console.log(err))
-    }, [])
+    }
 
     const responsive = {
         desktop: {
@@ -90,9 +107,14 @@ const IndexPage = () => {
                         </Row>
                     </Carousel.Item>
                 </Carousel>
-                <div>
-                    <EventCard />
-                </div>
+                <Row>
+                    <Col md={6}>
+                        <EventCard events={events[0]} />
+                    </Col>
+                    <Col md={6}>
+                        <EventCard events={events[1]} />
+                    </Col>
+                </Row>
             </Container>
         </div>
     )
