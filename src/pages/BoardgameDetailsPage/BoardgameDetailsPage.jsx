@@ -186,18 +186,17 @@ const BoardgamesDetailsPage = () => {
 
 
                 <div className="Comments">
-                    {/* <CommentCard fireFinalActions={fireFinalActions} /> */}
                     {
                         !isLoggedIn ?
                             <>
-                                <CommentCard fireFinalActions={fireFinalActions} />
-
+                                <CommentCard fireFinalActions={fireFinalActions} commentsData={commentsData} />
                             </>
                             :
                             <>
-                                <CommentCard fireFinalActions={fireFinalActions} />
+                                <CommentCard fireFinalActions={fireFinalActions} commentsData={commentsData} />
 
                                 <div clasName="CreateComment">
+                                    <h6 className="CommentTitle">LEAVE YOUR COMMENT</h6>
                                     <Form onSubmit={handleSubmit}>
                                         <FloatingLabel controlId="floatingTextarea2" label="Comments">
                                             <Form.Control

@@ -4,7 +4,6 @@ import { Container } from "react-bootstrap";
 import BoardgamesList from "../../components/BoardgamesList/BoardgamesList.jsx";
 import SearchBar from "../../components/SearchBar/SearchBar"
 import './BoardgameListPage.css'
-// import background from "../../img/FONDOBOARDGAMELIST.png";
 
 const BoardgamesListPage = () => {
 
@@ -21,10 +20,6 @@ const BoardgamesListPage = () => {
 
 
     return (
-        //         <div className = 'BackgroundBoardGameList' style = {{
-        //         backgroundImage: `url(${background})`
-        //     }
-        // }>
         <>
             <Container className="BoardgameListContainer">
                 <div>
@@ -36,13 +31,12 @@ const BoardgamesListPage = () => {
                     <hr className="hrList"></hr>
                     <SearchBar />
                 </div>
-        
+
                 <div clasName="BoardgamesList">
                     <BoardgamesList boardgames={allBoardgames[0]} />
                 </div>
             </Container>
         </>
-        // </div>
     )
 }
 

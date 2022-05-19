@@ -103,9 +103,9 @@ const UserProfilePage = () => {
 
                 </Container>
 
-                <Modal show={showCreateBGModal} onHide={handleCreateBGModalClose} size="lg">
+                <Modal className="ModalCreate" show={showCreateBGModal} onHide={handleCreateBGModalClose} size="lg">
                     <Modal.Header closeButton>
-                        <Modal.Title>Create Boardgame to rent</Modal.Title>
+                        <Modal.Title className="CreateRent">Create Boardgame to rent</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <CreateBoardgameForm fireFinalActions={fireFinalActions} />

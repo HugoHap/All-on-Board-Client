@@ -16,13 +16,18 @@ const AdminPage = () => {
 
     const [allUser, setAllUsers] = useState([])
 
+    const [showAdminBoardgameModal, setShowAdminBoardgameModal] = useState(false)
+    const handleAdminBoardgameModalClose = () => setShowAdminBoardgameModal(false)
+    const handleAdminBoardgameModalOpen = () => setShowAdminBoardgameModal(true)
+
+    const [showAdminEventModal, setShowAdminEventModal] = useState(false)
+    const handleAdminEventModalClose = () => setShowAdminEventModal(false)
+    const handleAdminEventModalOpen = () => setShowAdminEventModal(true)
+
 
     useEffect(() => {
         loadUsers()
     }, [])
-
-
-
 
     const loadUsers = () => {
         userService
@@ -31,12 +36,38 @@ const AdminPage = () => {
             .catch(err => console.log(err))
     }
 
+    const fireFinalActions = () => {
+        handleAdminBoardgameModalClose()
+        handleAdminEventModalClose()
+    }
+
     return (
         <Container>
             <Row>
                 <UserList allUser={allUser} />
-                <AdminBoardgameForm />
-                <AdminEventForm />
+                <NavLink to='#' >
+                    <Nav.Link className='elm' as="span" onClick={handleAdminBoardgameModalOpen}><Button variant="dark" type="">Create new Boardgame</Button></Nav.Link>
+                </NavLink>
+                <Modal show={showAdminBoardgameModal} onHide={handleAdminBoardgameModalClose} size="lg">
+                    <Modal.Header closeButton>
+                        <Modal.Title>Create new Boardgame</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body >
+                        <AdminBoardgameForm fireFinalActions={fireFinalActions} />
+                    </Modal.Body>
+                </Modal>
+
+                <NavLink to='#' >
+                    <Nav.Link className='elm' as="span" onClick={handleAdminEventModalOpen}><Button variant="dark" type="">Create new Event / Match</Button></Nav.Link>
+                </NavLink>
+                <Modal show={showAdminEventModal} onHide={handleAdminEventModalClose} size="lg">
+                    <Modal.Header closeButton>
+                        <Modal.Title>Create new Event / Match</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body >
+                        <AdminEventForm fireFinalActions={fireFinalActions} />
+                    </Modal.Body>
+                </Modal>
             </Row>
         </Container>
     )
