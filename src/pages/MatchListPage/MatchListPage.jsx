@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 import matchesService from './../../services/match.service'
 import MatchesList from "../../components/MatchesList/MatchesList"
 import CreateMatchForm from "../../components/CreateMatchForm/CreateMatchForm"
+import './MatchListPage.css'
 
 const MatchListPage = () => {
 
@@ -38,27 +39,38 @@ const MatchListPage = () => {
 
     return (
         <>
-            <Container>
-                <h1>Matches list</h1>
-                <hr></hr>
+            <Container className="MatchesListContainer">
+                <div>
+                    <h1 className="MatchesListTitle">Matches list</h1>
+                </div>
 
-                <NavLink to='#' >
-                    <Nav.Link className='elm' as="span" onClick={handleCreateMatchModalOpen}><Button variant="dark" type="">Create new match</Button></Nav.Link>
-                </NavLink>
+                <div className="CreateMatch">
+                    <div>
+                        <h6 className="CreateMatchTitle">START PLAYING WITH YOUR FRIENDS</h6>
+                    </div>
 
-                <MatchesList matches={matches} />
+                    <div>
+                        <NavLink to='#' >
+                            <Nav.Link className='elm' as="span" onClick={handleCreateMatchModalOpen}><Button variant="dark" type="">Create new match</Button></Nav.Link>
+                        </NavLink>
+                    </div>
+
+                    <Modal show={showCreateMatchModal} onHide={handleCreateMatchModalClose} size="lg">
+                        <Modal.Header closeButton>
+                            <Modal.Title>Create new match</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body >
+                            <CreateMatchForm fireFinalActions={fireFinalActions} />
+                        </Modal.Body>
+                    </Modal>
+                </div>
+
+                <div>
+                    <MatchesList matches={matches} />
+                    <hr className="hrCreateMatch" />
+                </div>
+
             </Container>
-            <hr />
-
-
-            <Modal show={showCreateMatchModal} onHide={handleCreateMatchModalClose} size="lg">
-                <Modal.Header closeButton>
-                    <Modal.Title>Create new match</Modal.Title>
-                </Modal.Header>
-                <Modal.Body >
-                    <CreateMatchForm fireFinalActions={fireFinalActions} />
-                </Modal.Body>
-            </Modal>
         </>
     )
 

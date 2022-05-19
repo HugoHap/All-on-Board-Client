@@ -174,7 +174,6 @@ const BoardgamesDetailsPage = () => {
                                     </Row>
                                 </>
                         }
-
                     </Row>
                 </div>
 

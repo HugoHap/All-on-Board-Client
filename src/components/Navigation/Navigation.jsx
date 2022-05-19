@@ -34,15 +34,25 @@ const Navigation = () => {
                         {
                             !isLoggedIn ?
                                 <>
-                                    <NavLink to="/boardgames" className="nav-link">BOARDGAMES</NavLink>
+                                    <div className="NavBarText">
+                                        <NavLink to="/boardgames" className="nav-link">BOARDGAMES</NavLink>
+                                    </div>
                                 </>
                                 :
                                 <>
-                                    <NavLink to="/boardgames" className="nav-link">BOARDGAMES</NavLink>
-                                    <NavLink to="/match" className="nav-link">MATCHES</NavLink>
-                                    {user.role === 'ADMIN' &&
-                                        <NavLink to="/admin" className="nav-link">ADMIN VIEW</NavLink>
-                                    }
+                                    <div className="NavBarText">
+                                        <NavLink to="/boardgames" className="nav-link">BOARDGAMES</NavLink>
+                                    </div>
+
+                                    <div className="NavBarText">
+                                        <NavLink to="/match" className="nav-link">MATCHES</NavLink>
+                                        {/* {user.role === 'ADMIN' &&
+                                            <NavLink to="/admin" className="nav-link">ADMIN VIEW</NavLink>} */}
+                                    </div>
+                                    <div className="NavBarText">
+                                        {user.role === 'ADMIN' &&
+                                            <NavLink to="/admin" className="nav-link">ADMIN VIEW</NavLink>}
+                                    </div>
                                 </>
                         }
                     </Nav>
@@ -50,20 +60,20 @@ const Navigation = () => {
                         {
                             !isLoggedIn ?
                                 <>
-                                    <NavLink to='#'>
+                                    <NavLink to='#' className="NavBarText">
                                         <Nav.Link className='elm' as="span" onClick={SignupModalOpen}>SIGNUP</Nav.Link>
                                     </NavLink>
 
-                                    <NavLink to='#'>
+                                    <NavLink to='#' className="NavBarText">
                                         <Nav.Link className='elm' as="span" onClick={LoginModalOpen}>LOGIN</Nav.Link>
                                     </NavLink>
                                 </>
                                 :
                                 <>
-                                    <NavLink to={`/profile`}>
+                                    <NavLink to={`/profile`} className="NavBarText">
                                         <Nav.Link as="span">PROFILE</Nav.Link>
                                     </NavLink>
-                                    <NavLink to={`/`}>
+                                    <NavLink to={`/`} className="NavBarText">
                                         <div className="nav-link" onClick={logOutUser}>LOGOUT</div>
                                     </NavLink>
                                 </>

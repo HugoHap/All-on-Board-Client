@@ -20,9 +20,8 @@
 }
 
 .Signup {
-    font-family: 'Modak',
-        sans-serif;
-        font-size: 2em;
+    font-family: 'Modak', sans-serif;
+    font-size: 2em;
 }
 
 .ModalLogin {
@@ -34,7 +33,13 @@
 }
 
 .Login {
-    font-family: 'Modak',
-        sans-serif;
-        font-size: 2em;
+    font-family: 'Modak', sans-serif;
+    font-size: 2em;
+}
+
+.NavBarText {
+    font-family: 'Modak', sans-serif;
+    font-size: 2em;
+    font-weight: lighter;
+    color: #d44731;
 }
