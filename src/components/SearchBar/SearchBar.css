@@ -7,7 +7,7 @@
 .Search {
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
-    border: 1px solid #003cff;
+
     border-radius: 6px;
     margin: 10px;
 }
@@ -60,5 +60,5 @@ inputBoardGame:hover {
     border-color: #000000;
     background-color: #003cff4e;
     ;
-    box-shadow: 0 0 0 2px #003cff;
+    box-shadow: 0 0 0 2px #003cff4e;
 }
