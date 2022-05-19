@@ -123,6 +123,8 @@ const BoardgamesDetailsPage = () => {
             })
     }
 
+console.log("RENT",boardgameDetails[1])
+
     return (
         <div className="GBDetailsPage" >
             <Container>

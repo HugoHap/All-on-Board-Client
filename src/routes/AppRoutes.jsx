@@ -6,8 +6,6 @@ import IndexPage from "../pages/HomePage/HomePage"
 import MatchDetailsPage from "../pages/MatchDetailsPage/MatchDetailsPage"
 import UserProfilePage from "../pages/UserProfilePage/UserProfilePage"
 import CreateBoardGamePage from "../pages/CreateBoardGamePage/CreateBoardGamePage"
-import EditMatchPage from "../pages/EditMatchPage/EditMatchPage"
-import EditBoardGamePage from "../pages/EditBoardGamePage/EditBoardGame"
 import EditProfilePage from "../pages/EditProfilePage/EditProfilePage"
 import BoardgameRentPage from "../pages/BoardgameRent/BoardgameRentPage"
 import AdminPage from "../pages/AdminPage/AdminPage"
@@ -24,11 +22,9 @@ const AppRoutes = () => {
             <Route path="/boardgames/:id/booking" element={<BoardgameRentPage />} />
             <Route path="/boardgames/:id/like" element={<BoardgamesDetailsPage />} />
             <Route path="/boardgames/:id/dislike" element={<BoardgamesDetailsPage />} />
-            <Route path="/boardgames/:id/edit" element={<EditBoardGamePage />} />
             <Route path="/boardgames/create" element={<CreateBoardGamePage />} />
             <Route path='/match' element={<MatchesListPage />} />
             <Route path='/match/:id' element={<MatchDetailsPage />} />
-            <Route path="/match/:id/edit" element={<EditMatchPage />} />
             <Route path="/match/:id/join" element={<UserProfilePage />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="*" element={<h1>Esto es un 404 jeje</h1>} />

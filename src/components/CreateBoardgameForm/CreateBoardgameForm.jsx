@@ -79,31 +79,6 @@ const CreateBoardgameForm = ({ fireFinalActions }) => {
                 </Form.Label>
             </Form.Group>
 
-            {/* <Form.Group className="mb-3" controlId="description">
-                <Form.Label>Description</Form.Label>
-                <Form.Control type="text" onChange={handleInputChange} name="description" value={description} />
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="playingTime">
-                <Form.Label>Playing Time</Form.Label>
-                <Form.Control type="text" onChange={handleInputChange} name="playingTime" value={playingTime} />
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="age">
-                <Form.Label>Age</Form.Label>
-                <Form.Control type="text" onChange={handleInputChange} name="age" value={age} />
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="players.min">
-                <Form.Label>Min. Players</Form.Label>
-                <Form.Control type="text" onChange={handleInputChange} name="min" value={players.min} />
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="players.max">
-                <Form.Label>Max. Players</Form.Label>
-                <Form.Control type="text" onChange={handleInputChange} name="max" value={players.max} />
-            </Form.Group> */}
-
             <Form.Group className="mb-3" controlId="gameImg">
                 <Form.Label>Image</Form.Label>
                 <Form.Control type="file" onChange={handleImageUpload} />

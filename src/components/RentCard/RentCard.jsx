@@ -15,13 +15,17 @@ const RentCard = ({ boardgameDetails }) => {
     const fireFinalActions = () => {
         BookingModalClose()
     }
-console.log(boardgameDetails)
+    console.log("rentcard", boardgameDetails)
+    // const { _id } = boardgameDetails[0]
+    // const idRent = boardgameDetails[0]?._id
+
 
     return (
         <>
             {
                 boardgameDetails?.map((elm) => {
                     console.log(elm.owner.username)
+                    console.log(elm._id)
                     return <div key={elm._id}>
                         <Card className='rentCard'>
                             <Nav.Link className='elm' to={`/boardgames/${elm._id}/booking`} onClick={BookingModalOpen}>
@@ -46,7 +50,8 @@ console.log(boardgameDetails)
                 })
             }
 
-            < Modal className="ModalBooking" show={showBookingModal} onHide={BookingModalClose} size="lg">
+
+            <Modal Modal className="ModalBooking" show={showBookingModal} onHide={BookingModalClose} size="lg">
                 <Modal.Header closeButton>
                     <Modal.Title className="Booking">MAKE YOUR BOOKING</Modal.Title>
                 </Modal.Header>
@@ -54,7 +59,6 @@ console.log(boardgameDetails)
                     <BookingForm fireFinalActions={fireFinalActions} />
                 </Modal.Body>
             </Modal>
-
         </>
     )
 }

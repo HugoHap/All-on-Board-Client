@@ -28,7 +28,6 @@ const BookingForm = ({ fireFinalActions }) => {
         endDate: ''
     })
 
-
     const navigate = useNavigate()
 
     const handleInputChange = (startDate, endDate) => {

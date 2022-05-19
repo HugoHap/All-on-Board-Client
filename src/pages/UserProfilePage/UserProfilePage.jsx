@@ -29,6 +29,7 @@ const UserProfilePage = () => {
     const { showMessage } = useContext(MessageContext)
 
     const fireFinalActions = () => {
+        getMyGames()
         handleCreateBGModalClose()
         showMessage('COMPLETE', 'NEW BOARDGAME CREATED')
     }
@@ -39,7 +40,7 @@ const UserProfilePage = () => {
             getMyGames()
             getRentedGames()
         }
-    }, [user, myMatches, myGames, rentedGames])
+    }, [user])
 
     const getMymatches = () => {
         matchesService
@@ -67,7 +68,7 @@ const UserProfilePage = () => {
             })
             .catch(err => console.log(err))
     }
-
+console.log(rentedGames);
     return (
         user ?
             <>

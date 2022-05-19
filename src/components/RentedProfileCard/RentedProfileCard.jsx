@@ -15,7 +15,7 @@ const RentedProfileCard = ({ rentedGames }) => {
                                         <Card.Title className="CardBGRentTitle">{elm.boardGame.name}</Card.Title>
                                         <div className="CardBGRentDescription">
                                             <p>Booked Date: {elm.startDate.slice(0, 10)} to {elm.endDate.slice(0, 10)} </p>
-                                            <p>Contact Phone: {elm.boardGame.owner?.phone}</p>
+                                            <p>Contact Phone: 659856582</p>
                                         </div>
                                     </Card.Body>
                                 </Card>
