@@ -5,6 +5,7 @@ import boardgameService from '../../services/boardgame.service';
 import BoardgameCard from '../../components/BoardgameCard/BoardgameCard';
 import background from "../../img/FONDITO.png";
 import './HomePage.css'
+import EventCard from '../../components/EventCard/EventCard';
 
 const IndexPage = () => {
 
@@ -89,6 +90,9 @@ const IndexPage = () => {
                         </Row>
                     </Carousel.Item>
                 </Carousel>
+                <div>
+                    <EventCard />
+                </div>
             </Container>
         </div>
     )

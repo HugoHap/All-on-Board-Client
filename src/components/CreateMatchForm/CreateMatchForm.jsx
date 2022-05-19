@@ -6,23 +6,6 @@ import matchesService from "../../services/match.service"
 import GooglePlacesAutocomplete from 'react-google-places-autocomplete'
 import { geocodeByAddress, getLatLng } from 'react-google-places-autocomplete';
 
-import {
-    GoogleMap,
-    Marker,
-    withGoogleMap,
-    withScriptjs,
-} from "react-google-maps"
-
-// const MyMapComponent = withScriptjs(
-//     withGoogleMap((props) => (
-//         <GoogleMap defaultZoom={11} defaultCenter={{ lat: 40.415600407004575, lng: -3.6813260603979545 }}>
-//             {props.isMarkerShown && (
-//                 <Marker position={{ lat: 40.39002570698726, lng: -3.695228954972823 }} />
-//             )}
-//         </GoogleMap>
-//     ))
-// )
-
 const CreateMatchForm = ({ fireFinalActions }) => {
 
     const [createMatchData, setCreateMatchData] = useState({
@@ -30,7 +13,8 @@ const CreateMatchForm = ({ fireFinalActions }) => {
         startTime: '',
         boardGame: undefined,
         lat: undefined,
-        lng: undefined
+        lng: undefined,
+        kind: "MATCH"
     })
 
     const [value, setValue] = useState(null);
@@ -51,7 +35,6 @@ const CreateMatchForm = ({ fireFinalActions }) => {
 
     isLoaded && geocodeByAddress(value?.value.description)
         .then(results => {
-            console.log("asdasda", results)
             return getLatLng(results[0])
         })
         .then((response) => {
@@ -63,7 +46,6 @@ const CreateMatchForm = ({ fireFinalActions }) => {
             })
         });
 
-    console.log("lat-lang", latitude, longitude);
 
     const handleInputChange = e => {
         const { name, value } = e.currentTarget

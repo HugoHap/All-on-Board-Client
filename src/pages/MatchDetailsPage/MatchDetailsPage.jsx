@@ -36,7 +36,7 @@ const MatchDetailsPage = () => {
     
     const MyMapComponent = withScriptjs(
         withGoogleMap((props) => (
-            <GoogleMap defaultZoom={11} defaultCenter={{ lat: 40.415600407004575, lng: -3.6813260603979545 }}>
+            <GoogleMap defaultZoom={12} defaultCenter={{ lat: 40.415600407004575, lng: -3.6813260603979545 }}>
                 {props.isMarkerShown && (
                     <Marker position={{ lat: matchDetails.location.coordinates[0], lng: matchDetails.location.coordinates[1] }} />
                 )}

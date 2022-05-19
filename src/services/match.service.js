@@ -47,6 +47,10 @@ class MatchesService {
     myMatches = () => {
         return this.app.get(`/mymatches`)
     }
+
+    allEvents = () => {
+return this.app.get('/events')
+    }
 }
 
 const matchesService = new MatchesService()

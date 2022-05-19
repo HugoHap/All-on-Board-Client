@@ -3,22 +3,9 @@ import { Form, Modal, Button, Container, Col, Row } from "react-bootstrap"
 import boardgameService from "../../services/boardgame.service"
 import matchesService from "../../services/match.service"
 
-import {
-    GoogleMap,
-    Marker,
-    withGoogleMap,
-    withScriptjs,
-} from "react-google-maps"
+import GooglePlacesAutocomplete from 'react-google-places-autocomplete'
+import { geocodeByAddress, getLatLng } from 'react-google-places-autocomplete';
 
-const MyMapComponent = withScriptjs(
-    withGoogleMap((props) => (
-        <GoogleMap defaultZoom={11} defaultCenter={{ lat: 40.415600407004575, lng: -3.6813260603979545 }}>
-            {props.isMarkerShown && (
-                <Marker position={{ lat: 40.39002570698726, lng: -3.695228954972823 }} />
-            )}
-        </GoogleMap>
-    ))
-)
 
 const AdminEventForm = ({ fireFinalActions }) => {
 
@@ -26,19 +13,37 @@ const AdminEventForm = ({ fireFinalActions }) => {
         description: '',
         startTime: '',
         boardGame: undefined,
-        location: '',
+        lat: undefined,
+        lng: undefined,
         kind: undefined
     })
 
     const [boardgamesData, setBoardgamesData] = useState([])
+
+    const [value, setValue] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false)
 
     useEffect(() => {
         boardgameService
             .getOriginalBoardgames()
             .then(({ data }) => {
                 setBoardgamesData(data)
+                setIsLoaded(true)
             })
     }, [])
+
+    isLoaded && geocodeByAddress(value?.value.description)
+        .then(results => {
+            return getLatLng(results[0])
+        })
+        .then((response) => {
+            console.log('Successfully got latitude and longitude', response)
+            setADminEventData({
+                ...adminEventData,
+                lat: response.lat,
+                lng: response.lng
+            })
+        });
 
     const handleInputChange = e => {
         const { name, value } = e.currentTarget
@@ -46,7 +51,7 @@ const AdminEventForm = ({ fireFinalActions }) => {
         setADminEventData({
             ...adminEventData,
             [name]: value,
-            kind: kind
+            // kind: kind
         })
     }
 
@@ -109,13 +114,19 @@ const AdminEventForm = ({ fireFinalActions }) => {
                         </Form.Label>
                     </Form.Group>
 
-                    <MyMapComponent
+                    {/* <MyMapComponent
                         isMarkerShown
                         googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTfrEJjFOyJQ3p3WbSYP0yNoasqELJNFY&v=3.exp&libraries=geometry,drawing,places"
                         loadingElement={<div style={{ height: `100%` }} />}
                         containerElement={<div style={{ height: `400px` }} />}
                         mapElement={<div style={{ height: `100%` }} />}
-                    />
+                    /> */}
+                    <div>
+                        <GooglePlacesAutocomplete
+                            apiKey="AIzaSyBTfrEJjFOyJQ3p3WbSYP0yNoasqELJNFY"
+                            selectProps={{ value, onChange: setValue }}
+                        />
+                    </div>
 
                 </Row>
             </Container>

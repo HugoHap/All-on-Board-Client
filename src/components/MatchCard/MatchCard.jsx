@@ -8,7 +8,7 @@ const MatchCard = ({ startTime, boardGame, _id }) => {
         <Link to={`/match/${_id}`} className="MatchesLink" >
             < Card className="MatchCardList MatchCard" >
                 {/* <Card.Img className="imageMatchesList" variant="top" src={boardGame.gameImg} /> */}
-                <Card.Title className="text-title-matchesList text-title ">{boardGame.name}</Card.Title>
+                <Card.Title className="text-title-matchesList text-title ">{boardGame?.name}</Card.Title>
                 <Card.Body className="MatchesBodyText">
                     <p> {startTime.slice(0, 10)}</p>
                 </Card.Body>
