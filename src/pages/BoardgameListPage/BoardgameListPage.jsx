@@ -18,24 +18,25 @@ const BoardgamesListPage = () => {
             .catch(err => console.log(err))
     }, [])
 
-
     return (
         <>
-            <Container className="BoardgameListContainer">
-                <div>
-                    <h1 className="BoardgamesListTitle">Boardgames List</h1>
-                </div>
+            <div className="BoardgameListContainer">
+                <Container className="BoardgameListContainer">
+                    <div>
+                        <h1 className="BoardgamesListTitle">Boardgames List</h1>
+                    </div>
 
-                <div className="SearchBar">
-                    <h6 className="SearchGames" >SEARCH GAMES</h6>
-                    <hr className="hrList"></hr>
-                    <SearchBar />
-                </div>
+                    <div className="SearchBar">
+                        <h6 className="SearchGames" >SEARCH GAMES</h6>
+                        <hr className="hrList"></hr>
+                        <SearchBar />
+                    </div>
 
-                <div clasName="BoardgamesList">
-                    <BoardgamesList boardgames={allBoardgames[0]} />
-                </div>
-            </Container>
+                    <div clasName="BoardgamesList">
+                        <BoardgamesList boardgames={allBoardgames[0]} />
+                    </div>
+                </Container>
+            </div>
         </>
     )
 }

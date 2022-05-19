@@ -23,8 +23,16 @@ const RentCard = ({ boardgameDetails }) => {
                     return <div key={elm._id}>
                         <Card className='rentCard'>
                             <Nav.Link className='elm' to={`/boardgames/${elm._id}/booking`} onClick={BookingModalOpen}>
-                                <div className='myContainer'>
-                                    <img className='overlayImg' src={elm.gameImg}></img>
+                            
+                                <div className='myContainerRent'>
+                                    <div>
+                                        <img className='overlayImg' src={elm.gameImg}>
+                                        </img>
+                                    </div>
+                                    <div className='DetailsOwner'>
+                                        <p className='NameOwner'> Owner: {elm.owner.username} </p>
+                                        <p className='Dategame'> Created: {elm.updatedAt} </p>
+                                    </div>
                                 </div>
                                 <Card.Body>
                                     <Card.Title>{elm.age}</Card.Title>
