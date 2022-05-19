@@ -20,7 +20,6 @@ const EventCard = () => {
     return (
 
         <>
-
             <Link to={`/match/${events?.id}`} className="MatchesLink" >
                 <Card className="MatchCardList MatchCard" >
                     <Card.Title className="text-title-matchesList text-title ">{events?.boardgame?.name}</Card.Title>
@@ -38,7 +37,6 @@ const EventCard = () => {
                     </div>
                 </Card>
             </Link>
-
         </>
 
     )

@@ -72,23 +72,25 @@ const MatchDetailsPage = () => {
 
 
         return (
-            <Container className="matchDetails">
-                <h1 className="matchDetailsTitle">
-                    "{boardGame.name}" match
-                </h1>
-                <hr className="hrMatch"></hr>
-                <div className="MatchCol">
-                    <Row>
-                        <Col md={{ span: 6 }}>
-                            <div className="matchDetailsDescription">
-                                <p>ORGANIZER: {organizer?.username}</p>
-                                <p>DESCRIPTION: {description}</p>
-                                <p>STARTING TIME: {startTime.slice(0, 10)}</p>
-                                {/* <p>Boardgame: {boardGame.name}</p> */}
-                                <p>AGE: {boardGame.age}</p>
-                                <p>PLAYERS: {boardGame.players.min}-{boardGame.players.max}</p>
-                            </div>
-                        </Col>
+            <div className="matchDiv">
+                <Container >
+                    <div className="matchDetails">
+                        <h1 className="matchDetailsTitle">
+                            "{boardGame.name}" match
+                        </h1>
+                        <hr className="hrMatch"></hr>
+                        <div className="MatchCol">
+                            <Row>
+                                <Col md={{ span: 6 }}>
+                                    <div className="matchDetailsDescription">
+                                        <p>ORGANIZER: {organizer?.username}</p>
+                                        <p>DESCRIPTION: {description}</p>
+                                        <p>STARTING TIME: {startTime.slice(0, 10)}</p>
+                                        {/* <p>Boardgame: {boardGame.name}</p> */}
+                                        <p>AGE: {boardGame.age}</p>
+                                        <p>PLAYERS: {boardGame.players.min}-{boardGame.players.max}</p>
+                                    </div>
+                                </Col>
 
                         <Col md={{ span: 6 }}>
                             <img style={{ width: '100%' }} src={boardGame.gameImg} alt={boardGame.name} />
@@ -126,36 +128,39 @@ const MatchDetailsPage = () => {
                                     </>
                             }
                         </Nav>
-                        <div>
-                            <Container className='containerMatch'>
-                                <Row>
-                                    <>
-                                        {
-                                            players?.map((elm) => {
-                                                return <Col md={{ span: 3 }} className='playersMatch' key={elm._id}>
-                                                    <Card.Title>{elm.username} :) </Card.Title>
-                                                </Col>
-                                            })
-                                        }
-                                    </>
-                                </Row>
-                            </Container>
-                        </div>
-                    </Row >
+                                <div>
+                                    <Container className='containerMatch'>
+                                        <Row>
+                                            <>
+                                                {
+                                                    players?.map((elm) => {
+                                                        return <Col md={{ span: 3 }} className='playersMatch' key={elm._id}>
+                                                            <Card.Title>{elm.username} :) </Card.Title>
+                                                        </Col>
+                                                    })
+                                                }
+                                            </>
+                                        </Row>
+                                    </Container>
+                                </div>
+                            </Row >
 
 
-                </div >
+                        </div >
+                    </div>
 
-                <div className="mapMatch">
-                    <MyMapComponent
-                        isMarkerShown
-                        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTfrEJjFOyJQ3p3WbSYP0yNoasqELJNFY&v=3.exp&libraries=geometry,drawing,places"
-                        loadingElement={<div style={{ height: `100%` }} />}
-                        containerElement={<div style={{ height: `400px` }} />}
-                        mapElement={<div style={{ height: `100%` }} />}
-                    />
-                </div>
-            </Container >
+                    <div className="mapMatch">
+
+                        <MyMapComponent
+                            isMarkerShown
+                            googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTfrEJjFOyJQ3p3WbSYP0yNoasqELJNFY&v=3.exp&libraries=geometry,drawing,places"
+                            loadingElement={<div style={{ height: `100%` }} />}
+                            containerElement={<div style={{ height: `400px` }} />}
+                            mapElement={<div style={{ height: `100%` }} />}
+                        />
+                    </div>
+                </Container >
+            </div>
         )
     }
 }
