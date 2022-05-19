@@ -13,27 +13,37 @@ import "./MatchDetailsPage.css"
 
 
 const MatchDetailsPage = () => {
-    
+
     const [matchDetails, setMatchDetails] = useState()
     const [isLoading, setIsLoading] = useState(false)
-    
+
     const navigate = useNavigate()
-    
+
     const { id } = useParams()
-    
-    useEffect(() => {
-        
+
+    const deleteMatch = (id) => {
+
         matchesService
-        .getOneMatch(id)
-        .then(({ data }) => {
-            console.log("mapaaaaaaaaa",data)
-            setMatchDetails(data)
-            setIsLoading(true)
-        })
-        .catch(err => console.log(err))
-        
+            .deleteMatch(id)
+            .then(() => {
+
+            })
+            .catch(err => console.log(err))
+
+    }
+
+    useEffect(() => {
+
+        matchesService
+            .getOneMatch(id)
+            .then(({ data }) => {
+                setMatchDetails(data)
+                setIsLoading(true)
+            })
+            .catch(err => console.log(err))
+
     }, [])
-    
+
     const MyMapComponent = withScriptjs(
         withGoogleMap((props) => (
             <GoogleMap defaultZoom={12} defaultCenter={{ lat: 40.415600407004575, lng: -3.6813260603979545 }}>
@@ -107,8 +117,8 @@ const MatchDetailsPage = () => {
                                                 </div>
 
                                                 <div className="ButtonsDelete">
-                                                    <Link to={`/match/${id}/delete`}>
-                                                        <Button>Delete Match</Button>
+                                                    <Link to={'/match'}>
+                                                        <Button className="btn btn-outline-danger" variant="light" onClick={() => deleteMatch(id)}>Delete Match</Button>
                                                     </Link>
                                                 </div>
                                             </Col>
