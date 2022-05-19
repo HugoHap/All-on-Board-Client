@@ -55,9 +55,9 @@ const MatchListPage = () => {
                         </NavLink>
                     </div>
 
-                    <Modal show={showCreateMatchModal} onHide={handleCreateMatchModalClose} size="lg">
+                    <Modal className="ModalMatch" show={showCreateMatchModal} onHide={handleCreateMatchModalClose} size="lg">
                         <Modal.Header closeButton>
-                            <Modal.Title>Create new match</Modal.Title>
+                            <Modal.Title className="CreateRent">Create new match</Modal.Title>
                         </Modal.Header>
                         <Modal.Body >
                             <CreateMatchForm fireFinalActions={fireFinalActions} />

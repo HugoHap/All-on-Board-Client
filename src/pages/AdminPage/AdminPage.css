@@ -1,0 +1,27 @@
+.AdminEventModal {
+    background-color: rgba(96, 239, 115, 0.393);
+}
+
+.AdminEventModal .modal-content {
+    background-color: rgb(96, 239, 116);
+}
+
+.CreateRent {
+    font-family: 'Modak',
+        sans-serif;
+    font-size: 3em;
+}
+
+.AdminBoardgameModal {
+    background-color: #d4473144;
+}
+
+.AdminBoardgameModal .modal-content {
+    background-color: #d44731;
+}
+
+.CreateRent {
+    font-family: 'Modak',
+        sans-serif;
+    font-size: 3em;
+}

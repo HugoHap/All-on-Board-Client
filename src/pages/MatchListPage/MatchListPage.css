@@ -39,6 +39,21 @@
     font-size: 1em;
     padding: 20px;
 }
+
+.ModalMatch {
+    background-color: rgba(96, 239, 115, 0.393);
+}
+
+.ModalMatch .modal-content {
+    background-color: rgb(96, 239, 116);
+}
+
+.CreateRent {
+    font-family: 'Modak',
+        sans-serif;
+    font-size: 3em;
+}
+
 /* 
 .ButtonCreateMatchtton {
     --green: #1BFD9C;

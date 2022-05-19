@@ -3,20 +3,6 @@
     margin-right: 10px;
 }
 
-/* .search {
-    color: black;
-}
-
-
-
-/* a {
-    text-decoration: none;
-} */
-*/
-/* .searchbox {
-    margin-bottom: 20px;
-} */
-
 .group {
     display: flex;
     line-height: 28px;
@@ -32,7 +18,7 @@
 .inputBoardGame {
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
-    width: 100%;
+    width: 1255px;
     height: 40px;
     line-height: 28px;
     padding: 0 1rem;
@@ -54,7 +40,7 @@ a {
 }
 
 .inputBoardGame::placeholder {
-    color: #ffffff;
+    color: #0b0b0bba;
 }
 
 .inputBoardGame:focus,

@@ -48,9 +48,9 @@ const AdminPage = () => {
                 <NavLink to='#' >
                     <Nav.Link className='elm' as="span" onClick={handleAdminBoardgameModalOpen}><Button variant="dark" type="">Create new Boardgame</Button></Nav.Link>
                 </NavLink>
-                <Modal show={showAdminBoardgameModal} onHide={handleAdminBoardgameModalClose} size="lg">
+                <Modal className="AdminBoardgameModal" show={showAdminBoardgameModal} onHide={handleAdminBoardgameModalClose} size="lg">
                     <Modal.Header closeButton>
-                        <Modal.Title>Create new Boardgame</Modal.Title>
+                        <Modal.Title className="CreateRent">Create new Boardgame</Modal.Title>
                     </Modal.Header>
                     <Modal.Body >
                         <AdminBoardgameForm fireFinalActions={fireFinalActions} />
@@ -60,9 +60,9 @@ const AdminPage = () => {
                 <NavLink to='#' >
                     <Nav.Link className='elm' as="span" onClick={handleAdminEventModalOpen}><Button variant="dark" type="">Create new Event / Match</Button></Nav.Link>
                 </NavLink>
-                <Modal show={showAdminEventModal} onHide={handleAdminEventModalClose} size="lg">
+                <Modal className="AdminEventModal" show={showAdminEventModal} onHide={handleAdminEventModalClose} size="lg">
                     <Modal.Header closeButton>
-                        <Modal.Title>Create new Event / Match</Modal.Title>
+                        <Modal.Title className="CreateRent">Create new Event / Match</Modal.Title>
                     </Modal.Header>
                     <Modal.Body >
                         <AdminEventForm fireFinalActions={fireFinalActions} />

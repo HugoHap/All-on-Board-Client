@@ -196,9 +196,9 @@ const BoardgamesDetailsPage = () => {
                                 <CommentCard fireFinalActions={fireFinalActions} commentsData={commentsData} />
 
                                 <div clasName="CreateComment">
-                                    <h6 className="CommentTitle">LEAVE YOUR COMMENT</h6>
+                                    <h6 className="CommentTitle CommentTitleForm">LEAVE YOUR COMMENT</h6>
                                     <Form onSubmit={handleSubmit}>
-                                        <FloatingLabel controlId="floatingTextarea2" label="Comments">
+                                        <FloatingLabel className='CommentsArea' controlId="floatingTextarea2" label="Comments">
                                             <Form.Control
                                                 as="textarea"
                                                 placeholder="Leave a comment here"
@@ -208,7 +208,7 @@ const BoardgamesDetailsPage = () => {
                                                 onChange={handleInputChange}
                                             />
                                         </FloatingLabel>
-                                        <Button variant="dark" className="form-button" type="submit" >Comment</Button>
+                                        <Button variant="dark" className="form-button Comment-btn" type="submit" >Comment</Button>
                                     </Form>
                                 </div>
                             </>
