@@ -86,68 +86,70 @@ const MatchDetailsPage = () => {
                                         <p>ORGANIZER: {organizer?.username}</p>
                                         <p>DESCRIPTION: {description}</p>
                                         <p>STARTING TIME: {startTime.slice(0, 10)}</p>
-                                        {/* <p>Boardgame: {boardGame.name}</p> */}
                                         <p>AGE: {boardGame.age}</p>
                                         <p>PLAYERS: {boardGame.players.min}-{boardGame.players.max}</p>
                                     </div>
                                 </Col>
 
-                        <Col md={{ span: 6 }}>
-                            <img style={{ width: '100%' }} src={boardGame.gameImg} alt={boardGame.name} />
-                        </Col>
-                        <Nav className="MatchesButtons">
-                            {
-                                !isLoggedIn ?
-                                    <>
-                                        <Link to="/match">
-                                            <Button variant="dark" className="btnReturn" >Back to Matches</Button>
-                                        </Link>
-
-                                    </>
-                                    :
-                                    <>
-                                        <Row>
-                                            <Col md={{ span: 6 }} className="ButtonsJoin">
-                                                <Button onClick={() => joinMatch(id)} variant="dark">Join Match</Button>
-                                            </Col>
-
-                                            <Col md={{ span: 5, offset: 1 }} className="ButtonsBack">
-                                                <div className="btnBack">
-                                                    <Link to="/match">
-                                                        <Button variant="dark">Back to Matches</Button>
-                                                    </Link>
-                                                </div>
-
-                                                <div className="ButtonsDelete">
-                                                    <Link to={'/match'}>
-                                                        <Button className="btn btn-outline-danger" variant="light" onClick={() => deleteMatch(id)}>Delete Match</Button>
-                                                    </Link>
-                                                </div>
-                                            </Col>
-                                        </Row>
-                                    </>
-                            }
-                        </Nav>
-                                <div>
-                                    <Container className='containerMatch'>
-                                        <Row>
+                                <Col md={{ span: 5 }}>
+                                    <img className="matchDetailsImg" style={{ width: '100%' }} src={boardGame.gameImg} alt={boardGame.name} />
+                                </Col>
+                                <Nav className="MatchesButtons">
+                                    {
+                                        !isLoggedIn ?
                                             <>
-                                                {
-                                                    players?.map((elm) => {
-                                                        return <Col md={{ span: 3 }} className='playersMatch' key={elm._id}>
-                                                            <Card.Title>{elm.username} :) </Card.Title>
-                                                        </Col>
-                                                    })
-                                                }
+                                                <Link to="/match">
+                                                    <Button variant="dark" className="btnReturn" >Back to Matches</Button>
+                                                </Link>
+
                                             </>
-                                        </Row>
-                                    </Container>
-                                </div>
+                                            :
+                                            <>
+                                                <Row>
+                                                    <Col md={{ span: 6 }} className="ButtonsJoin">
+                                                        <Button onClick={() => joinMatch(id)} variant="dark">Join Match</Button>
+                                                    </Col>
+
+                                                    <Col md={{ span: 5, offset: 1 }} className="ButtonsBack">
+                                                        <div className="btnBack">
+                                                            <Link to="/match">
+                                                                <Button variant="dark">Back to Matches</Button>
+                                                            </Link>
+                                                        </div>
+
+                                                        <div className="ButtonsDelete">
+                                                            <Link to={'/match'}>
+                                                                <Button className="btn btn-outline-danger" variant="light" onClick={() => deleteMatch(id)}>Delete Match</Button>
+                                                            </Link>
+                                                        </div>
+                                                    </Col>
+                                                </Row>
+                                            </>
+                                    }
+                                </Nav>
+
                             </Row >
-
-
                         </div >
+                        <div className='containerPlayers' >
+                            <Container className='containerMatch'>
+                                <h4 className='TitleParticipants'>Participants</h4>
+                                <Row>
+                                    <>
+                                        {
+                                            players?.map((elm) => {
+                                                return <Col md={{ span: 3 }} className='playersMatch' key={elm._id}>
+                                                    <Card.Title>{elm.username} </Card.Title>
+                                                </Col>
+                                            })
+                                        }
+                                    </>
+                                </Row>
+                            </Container>
+                        </div>
+
                     </div>
+
+
 
                     <div className="mapMatch">
 

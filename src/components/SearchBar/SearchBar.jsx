@@ -37,7 +37,9 @@ const SearchBar = () => {
                                         return (
                                             <div className='Search'>
                                                 <Link key={game?.id} to={`/boardgames/${game._id}`}>
-                                                    <p className='search'><img src={game.gameImg} alt={game.name} />{game.name}</p>
+                                                    <p className='search'>
+                                                        <img className='ImgSearch' src={game.gameImg} alt={game.name} />{game.name}</p>
+                                                    <hr />
                                                 </Link>
                                             </div>
                                         )

@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { AuthContext } from "../../context/auth.context"
-import { Container, Nav, Modal, Button, Row } from 'react-bootstrap'
+import { Container, Nav, Modal, Button, Row, Col } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 import { useEffect, useState } from "react"
 import "./AdminPage.css"
@@ -44,31 +44,36 @@ const AdminPage = () => {
     return (
         <Container>
             <Row>
-                <UserList allUser={allUser} />
-                
-                <NavLink to='#' >
-                    <Nav.Link className='elm' as="span" onClick={handleAdminBoardgameModalOpen}><Button variant="dark" type="">Create new Boardgame</Button></Nav.Link>
-                </NavLink>
-                <Modal className="AdminBoardgameModal" show={showAdminBoardgameModal} onHide={handleAdminBoardgameModalClose} size="lg">
-                    <Modal.Header closeButton>
-                        <Modal.Title className="CreateRent">Create new Boardgame</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body >
-                        <AdminBoardgameForm fireFinalActions={fireFinalActions} />
-                    </Modal.Body>
-                </Modal>
 
-                <NavLink to='#' >
-                    <Nav.Link className='elm' as="span" onClick={handleAdminEventModalOpen}><Button variant="dark" type="">Create new Event / Match</Button></Nav.Link>
-                </NavLink>
-                <Modal className="AdminEventModal" show={showAdminEventModal} onHide={handleAdminEventModalClose} size="lg">
-                    <Modal.Header closeButton>
-                        <Modal.Title className="CreateRent">Create new Event / Match</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body >
-                        <AdminEventForm fireFinalActions={fireFinalActions} />
-                    </Modal.Body>
-                </Modal>
+                <Col>
+                    <UserList allUser={allUser} />
+                </Col>
+
+                <Col className="AdminButtons">
+                    <NavLink to='#' >
+                        <Nav.Link className='elm' as="span" onClick={handleAdminBoardgameModalOpen}><Button variant="dark" type="">Create new Boardgame</Button></Nav.Link>
+                    </NavLink>
+                    <Modal className="AdminBoardgameModal" show={showAdminBoardgameModal} onHide={handleAdminBoardgameModalClose} size="lg">
+                        <Modal.Header closeButton>
+                            <Modal.Title className="CreateRent">Create new Boardgame</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body >
+                            <AdminBoardgameForm fireFinalActions={fireFinalActions} />
+                        </Modal.Body>
+                    </Modal>
+
+                    <NavLink to='#' >
+                        <Nav.Link className='elm' as="span" onClick={handleAdminEventModalOpen}><Button variant="dark" type="">Create new Event / Match</Button></Nav.Link>
+                    </NavLink>
+                    <Modal className="AdminEventModal" show={showAdminEventModal} onHide={handleAdminEventModalClose} size="lg">
+                        <Modal.Header closeButton>
+                            <Modal.Title className="CreateRent">Create new Event / Match</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body >
+                            <AdminEventForm fireFinalActions={fireFinalActions} />
+                        </Modal.Body>
+                    </Modal>
+                </Col>
             </Row>
         </Container>
     )

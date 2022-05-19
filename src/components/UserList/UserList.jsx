@@ -31,7 +31,7 @@ const UserList = ({ allUser }) => {
                 {allUser.map(user => {
                     return (
                         <>
-                            <div key={user._id}>
+                            <div key={user._id} className='usersList'>
                                 <li>{user.username}</li>
                                 <Button className="btn btn-outline-danger" variant="light" onClick={() => deleteUserProfile(user._id)}> Delete User</Button>
                             </div>

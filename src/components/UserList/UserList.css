@@ -1,9 +1,19 @@
 .AdminUsersList {
     margin-top: 20px;
     margin-bottom: 20px;
+    list-style: none;
 }
 
 .AdminUsersTitle {
     font-family: 'Modak', sans-serif;
     font-size: 2em;
+}
+
+.usersList {
+    display: flex;
+    margin-top: 10px;
+}
+
+.btn {
+    margin-left: 20px;
 }
