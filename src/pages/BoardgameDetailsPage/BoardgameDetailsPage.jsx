@@ -114,7 +114,7 @@ const BoardgamesDetailsPage = () => {
     }
 
     return (
-        <div >
+        <div className="GBDetailsPage" >
             <Container>
                 <div className="gameDetails">
                     <h1 className="gameDetailsName">{boardgameDetails[0]?.name}</h1>
@@ -128,8 +128,8 @@ const BoardgamesDetailsPage = () => {
                             <p>PLAYERS: {boardgameDetails[0]?.players?.min}-{boardgameDetails[0]?.players?.max} </p>
                             <p>AGE: {boardgameDetails[0]?.age}</p>
                         </Col>
-                        <Col className="imageDetails" md={{ span: 5 }}>
-                            <img style={{ width: '100%' }} src={boardgameDetails[0]?.gameImg} alt={boardgameDetails[0]?.name} />
+                        <Col md={{ span: 5 }}>
+                            <img className="imageDetails" style={{ width: '100%' }} src={boardgameDetails[0]?.gameImg} alt={boardgameDetails[0]?.name} />
                         </Col>
 
                         {
@@ -179,6 +179,7 @@ const BoardgamesDetailsPage = () => {
 
                 <div className="rentGames" >
                     <Row>
+                        <h6 className='ToRentTitle'> TO RENT </h6>
                         <RentCard boardgameDetails={boardgameDetails[1]} />
                     </Row>
                 </div>
@@ -196,9 +197,9 @@ const BoardgamesDetailsPage = () => {
                                 <CommentCard fireFinalActions={fireFinalActions} commentsData={commentsData} />
 
                                 <div clasName="CreateComment">
-                                    <h6 className="CommentTitle">LEAVE YOUR COMMENT</h6>
+                                    <h6 className="CommentTitle CommentTitleForm">LEAVE YOUR COMMENT</h6>
                                     <Form onSubmit={handleSubmit}>
-                                        <FloatingLabel controlId="floatingTextarea2" label="Comments">
+                                        <FloatingLabel className='CommentsArea' controlId="floatingTextarea2" label="Comments">
                                             <Form.Control
                                                 as="textarea"
                                                 placeholder="Leave a comment here"
@@ -208,7 +209,7 @@ const BoardgamesDetailsPage = () => {
                                                 onChange={handleInputChange}
                                             />
                                         </FloatingLabel>
-                                        <Button variant="dark" className="form-button" type="submit" >Comment</Button>
+                                        <Button variant="dark" className="form-button Comment-btn" type="submit" >Comment</Button>
                                     </Form>
                                 </div>
                             </>

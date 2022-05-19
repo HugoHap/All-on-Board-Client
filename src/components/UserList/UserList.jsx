@@ -24,8 +24,8 @@ const UserList = ({ allUser }) => {
 
     return (
 
-        <Container>
-            <h2>Users</h2>
+        <Container className="AdminUsersList">
+            <h2 className="AdminUsersTitle">Users</h2>
             <hr />
             <Row>
                 {allUser.map(user => {
