@@ -44,11 +44,19 @@ const AdminPage = () => {
     return (
         <Container>
             <Row>
+
                 <UserList allUser={allUser} />
-                
-                <NavLink to='#' >
-                    <Nav.Link className='elm' as="span" onClick={handleAdminBoardgameModalOpen}><Button variant="dark" type="">Create new Boardgame</Button></Nav.Link>
-                </NavLink>
+
+                <div className="">
+                    <NavLink to='#' >
+                        <Nav.Link className='elm' as="span" onClick={handleAdminBoardgameModalOpen}><Button variant="dark" type="">Create new Boardgame</Button></Nav.Link>
+                    </NavLink>
+
+                    <NavLink to='#' >
+                        <Nav.Link className='elm' as="span" onClick={handleAdminEventModalOpen}><Button variant="dark" type="">Create new Event / Match</Button></Nav.Link>
+                    </NavLink>
+                </div>
+
                 <Modal className="AdminBoardgameModal" show={showAdminBoardgameModal} onHide={handleAdminBoardgameModalClose} size="lg">
                     <Modal.Header closeButton>
                         <Modal.Title className="CreateRent">Create new Boardgame</Modal.Title>
@@ -58,9 +66,6 @@ const AdminPage = () => {
                     </Modal.Body>
                 </Modal>
 
-                <NavLink to='#' >
-                    <Nav.Link className='elm' as="span" onClick={handleAdminEventModalOpen}><Button variant="dark" type="">Create new Event / Match</Button></Nav.Link>
-                </NavLink>
                 <Modal className="AdminEventModal" show={showAdminEventModal} onHide={handleAdminEventModalClose} size="lg">
                     <Modal.Header closeButton>
                         <Modal.Title className="CreateRent">Create new Event / Match</Modal.Title>

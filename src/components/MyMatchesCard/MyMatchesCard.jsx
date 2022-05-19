@@ -1,4 +1,4 @@
-// import './MyMatchesCard.css'
+import './MyMatchesCard.css'
 import { Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
@@ -9,15 +9,12 @@ const MyMatchesCard = ({ myMatches }) => {
             {
                 myMatches?.map((elm) => {
                     return <div key={elm._id}>
-                        <Card className='MyMatchesCard'>
-                            <Link to={`/match/${elm._id}`}>
-                                <Card.Body>
-                                    <Card.Title>{elm.description}</Card.Title>
-                                    <p>{elm.startTime}</p>
-                                </Card.Body>
-                            </Link>
-                        </Card>
-
+                        <Link to={`/match/${elm._id}`}>
+                            <Card.Body className="DescriptionMyMatches">
+                                <p className="TitleMyMatches" ><strong>{elm.description}</strong></p>
+                                <p>{elm.startTime}</p>
+                            </Card.Body>
+                        </Link>
                     </div>
                 })
             }

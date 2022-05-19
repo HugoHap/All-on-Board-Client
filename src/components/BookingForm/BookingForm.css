@@ -43,3 +43,8 @@
 .CalendarDay__blocked_calendar {
     background-color: #d447315a;
 }
+
+.DayPicker_transitionContainer{
+    width: 20px;
+    height: 20px;
+}

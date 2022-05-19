@@ -1,8 +1,9 @@
 .CardBGRented {
-    width: 500px;
+    width: 550px;
     height: 200px;
     border: 7px solid black;
     border-radius: 8px;
+    margin: 10px;
 }
 
 .CardBGRentTitle {

@@ -14,7 +14,7 @@
 .BoardgameCardList {
     width: 400px;
     height: 500px;
-    box-shadow: 0px 1px 13px rgba(0, 8, 255, 0.2);
+    box-shadow: 0px 1px 13px #003cff4e;
     cursor: pointer;
     transition: all 120ms;
     display: flex;
@@ -32,7 +32,7 @@
     position: absolute;
     left: 0;
     bottom: -60px;
-    background: #001eea;
+    background: #022cb7;
     color: #fff;
     height: 2.5em;
     width: 100%;
