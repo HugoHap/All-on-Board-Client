@@ -1,0 +1,17 @@
+.CardBGRented {
+    width: 500px;
+    height: 200px;
+    border: 7px solid black;
+    border-radius: 8px;
+}
+
+.CardBGRentTitle {
+    font-family: "Modak", sans-serif;
+    font-size: 2em;
+    color: black;
+    font-weight: lighter;
+}
+
+.CardBGRentDescription {
+    font-family: "Open Sans", sans-serif;
+}

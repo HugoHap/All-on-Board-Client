@@ -1,4 +1,4 @@
-.loader {
+/* .loader {
   width: 54px;
   height: 54px;
   position: relative;
@@ -86,10 +86,13 @@
       0px -34px, -12px -34px, 0px 0px,
       34px -12px, 0px 0px, 34px 12px;
   }
-}
+} */
 
 .ImgAvatar {
-  width: 200px;
+  width: 300px;
+  border: 7px solid black;
+  border-radius: 8px;
+  margin: 10px;
 }
 
 .ModalCreate {
@@ -101,7 +104,75 @@
 }
 
 .CreateRent {
-  font-family: 'Modak',
-    sans-serif;
+  font-family: 'Modak', sans-serif;
   font-size: 3em;
+}
+
+.ProfileDetails {
+  display: flex;
+  font-family: 'Open Sans', sans-serif;
+  border: 7px solid black;
+  border-radius: 8px;
+  padding: 30px;
+  margin: 10px;
+}
+
+.ProfileText {
+  padding: 30px;
+}
+
+.ProfileUsername {
+  font-family: 'Modak', sans-serif;
+  font-weight: lighter;
+  font-size: 4em;
+}
+
+.GamesToRent {
+  font-family: 'Open Sans', sans-serif;
+  border: 7px solid black;
+  border-radius: 8px;
+  padding: 30px;
+  margin: 10px;
+}
+
+.GamesRent {
+  display: flex;
+  align-content: space-between;
+}
+
+.TitleGamesToRent {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 15px;
+  font-family: 'Modak', sans-serif;
+  font-weight: lighter;
+  font-size: 2em;
+}
+
+.ButtonCreateGB {
+  padding-left: 580px;
+}
+
+.MyGB {
+  font-family: 'Open Sans', sans-serif;
+  border: 7px solid black;
+  border-radius: 8px;
+  padding: 30px;
+  margin: 10px;
+}
+
+.MyRentedGB {
+  font-family: 'Open Sans', sans-serif;
+  border: 7px solid black;
+  border-radius: 8px;
+  padding: 30px;
+  margin: 10px;
+}
+
+.MyMatches {
+  font-family: 'Open Sans', sans-serif;
+  border: 7px solid black;
+  border-radius: 8px;
+  padding: 30px;
+  margin: 10px;
 }
