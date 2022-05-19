@@ -3,6 +3,9 @@ import { Form, Modal, Button, Container, Col, Row } from "react-bootstrap"
 import boardgameService from "../../services/boardgame.service"
 import matchesService from "../../services/match.service"
 
+import GooglePlacesAutocomplete from 'react-google-places-autocomplete'
+import { geocodeByAddress, getLatLng } from 'react-google-places-autocomplete';
+
 import {
     GoogleMap,
     Marker,
@@ -10,15 +13,15 @@ import {
     withScriptjs,
 } from "react-google-maps"
 
-const MyMapComponent = withScriptjs(
-    withGoogleMap((props) => (
-        <GoogleMap defaultZoom={11} defaultCenter={{ lat: 40.415600407004575, lng: -3.6813260603979545 }}>
-            {props.isMarkerShown && (
-                <Marker position={{ lat: 40.39002570698726, lng: -3.695228954972823 }} />
-            )}
-        </GoogleMap>
-    ))
-)
+// const MyMapComponent = withScriptjs(
+//     withGoogleMap((props) => (
+//         <GoogleMap defaultZoom={11} defaultCenter={{ lat: 40.415600407004575, lng: -3.6813260603979545 }}>
+//             {props.isMarkerShown && (
+//                 <Marker position={{ lat: 40.39002570698726, lng: -3.695228954972823 }} />
+//             )}
+//         </GoogleMap>
+//     ))
+// )
 
 const CreateMatchForm = ({ fireFinalActions }) => {
 
@@ -26,8 +29,14 @@ const CreateMatchForm = ({ fireFinalActions }) => {
         description: '',
         startTime: '',
         boardGame: undefined,
-        location: ''
+        lat: undefined,
+        lng: undefined
     })
+
+    const [value, setValue] = useState(null);
+    const [latitude, setLatitude] = useState()
+    const [longitude, setLongitude] = useState()
+    const [isLoaded, setIsLoaded] = useState(false)
 
     const [boardgamesData, setBoardgamesData] = useState([])
 
@@ -36,15 +45,32 @@ const CreateMatchForm = ({ fireFinalActions }) => {
             .getOriginalBoardgames()
             .then(({ data }) => {
                 setBoardgamesData(data)
+                setIsLoaded(true)
             })
     }, [])
+
+    isLoaded && geocodeByAddress(value?.value.description)
+        .then(results => {
+            console.log("asdasda", results)
+            return getLatLng(results[0])
+        })
+        .then((response) => {
+            console.log('Successfully got latitude and longitude', response)
+            setCreateMatchData({
+                ...createMatchData,
+                lat: response.lat,
+                lng: response.lng
+            })
+        });
+
+    console.log("lat-lang", latitude, longitude);
 
     const handleInputChange = e => {
         const { name, value } = e.currentTarget
 
         setCreateMatchData({
             ...createMatchData,
-            [name]: value
+            [name]: value,
         })
     }
 
@@ -75,13 +101,11 @@ const CreateMatchForm = ({ fireFinalActions }) => {
                                         return (
                                             <option value={game?._id}>{game?.name}</option>
                                         )
-
                                     })
                                 }
                             </select>
                         </Form.Label>
                     </Form.Group>
-
                     <Form.Group className="mb-3" controlId="description">
                         <Form.Label>Description</Form.Label>
                         <Form.Control type="text" onChange={handleInputChange} name="description" value={description} />
@@ -92,19 +116,25 @@ const CreateMatchForm = ({ fireFinalActions }) => {
                             <Form.Control type="text" onChange={handleInputChange} name="startTime" value={startTime} />
                         </Form.Group>
                     </Col>
-                    <Col>
+                    {/* <Col>
                         <Form.Group className="mb-3" controlId="location">
                             <Form.Label>Location</Form.Label>
                             <Form.Control type="text" onChange={handleInputChange} name="location" value={location} />
                         </Form.Group>
-                    </Col>
-                    <MyMapComponent
+                    </Col> */}
+                    {/* <MyMapComponent
                         isMarkerShown
                         googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTfrEJjFOyJQ3p3WbSYP0yNoasqELJNFY&v=3.exp&libraries=geometry,drawing,places"
                         loadingElement={<div style={{ height: `100%` }} />}
                         containerElement={<div style={{ height: `400px` }} />}
                         mapElement={<div style={{ height: `100%` }} />}
-                    />
+                    /> */}
+                    <div>
+                        <GooglePlacesAutocomplete
+                            apiKey="AIzaSyBTfrEJjFOyJQ3p3WbSYP0yNoasqELJNFY"
+                            selectProps={{ value, onChange: setValue }}
+                        />
+                    </div>
 
                 </Row>
             </Container>

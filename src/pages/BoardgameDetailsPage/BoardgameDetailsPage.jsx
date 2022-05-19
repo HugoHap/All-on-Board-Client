@@ -190,12 +190,12 @@ const BoardgamesDetailsPage = () => {
                     {
                         !isLoggedIn ?
                             <>
-                                <CommentCard fireFinalActions={fireFinalActions} />
+                                <CommentCard fireFinalActions={fireFinalActions} commentsData={commentsData}/>
 
                             </>
                             :
                             <>
-                                <CommentCard fireFinalActions={fireFinalActions} />
+                                <CommentCard fireFinalActions={fireFinalActions} commentsData={commentsData} />
 
                                 <div clasName="CreateComment">
                                     <Form onSubmit={handleSubmit}>

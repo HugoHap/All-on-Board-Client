@@ -10,36 +10,38 @@ import {
     withScriptjs,
 } from "react-google-maps";
 
-const MyMapComponent = withScriptjs(
-    withGoogleMap((props) => (
-        <GoogleMap defaultZoom={11} defaultCenter={{ lat: 40.415600407004575, lng: -3.6813260603979545 }}>
-            {props.isMarkerShown && (
-                <Marker position={{ lat: 40.39002570698726, lng: -3.695228954972823 }} />
-            )}
-        </GoogleMap>
-    ))
-);
 
 const MatchDetailsPage = () => {
-
+    
     const [matchDetails, setMatchDetails] = useState()
     const [isLoading, setIsLoading] = useState(false)
-
+    
     const navigate = useNavigate()
-
+    
     const { id } = useParams()
-
+    
     useEffect(() => {
-
+        
         matchesService
-            .getOneMatch(id)
-            .then(({ data }) => {
-                setMatchDetails(data)
-                setIsLoading(true)
-            })
-            .catch(err => console.log(err))
-
+        .getOneMatch(id)
+        .then(({ data }) => {
+            console.log("mapaaaaaaaaa",data)
+            setMatchDetails(data)
+            setIsLoading(true)
+        })
+        .catch(err => console.log(err))
+        
     }, [])
+    
+    const MyMapComponent = withScriptjs(
+        withGoogleMap((props) => (
+            <GoogleMap defaultZoom={11} defaultCenter={{ lat: 40.415600407004575, lng: -3.6813260603979545 }}>
+                {props.isMarkerShown && (
+                    <Marker position={{ lat: matchDetails.location.coordinates[0], lng: matchDetails.location.coordinates[1] }} />
+                )}
+            </GoogleMap>
+        ))
+    )
 
     const joinMatch = matchId => {
 

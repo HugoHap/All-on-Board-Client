@@ -6,7 +6,7 @@ import "./CommentCard.css"
 
 function CommentCard({ commentsData}) {
 
-
+console.log("ASDASDASD", commentsData);
     // const [comments, setComments] = useState([]);
     const [commentStatus, setCommentStatus]= useState(true)
 
