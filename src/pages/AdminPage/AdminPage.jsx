@@ -45,6 +45,7 @@ const AdminPage = () => {
         <Container>
             <Row>
                 <UserList allUser={allUser} />
+                
                 <NavLink to='#' >
                     <Nav.Link className='elm' as="span" onClick={handleAdminBoardgameModalOpen}><Button variant="dark" type="">Create new Boardgame</Button></Nav.Link>
                 </NavLink>

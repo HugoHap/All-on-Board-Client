@@ -44,6 +44,16 @@ const BoardgamesDetailsPage = () => {
             .catch(err => console.log(err))
     }
 
+    const deleteBoardgame = (id) => {
+
+        boardgameService
+            .deleteBoardgame(id)
+            .then(() => {
+
+            })
+            .catch(err => console.log(err))
+    }
+
     const handleInputChange = e => {
         const { name, value } = e.currentTarget
 
@@ -155,11 +165,11 @@ const BoardgamesDetailsPage = () => {
                                                 </div>
                                             </Link>
                                         </Col>
-                                        <Col md={{ span: 5, offset: 1 }} className="ButtonsBack" >
+                                        <Col md={{ span: 5 }} className="ButtonsBack" >
 
                                             <div className="btnDelete">
-                                                <Link to={`/boardgames/${id}/delete`}>
-                                                    <Button className="btnReturn" variant="danger">Delete Game</Button>
+                                                <Link to={'/boardgames'}>
+                                                    <Button className="btnReturn" variant="danger" onClick={() => deleteBoardgame(id)}>Delete Game</Button>
                                                 </Link>
                                             </div>
 

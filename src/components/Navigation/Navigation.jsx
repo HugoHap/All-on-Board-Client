@@ -5,8 +5,7 @@ import { useContext, useState } from 'react'
 import { AuthContext } from '../../context/auth.context'
 import LoginForm from '../LoginForm/LoginForm'
 import SignupForm from '../SignupForm/SignupForm'
-
-
+import DiceImg from '../../img/dice.png'
 
 const Navigation = () => {
 
@@ -30,7 +29,14 @@ const Navigation = () => {
             < Navbar className="Navbar" >
                 <Container className="Navbar2">
                     <Nav>
-                        <NavLink to="/">O</NavLink>
+                        <NavLink to="/" >
+                            <img
+                                src={DiceImg}
+                                width="70"
+                                height="70"
+                                className="d-inline-block align-top"
+                            />
+                        </NavLink>
                         {
                             !isLoggedIn ?
                                 <>

@@ -1,8 +1,9 @@
 .matchDetails {
-    border: 7px solid rgb(96, 239, 116);
+    background-color: rgb(96, 239, 116);
     border-radius: 8px;
     margin-top: 30px;
     box-shadow: 0px 1px 13px rgba(96, 239, 115, 0.433);
+    margin-bottom: 15px;
 }
 
 .matchDetailsTitle {
@@ -17,6 +18,13 @@
     padding-top: 30px;
     padding-left: 60px;
     font-family: 'Open Sans', sans-serif;
+    font-size: 1.2em;
+}
+
+.MatchesImg {
+    width: 500px;
+    height: 400px;
+    margin-left: 70px ;
 }
 
 .MatchCol {
@@ -25,6 +33,7 @@
 
 .MatchesButtons {
     display: flex;
+    justify-content: space-between;
 }
 
 .playersMatch {
@@ -45,4 +54,9 @@
 .hrMatch {
     color: rgb(96, 239, 116);
     height: 4px;
+}
+
+.mapMatch {
+    border: 7px solid rgb(96, 239, 116);
+    border-radius: 8px;
 }

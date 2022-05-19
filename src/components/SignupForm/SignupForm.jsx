@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Form, Button } from "react-bootstrap"
+import { Form, Modal, Button, Container, Row, Col } from "react-bootstrap"
 import { useNavigate } from 'react-router-dom'
 import authService from "../../services/auth.service"
 import uploadService from "../../services/upload.service"
@@ -11,7 +11,8 @@ const SignupForm = ({ fireFinalActions }) => {
         description: '',
         username: '',
         password: '',
-        avatar: ''
+        avatar: '',
+        phone: ''
     })
 
     // const [showModal, setShowModal] = useState(false)
@@ -36,7 +37,7 @@ const SignupForm = ({ fireFinalActions }) => {
             .catch(err => console.log(err))
     }
 
-    const { email, username, password, description } = signupData
+    const { email, username, password, description, phone } = signupData
 
     // PARA CLOUDINARY
     const handleImageUpload = (e) => {
@@ -58,10 +59,22 @@ const SignupForm = ({ fireFinalActions }) => {
     return (
 
         <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="username">
-                <Form.Label className="FormLabel">Username</Form.Label>
-                <Form.Control type="text" onChange={handleInputChange} name="username" value={username} />
-            </Form.Group>
+            <Container>
+                <Row>
+                    <Col>
+                        <Form.Group className="mb-3" controlId="username">
+                            <Form.Label className="FormLabel">Username</Form.Label>
+                            <Form.Control type="text" onChange={handleInputChange} name="username" value={username} />
+                        </Form.Group>
+                    </Col>
+                    <Col>
+                        <Form.Group className="mb-3" controlId="phone">
+                            <Form.Label className="FormLabel">Phone</Form.Label>
+                            <Form.Control type="text" onChange={handleInputChange} name="phone" value={phone} />
+                        </Form.Group>
+                    </Col>
+                </Row>
+            </Container>
 
             <Form.Group className="mb-3" controlId="email">
                 <Form.Label className="FormLabel">Email</Form.Label>
@@ -80,7 +93,7 @@ const SignupForm = ({ fireFinalActions }) => {
 
             <Form.Group className="mb-3" controlId="avatar">
                 <Form.Label className="FormLabel">Avatar</Form.Label>
-                <Form.Control className="Avatar"  type="file" onChange={handleImageUpload} />
+                <Form.Control className="Avatar" type="file" onChange={handleImageUpload} />
             </Form.Group>
 
             <div className="d-grid gap-2">
