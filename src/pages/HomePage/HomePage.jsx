@@ -57,7 +57,8 @@ const IndexPage = () => {
 
     return (
         <div className='BackgroundHome' style={{
-            backgroundImage: `url(${background})`}}>
+            backgroundImage: `url(${background})`
+        }}>
             <Container className="ContainerHome">
 
                 <div className='WelcomeHome' >
@@ -74,7 +75,13 @@ const IndexPage = () => {
                                             <Card.Body>
                                                 <Card.Title className="BoardgameTitle" >{elm.name}</Card.Title>
                                                 <div className="d-grid gap-2">
-                                                    <Link to={`/boardgames/${elm._id}`} className="btn btnCarrousel">Details</Link>
+
+                                                    <Link to={`/boardgames/${elm._id}`} >
+                                                        <button >
+                                                            <span class="button_top"> Details
+                                                            </span>
+                                                        </button >
+                                                    </Link>
                                                 </div>
                                             </Card.Body>
                                         </Card>
@@ -95,7 +102,12 @@ const IndexPage = () => {
                                             <Card.Body>
                                                 <Card.Title className="BoardgameTitle">{elm.name}</Card.Title>
                                                 <div className="d-grid gap-2">
-                                                    <Link to={`/boardgames/${elm._id}`} className="btn btnCarrousel">Details</Link>
+                                                    <Link to={`/boardgames/${elm._id}`} >
+                                                        <button >
+                                                            <span class="button_top"> Details
+                                                            </span>
+                                                        </button >
+                                                    </Link>
                                                 </div>
                                             </Card.Body>
                                         </Card>

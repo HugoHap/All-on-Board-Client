@@ -100,7 +100,16 @@ const MatchDetailsPage = () => {
                                         !isLoggedIn ?
                                             <>
                                                 <Link to="/match">
-                                                    <Button variant="dark" className="btnReturn" >Back to Matches</Button>
+
+                                                    {/* <Button variant="dark" className="btnReturn" >Back to Matches</Button> */}
+
+                                                    <button >
+                                                        <span class="button_top"> Back to Matches
+                                                        </span>
+                                                    </button >
+
+
+
                                                 </Link>
 
                                             </>
@@ -108,19 +117,37 @@ const MatchDetailsPage = () => {
                                             <>
                                                 <Row>
                                                     <Col md={{ span: 6 }} className="ButtonsJoin">
-                                                        <Button onClick={() => joinMatch(id)} variant="dark">Join Match</Button>
+                                                        
+                                                        {/* <Button onClick={() => joinMatch(id)} variant="dark">Join Match</Button> */}
+
+                                                        <button >
+                                                            <span class="button_top" onClick={() => joinMatch(id)}> Join Match
+                                                            </span>
+                                                        </button >
+
                                                     </Col>
                                                     <div className='Buttons-right'>
                                                         <Col md={{ span: 5, offset: 1 }} className="ButtonsBack">
                                                             <div className="btnBack">
                                                                 <Link to="/match">
-                                                                    <Button variant="dark">Back to Matches</Button>
+                                                                    <button >
+                                                                        <span class="button_top"> Back to Matches
+                                                                        </span>
+                                                                    </button >
+
                                                                 </Link>
                                                             </div>
                                                             {user.role === 'ADMIN' &&
                                                                 <div className="ButtonsDelete">
                                                                     <Link to={'/match'}>
-                                                                        <Button className="btn btn-outline-danger" variant="light" onClick={() => deleteMatch(id)}>Delete Match</Button>
+
+                                                                        {/* <Button className="btn btn-outline-danger" variant="light" onClick={() => deleteMatch(id)}>Delete Match</Button> */}
+
+                                                                        <button className="Delete" onClick={() => deleteMatch(id)}>
+                                                                            <span class="button_top"> Delete Match
+                                                                            </span>
+                                                                        </button >
+
                                                                     </Link>
                                                                 </div>
                                                             }

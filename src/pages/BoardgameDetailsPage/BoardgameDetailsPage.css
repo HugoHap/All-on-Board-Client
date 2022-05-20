@@ -30,11 +30,6 @@
     margin-bottom: 30px;
 }
 
-.btnDetails {
-    display: flex;
-    align-content: space-between;
-}
-
 .imageDetails {
     border: 7px solid black;
     border-radius: 8px;
@@ -68,7 +63,7 @@
 }
 
 .ButtonsDetails {
-    padding: 30px;
+    margin-top: 60px;
 }
 
 .ButtonsBack {
@@ -78,8 +73,7 @@
 }
 
 .btnDetails {
-    padding: 10px;
-    margin-top: 20px;
+   margin-top: 10px; 
 }
 
 .btnDelete {
@@ -126,3 +120,8 @@
         color: black;
         padding: 30px;
 }
+
+.Delete {
+    margin-bottom: 50px;
+}
+

@@ -75,6 +75,9 @@ button {
     border: none;
     border-radius: var(--button_radius);
     background: var(--button_outline_color);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 5px;
 }
 
 .button_top {
@@ -97,4 +100,5 @@ button:hover .button_top {
 button:active .button_top {
     /* Push the button downwards when pressed */
     transform: translateY(0);
+   
 }

@@ -51,7 +51,16 @@ const MatchListPage = () => {
 
                     <div>
                         <NavLink to='#' >
-                            <Nav.Link className='elm' as="span" onClick={handleCreateMatchModalOpen}><Button variant="dark" type="">Create new match</Button></Nav.Link>
+                            <Nav.Link className='elm' as="span" onClick={handleCreateMatchModalOpen}>
+                                
+                                {/* <Button variant="dark" type="">Create new match</Button> */}
+                            
+                                <button >
+                                    <span class="button_top"> Create new match
+                                    </span>
+                                </button >
+                            
+                            </Nav.Link>
                         </NavLink>
                     </div>
 

@@ -101,7 +101,16 @@ const UserProfilePage = () => {
                                 </div>
                                 <div className="ButtonCreateGB">
                                     <NavLink to='#' >
-                                        <Nav.Link className='elm' onClick={handleCreateBGModalOpen}> <Button variant="dark" type="submit">Create Boardgame to rent</Button></Nav.Link>
+                                        <Nav.Link className='elm' onClick={handleCreateBGModalOpen}>
+                                            
+                                            {/* <Button variant="dark" type="submit">Create Boardgame to rent</Button> */}
+                                        
+                                            <button className="Delete" type="submit" >
+                                                <span class="button_top"> Create Boardgame to rent
+                                                </span>
+                                            </button >
+                                        
+                                        </Nav.Link>
                                     </NavLink>
                                 </div>
                             </div>

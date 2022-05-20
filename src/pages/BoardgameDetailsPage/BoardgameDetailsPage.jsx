@@ -147,8 +147,16 @@ const BoardgamesDetailsPage = () => {
                         {
                             !isLoggedIn ?
                                 <>
+
                                     <Link to="/boardgames">
-                                        <Button className="btnReturn" variant="dark">Back to Boardgames List</Button>
+
+
+                                        {/* <Button className="btnReturn" variant="dark">Back to Boardgames List</Button> */}
+                                        <button >
+                                            <span class="button_top"> Back to Boardgames List
+                                            </span>
+                                        </button >
+
                                     </Link>
                                 </>
                                 :
@@ -171,13 +179,23 @@ const BoardgamesDetailsPage = () => {
                                             {user.role === 'ADMIN' &&
                                                 <div className="btnDelete">
                                                     <Link to={'/boardgames'}>
-                                                        <Button className="btnReturn" variant="danger" onClick={() => deleteBoardgame(id)}>Delete Game</Button>
+
+                                                        {/* <Button className="btnReturn" variant="danger" onClick={() => deleteBoardgame(id)}>Delete Game</Button> */}
+
+                                                        <button className="Delete"  >
+                                                            <span class="button_top" onClick={() => deleteBoardgame(id)}> Delete Game
+                                                            </span>
+                                                        </button >
+
                                                     </Link>
                                                 </div>
                                             }
                                             <div className="btnDetails">
-                                                <Link to="/boardgames">
-                                                    <Button className="btn-dark " variant="dark">Back to Boardgames List</Button>
+                                                <Link to={'/boardgames'}>
+                                                    <button  >
+                                                        <span class="button_top"> Back to Boardgames List
+                                                        </span>
+                                                    </button >
                                                 </Link>
                                             </div>
 
@@ -221,7 +239,14 @@ const BoardgamesDetailsPage = () => {
                                                 onChange={handleInputChange}
                                             />
                                         </FloatingLabel>
-                                        <Button variant="dark" className="form-button Comment-btn" type="submit" >Comment</Button>
+
+                                        {/* <Button variant="dark" className="form-button Comment-btn" type="submit" >Comment</Button> */}
+
+                                        <button >
+                                            <span class="button_top" type="submit"> Comment
+                                            </span>
+                                        </button >
+
                                     </Form>
                                 </div>
                             </>

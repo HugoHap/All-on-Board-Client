@@ -85,7 +85,14 @@ const CreateBoardgameForm = ({ fireFinalActions }) => {
             </Form.Group>
 
             <Modal.Footer>
+
                 <Button variant="dark" type="submit" disabled={loadingImage}>{loadingImage ? 'Cargando imagen...' : 'Create Boardgame'}</Button>
+
+                {/* <button className="Delete" type="submit" disabled={loadingImage}>{loadingImage ? 'Cargando imagen...' : 'Create Boardgame'}>
+                    <span class="button_top">
+                    </span>
+                </button > */}
+
             </Modal.Footer>
         </Form>
     )

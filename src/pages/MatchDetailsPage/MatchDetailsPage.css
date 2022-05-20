@@ -29,6 +29,10 @@
     margin-left: 70px ;
 }
 
+.Delete{
+    background-color: red;
+}
+
 .matchDetailsImg {
     border: 7px solid black;
     border-radius: 20px;
