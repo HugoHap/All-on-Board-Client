@@ -16,6 +16,7 @@ const MatchDetailsPage = () => {
 
     const [matchDetails, setMatchDetails] = useState()
     const [isLoading, setIsLoading] = useState(false)
+    const { user, logOutUser } = useContext(AuthContext)
 
     const navigate = useNavigate()
 
@@ -109,20 +110,22 @@ const MatchDetailsPage = () => {
                                                     <Col md={{ span: 6 }} className="ButtonsJoin">
                                                         <Button onClick={() => joinMatch(id)} variant="dark">Join Match</Button>
                                                     </Col>
-
-                                                    <Col md={{ span: 5, offset: 1 }} className="ButtonsBack">
-                                                        <div className="btnBack">
-                                                            <Link to="/match">
-                                                                <Button variant="dark">Back to Matches</Button>
-                                                            </Link>
-                                                        </div>
-
-                                                        <div className="ButtonsDelete">
-                                                            <Link to={'/match'}>
-                                                                <Button className="btn btn-outline-danger" variant="light" onClick={() => deleteMatch(id)}>Delete Match</Button>
-                                                            </Link>
-                                                        </div>
-                                                    </Col>
+                                                    <div className='Buttons-right'>
+                                                        <Col md={{ span: 5, offset: 1 }} className="ButtonsBack">
+                                                            <div className="btnBack">
+                                                                <Link to="/match">
+                                                                    <Button variant="dark">Back to Matches</Button>
+                                                                </Link>
+                                                            </div>
+                                                            {user.role === 'ADMIN' &&
+                                                                <div className="ButtonsDelete">
+                                                                    <Link to={'/match'}>
+                                                                        <Button className="btn btn-outline-danger" variant="light" onClick={() => deleteMatch(id)}>Delete Match</Button>
+                                                                    </Link>
+                                                                </div>
+                                                            }
+                                                        </Col>
+                                                    </div>
                                                 </Row>
                                             </>
                                     }

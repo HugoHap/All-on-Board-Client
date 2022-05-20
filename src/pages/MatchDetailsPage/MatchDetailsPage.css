@@ -87,3 +87,13 @@
     padding: 10px;
     font-size: 2em;
 }
+
+.Buttons-right {
+    display: flex;
+    justify-content: end;
+    margin-left: 275px;
+}
+
+.ButtonsJoin {
+    margin-left: 65px;
+}

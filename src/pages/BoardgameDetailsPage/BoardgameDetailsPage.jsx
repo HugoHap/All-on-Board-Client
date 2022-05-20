@@ -123,7 +123,7 @@ const BoardgamesDetailsPage = () => {
             })
     }
 
-console.log("RENT",boardgameDetails[1])
+    console.log("RENT", boardgameDetails[1])
 
     return (
         <div className="GBDetailsPage" >
@@ -168,16 +168,16 @@ console.log("RENT",boardgameDetails[1])
                                             </Link>
                                         </Col>
                                         <Col md={{ span: 5 }} className="ButtonsBack" >
-
-                                            <div className="btnDelete">
-                                                <Link to={'/boardgames'}>
-                                                    <Button className="btnReturn" variant="danger" onClick={() => deleteBoardgame(id)}>Delete Game</Button>
-                                                </Link>
-                                            </div>
-
+                                            {user.role === 'ADMIN' &&
+                                                <div className="btnDelete">
+                                                    <Link to={'/boardgames'}>
+                                                        <Button className="btnReturn" variant="danger" onClick={() => deleteBoardgame(id)}>Delete Game</Button>
+                                                    </Link>
+                                                </div>
+                                            }
                                             <div className="btnDetails">
                                                 <Link to="/boardgames">
-                                                    <Button className="btnReturn" variant="dark">Back to Boardgames List</Button>
+                                                    <Button className="btn-dark " variant="dark">Back to Boardgames List</Button>
                                                 </Link>
                                             </div>
 

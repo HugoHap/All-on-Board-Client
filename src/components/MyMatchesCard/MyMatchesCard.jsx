@@ -12,7 +12,7 @@ const MyMatchesCard = ({ myMatches }) => {
                         <Link to={`/match/${elm._id}`}>
                             <Card.Body className="DescriptionMyMatches">
                                 <p className="TitleMyMatches" ><strong>{elm.description}</strong></p>
-                                <p>{elm.startTime}</p>
+                                <p>{elm.startTime.slice(0, 10)}</p>
                             </Card.Body>
                         </Link>
                     </div>
