@@ -42,17 +42,48 @@ const AdminPage = () => {
     }
 
     return (
+        <div className="UserAdmin">
         <Container>
-            <Row>
+            <Row className="UserlistRow" >
 
-                <Col>
+                <Col className="Userlist">
                     <UserList allUser={allUser} />
                 </Col>
 
-                <Col className="AdminButtons">
-                    <NavLink to='#' >
-                        <Nav.Link className='elm' as="span" onClick={handleAdminBoardgameModalOpen}><Button variant="dark" type="">Create new Boardgame</Button></Nav.Link>
-                    </NavLink>
+
+                <Col className="AdminPower" >
+                    <div>
+                        <h2 className="AdminButtonsTitle"> I GOT THE POWER!! </h2>
+                    </div>
+                    <div className="AdminButtons">
+                        <NavLink to='#' >
+                                <Nav.Link className='elm' as="span" onClick={handleAdminBoardgameModalOpen}>
+                                    
+                                    {/* <Button variant="dark" type="">Create new Boardgame</Button> */}
+
+                                    <button >
+                                        <span class="button_top"> Create new Boardgame
+                                        </span>
+                                    </button >
+
+                                
+                                </Nav.Link>
+                        </NavLink>
+
+                        <NavLink to='#' >
+                                <Nav.Link className='elm' as="span" onClick={handleAdminEventModalOpen}>
+{/*                                     
+                                    <Button variant="dark" type="">Create new Event / Match</Button> */}
+
+                                    <button >
+                                        <span class="button_top"> Create new Event / Match
+                                        </span>
+                                    </button >
+
+                                </Nav.Link>
+                        </NavLink>
+                    </div>
+
                     <Modal className="AdminBoardgameModal" show={showAdminBoardgameModal} onHide={handleAdminBoardgameModalClose} size="lg">
                         <Modal.Header closeButton>
                             <Modal.Title className="CreateRent">Create new Boardgame</Modal.Title>
@@ -62,12 +93,9 @@ const AdminPage = () => {
                         </Modal.Body>
                     </Modal>
 
-                    <NavLink to='#' >
-                        <Nav.Link className='elm' as="span" onClick={handleAdminEventModalOpen}><Button variant="dark" type="">Create new Event / Match</Button></Nav.Link>
-                    </NavLink>
                     <Modal className="AdminEventModal" show={showAdminEventModal} onHide={handleAdminEventModalClose} size="lg">
                         <Modal.Header closeButton>
-                            <Modal.Title className="CreateRent">Create new Event / Match</Modal.Title>
+                            <Modal.Title className="CreateRent"> Create new Event / Match</Modal.Title>
                         </Modal.Header>
                         <Modal.Body >
                             <AdminEventForm fireFinalActions={fireFinalActions} />
@@ -75,8 +103,14 @@ const AdminPage = () => {
                     </Modal>
                 </Col>
             </Row>
-        </Container>
-    )
+            </Container>
+            </div>
+            )
 }
 
 export default AdminPage
+
+//     < button >
+//     <span class="button_top"> Create new Event / Match
+//     </span>
+// </button >

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import boardgameService from '../../services/boardgame.service';
 import BoardgameCard from '../../components/BoardgameCard/BoardgameCard';
-import background from "../../img/FONDITO.png";
+import background from "../../img/FONDOHOME.png";
 import './HomePage.css'
 import EventCard from '../../components/EventCard/EventCard';
 import matchesService from '../../services/match.service';
@@ -57,8 +57,7 @@ const IndexPage = () => {
 
     return (
         <div className='BackgroundHome' style={{
-            backgroundImage: `url(${background})`
-        }}>
+            backgroundImage: `url(${background})`}}>
             <Container className="ContainerHome">
 
                 <div className='WelcomeHome' >
@@ -107,16 +106,23 @@ const IndexPage = () => {
                         </Row>
                     </Carousel.Item>
                 </Carousel>
-                <Row>
-                    <Col md={6}>
-                        <EventCard events={events[0]} />
-                    </Col>
-                    <Col md={6}>
-                        <EventCard events={events[1]} />
-                    </Col>
-                </Row>
+
+                <div className="EventsHomePadding">
+                    <Row className="EventsHome">
+                        <h4 className="EventsTitle" >EVENTS</h4>
+                        <div className="Events2">
+                            <div className="EventsCards" >
+                                <EventCard events={events[0]} />
+                            </div>
+                            <div className="EventsCards">
+                                <EventCard events={events[1]} />
+                            </div>
+                        </div>
+                    </Row>
+                </div>
             </Container>
-        </div>
+
+        </div >
     )
 }
 

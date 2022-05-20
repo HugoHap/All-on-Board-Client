@@ -34,10 +34,12 @@ const UserList = ({ allUser }) => {
                             <div key={user._id} className='usersList'>
                                 <li>{user.username}</li>
                                 <Button className="btn btn-outline-danger" variant="light" onClick={() => deleteUserProfile(user._id)}> Delete User</Button>
+                                
                             </div>
                         </>
                     )
                 })}
+            
             </Row>
         </Container>
     )

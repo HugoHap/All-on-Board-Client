@@ -115,6 +115,7 @@
   border-radius: 8px;
   padding: 30px;
   margin: 10px;
+  background-color: white;
 }
 
 .ProfileText {
@@ -133,6 +134,7 @@
   border-radius: 8px;
   padding: 30px;
   margin: 10px;
+  background-color: white;
 }
 
 .GamesRent {
@@ -167,6 +169,7 @@
   border-radius: 8px;
   padding: 30px;
   margin: 10px;
+  background-color: white;
 }
 
 .MyMatches {
@@ -175,4 +178,10 @@
   border-radius: 8px;
   padding: 30px;
   margin: 10px;
+  background-color: white;
+}
+
+.ProfilePage {
+  background-color: #d44731;
+  padding-top: 30px;
 }

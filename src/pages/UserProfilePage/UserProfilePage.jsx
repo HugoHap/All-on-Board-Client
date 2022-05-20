@@ -11,6 +11,7 @@ import BoardgameProfileCard from "../../components/BoardgameProfileCard/Boardgam
 import "./UserProfilePage.css"
 import { MessageContext } from './../../context/message.context'
 import RentedProfileCard from "../../components/RentedProfileCard/RentedProfileCard"
+import Background from '../../img/FONDOPERFIL.png'
 
 const UserProfilePage = () => {
 
@@ -68,57 +69,63 @@ const UserProfilePage = () => {
             })
             .catch(err => console.log(err))
     }
-console.log(rentedGames);
+    console.log(rentedGames);
     return (
+        //         <div className='BackgroundHome' style={{
+        //             backgroundImage: `url(${Background
+        // })`
+        //         }}>
         user ?
             <>
-                <Container>
-                    <Row>
-                        <Col>
-                            <div className="ProfileDetails">
+                <div className="ProfilePage" >
+                    <Container >
+                        <Row>
+                            <Col>
+                                <div className="ProfileDetails">
+                                    <div>
+                                        <img className="ImgAvatar" src={user.avatar} alt="" />
+                                    </div>
+                                    <div className="ProfileText" >
+                                        <h1 className="ProfileUsername">Bienvenidx <strong  >{user.username}</strong></h1>
+                                        <p>Email: <strong> {user.email}</strong></p>
+                                        <p>Description: <strong> {user.description}</strong></p>
+                                    </div>
+
+                                </div>
+                            </Col>
+                        </Row>
+                        <div className="GamesToRent">
+                            <div className="GamesRent">
                                 <div>
-                                    <img className="ImgAvatar" src={user.avatar} alt="" />
+                                    <h4 className="TitleGamesToRent">MY GAMES TO RENT</h4>
                                 </div>
-                                <div className="ProfileText" >
-                                    <h1 className="ProfileUsername">Bienvenidx <strong  >{user.username}</strong></h1>
-                                    <p>Email: <strong> {user.email}</strong></p>
-                                    <p>Description: <strong> {user.description}</strong></p>
+                                <div className="ButtonCreateGB">
+                                    <NavLink to='#' >
+                                        <Nav.Link className='elm' onClick={handleCreateBGModalOpen}> <Button variant="dark" type="submit">Create Boardgame to rent</Button></Nav.Link>
+                                    </NavLink>
                                 </div>
-
                             </div>
-                        </Col>
-                    </Row>
-                    <div className="GamesToRent">
-                        <div className="GamesRent">
+
                             <div>
-                                <h4 className="TitleGamesToRent">MY GAMES TO RENT</h4>
+                                <BoardgameProfileCard myGames={myGames} />
                             </div>
-                            <div className="ButtonCreateGB">
-                                <NavLink to='#' >
-                                    <Nav.Link className='elm' onClick={handleCreateBGModalOpen}> <Button variant="dark" type="submit">Create Boardgame to rent</Button></Nav.Link>
-                                </NavLink>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <BoardgameProfileCard myGames={myGames} />
+
                         </div>
 
-                    </div>
-
-                    <div className="MyRentedGB">
-                        <h4 className="TitleGamesToRent">RENTED GAMES</h4 >
-                        <RentedProfileCard rentedGames={rentedGames} />
-                    </div>
+                        <div className="MyRentedGB">
+                            <h4 className="TitleGamesToRent">RENTED GAMES</h4 >
+                            <RentedProfileCard rentedGames={rentedGames} />
+                        </div>
 
 
-                    <div className="MyMatches">
-                        <h4 className="TitleGamesToRent">MY MATCHES</h4>
-                        <MyMatchesCard myMatches={myMatches} />
-                    </div>
+                        <div className="MyMatches">
+                            <h4 className="TitleGamesToRent">MY MATCHES</h4>
+                            <MyMatchesCard myMatches={myMatches} />
+                        </div>
 
 
-                </Container>
+                    </Container>
+                </div>
 
                 <Modal className="ModalCreate" show={showCreateBGModal} onHide={handleCreateBGModalClose} size="lg">
                     <Modal.Header closeButton>
